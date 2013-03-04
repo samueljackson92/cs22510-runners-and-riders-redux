@@ -11,3 +11,5 @@
 *.lai
 *.la
 *.a
+/Checkpoint Mangaer/nbproject/private/
+/Checkpoint Mangaer/build/
