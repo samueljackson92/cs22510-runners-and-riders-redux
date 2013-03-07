@@ -1,22 +1,25 @@
 
 package checkpoint.manager;
 
-import checkpoint.manager.exceptions.ArguementParseException;
 import checkpoint.manager.datamodel.CPTimeData;
 import checkpoint.manager.datamodel.Checkpoint;
 import checkpoint.manager.datamodel.Course;
 import checkpoint.manager.datamodel.Entrant;
 import checkpoint.manager.datamodel.MCTimeData;
-import java.io.File;
-import java.io.FileInputStream;
+import checkpoint.manager.exceptions.ArguementParseException;
+import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 
 public class FileIO {
@@ -53,11 +56,11 @@ public class FileIO {
         return argsList;
     }
     
-    public HashMap<Integer, Entrant> readEntrants(String filename) throws FileNotFoundException, IOException {
-        FileInputStream fis = new FileInputStream(filename);
+    public LinkedHashMap<Integer, Entrant> readEntrants(String filename) throws FileNotFoundException, IOException {
+        RandomAccessFile fis = new RandomAccessFile(filename, "rw");
         FileLock fl = fis.getChannel().tryLock();
-        Scanner in = new Scanner(new File(filename));
-        HashMap<Integer, Entrant> entrants = new HashMap<Integer, Entrant>();
+        Scanner in = new Scanner(fis.getChannel());
+        LinkedHashMap<Integer, Entrant> entrants = new LinkedHashMap<Integer, Entrant>();
         
         if (fl != null) {
             while(in.hasNext()) {
@@ -77,9 +80,9 @@ public class FileIO {
     }
     
     public HashMap<Character, Course> readCourses(String filename) throws FileNotFoundException, IOException {
-        FileInputStream fis = new FileInputStream(filename);
+        RandomAccessFile fis = new RandomAccessFile(filename, "rw");
         FileLock fl = fis.getChannel().tryLock();
-        Scanner in = new Scanner(fis);
+        Scanner in = new Scanner(fis.getChannel());
         
         HashMap<Character, Course> courses = new HashMap<Character, Course>();
         ArrayList<Integer> nodes = new ArrayList<Integer>();
@@ -107,9 +110,9 @@ public class FileIO {
     }
     
     public void readCheckpointData(String filename, HashMap<Integer, Entrant> entrants) throws FileNotFoundException, ParseException, IOException {
-        FileInputStream fis = new FileInputStream(filename);
+        RandomAccessFile fis = new RandomAccessFile(filename, "rw");
         FileLock fl = fis.getChannel().tryLock();
-        Scanner in = new Scanner(fis);
+        Scanner in = new Scanner(fis.getChannel());
         
         if(fl != null) {
             while (in.hasNext()) {
@@ -151,9 +154,9 @@ public class FileIO {
     }
     
     public ArrayList<Checkpoint> readCheckpoints(String filename) throws FileNotFoundException, IOException {
-        FileInputStream fis = new FileInputStream(filename);
+        RandomAccessFile fis = new RandomAccessFile(filename, "rw");
         FileLock fl = fis.getChannel().tryLock();
-        Scanner in = new Scanner(fis);
+        Scanner in = new Scanner(fis.getChannel());
         
         ArrayList<Checkpoint> checkpoints = new ArrayList<Checkpoint>();
         
@@ -172,5 +175,22 @@ public class FileIO {
         fis.close();
         
         return checkpoints;
+    }
+    
+    public void writeTimeData(String filename, CPTimeData data) throws FileNotFoundException, IOException {
+        FileOutputStream fis = new FileOutputStream(filename);
+        FileLock fl = fis.getChannel().tryLock();
+        PrintWriter pw = new PrintWriter(new BufferedOutputStream(fis));
+
+        if (fl != null) {
+            String time = data.getArrival_time().toString();
+            
+            if(data.getUpdateType() == 'D') {
+                time = ((MCTimeData) data).getDepartTime().toString();
+            }
+            
+            String output = data.getType() + " " + data.getNode() + " " + data.getEntrantId() + " " + time;
+            pw.append(output);
+        }
     }
 }

@@ -28,7 +28,8 @@ public class CheckpointManagerListener implements ActionListener, ListSelectionL
 
     @Override
     public void valueChanged(ListSelectionEvent lse) {
-        
+        parent.updateOutput();
+        parent.toggleExcludedCheckbox();
     }
     
 }

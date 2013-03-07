@@ -5,6 +5,7 @@ import java.util.Date;
 public class CPTimeData {
     private int entrantId;
     private CPType type;
+    private char updateType;
     private int node;
     private Date arrival_time;
 
@@ -62,5 +63,19 @@ public class CPTimeData {
      */
     public void setArrival_time(Date arrival_time) {
         this.arrival_time = arrival_time;
+    }
+
+    /**
+     * @return the updateType
+     */
+    public char getUpdateType() {
+        return updateType;
+    }
+
+    /**
+     * @param updateType the updateType to set
+     */
+    public void setUpdateType(char updateType) {
+        this.updateType = updateType;
     }
 }   
