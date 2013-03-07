@@ -1,5 +1,6 @@
 package checkpoint.manager.datamodel;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CPTimeData {
@@ -7,7 +8,12 @@ public class CPTimeData {
     private CPType type;
     private char updateType;
     private int node;
-    private Date arrival_time;
+    private Date time;
+    private final SimpleDateFormat sdf;
+
+    public CPTimeData() {
+        sdf = new SimpleDateFormat("HH:mm");
+    }
 
     /**
      * @return the entrantId
@@ -54,15 +60,16 @@ public class CPTimeData {
     /**
      * @return the arrival_time
      */
-    public Date getArrival_time() {
-        return arrival_time;
+    public String getTime() {
+        return sdf.format(time);
     }
 
     /**
      * @param arrival_time the arrival_time to set
      */
-    public void setArrival_time(Date arrival_time) {
-        this.arrival_time = arrival_time;
+    public void setTime(Date time) {
+
+        this.time = time;
     }
 
     /**

@@ -9,6 +9,7 @@ public class Entrant {
     private int id;
     private ArrayList<CPTimeData> times;
     private boolean excluded = false;
+    private int position = -1;
 
     public Entrant() {
         times = new ArrayList<CPTimeData>();
@@ -85,5 +86,16 @@ public class Entrant {
      */
     public void setExcluded(boolean excluded) {
         this.excluded = excluded;
+    }
+
+    /**
+     * @return the position
+     */
+    public int getPosition() {
+        return position;
+    }
+    
+    public void incrementPosition() {
+        position++;
     }
 }

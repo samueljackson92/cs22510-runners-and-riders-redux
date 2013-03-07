@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -38,7 +39,7 @@ public class CheckpointManagerGUI extends JFrame {
     private final JButton btnCheckIn;
     private final JSpinner JarrivalTime;
     private final CheckpointManagerListener chkptListener;
-    private final CheckpointManager cpManager;
+    private CheckpointManager cpManager;
     
     private final JLabel currentEntrant;
     private final JLabel currentCheckpoint;
@@ -49,8 +50,14 @@ public class CheckpointManagerGUI extends JFrame {
         currentEntrant = new JLabel("Current Entrant: ");
         currentCheckpoint = new JLabel("Current Checkpoint: ");
  
+        try {
+            cpManager = new CheckpointManager(args);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(this, ex, "Could not Parse Text times file!", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        }
+        
         chkptListener = new CheckpointManagerListener(this);
-        cpManager = new CheckpointManager(args);
         cpListModel = new DefaultListModel();
         entrantListModel = new DefaultListModel();
         btnCheckIn = new JButton("Check In");
@@ -125,6 +132,10 @@ public class CheckpointManagerGUI extends JFrame {
         JarrivalTime.setValue(new Date());
         JarrivalTime.setEnabled(false);
         
+        
+        btnCheckIn.setActionCommand("CheckIn");
+        btnCheckIn.addActionListener(chkptListener);
+        
         centrePanel.setLayout(new BorderLayout());   
         
         temp = new JPanel();
@@ -154,6 +165,21 @@ public class CheckpointManagerGUI extends JFrame {
         getContentPane().add(leftPanel);
         getContentPane().add(centrePanel);
         getContentPane().add(rightPanel);
+    }
+    
+    
+    public void doCheckIn() {
+        int index = JLEntrantList.getSelectedIndex();
+        int entrantId = (Integer.parseInt(entrantListModel.get(index).toString().split("[a-z ]")[0]));
+        int checkpointId = JLCheckpointList.getSelectedIndex();
+        boolean mcExcluded = chkExcluded.isSelected();
+        try {
+            cpManager.checkInEntrant(entrantId, checkpointId, mcExcluded);
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, ex, "Error:", JOptionPane.ERROR_MESSAGE);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex, "Error:", JOptionPane.ERROR_MESSAGE);
+        }
     }
     
     public void updateOutput() {

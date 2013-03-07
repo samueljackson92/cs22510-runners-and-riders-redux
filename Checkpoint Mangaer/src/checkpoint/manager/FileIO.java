@@ -5,7 +5,6 @@ import checkpoint.manager.datamodel.CPTimeData;
 import checkpoint.manager.datamodel.Checkpoint;
 import checkpoint.manager.datamodel.Course;
 import checkpoint.manager.datamodel.Entrant;
-import checkpoint.manager.datamodel.MCTimeData;
 import checkpoint.manager.exceptions.ArguementParseException;
 import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
@@ -109,7 +108,7 @@ public class FileIO {
         return courses;
     }
     
-    public void readCheckpointData(String filename, HashMap<Integer, Entrant> entrants) throws FileNotFoundException, ParseException, IOException {
+    public void readCheckpointData(String filename, LinkedHashMap<Integer, Entrant> entrants) throws FileNotFoundException, ParseException, IOException {
         RandomAccessFile fis = new RandomAccessFile(filename, "rw");
         FileLock fl = fis.getChannel().tryLock();
         Scanner in = new Scanner(fis.getChannel());
@@ -128,23 +127,20 @@ public class FileIO {
 
                 switch(type) {
                     case 'E':
-                        cp = new MCTimeData();
                         e.setExcluded(true);
                         break;
                     case 'I':
                         e.setExcluded(true);
                         break;
-                    case 'D':
-                        cp = new MCTimeData(); 
-                        break;
                 }
 
-                cp.setNode(type);
+                cp.setUpdateType(type);
                 cp.setNode(node);
                 cp.setEntrantId(entrantNo);
-                cp.setArrival_time(date);
+                cp.setTime(date);
 
                 e.addTime(cp);
+                e.incrementPosition();
             }
             fl.release();
         }
@@ -183,12 +179,7 @@ public class FileIO {
         PrintWriter pw = new PrintWriter(new BufferedOutputStream(fis));
 
         if (fl != null) {
-            String time = data.getArrival_time().toString();
-            
-            if(data.getUpdateType() == 'D') {
-                time = ((MCTimeData) data).getDepartTime().toString();
-            }
-            
+            String time = data.getTime();
             String output = data.getType() + " " + data.getNode() + " " + data.getEntrantId() + " " + time;
             pw.append(output);
         }

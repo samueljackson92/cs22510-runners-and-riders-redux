@@ -48,4 +48,8 @@ public class Course {
     public void setNodes(ArrayList<Integer> nodes) {
         this.nodes = nodes;
     }
+    
+    public int getNode(int index) {
+        return getNodes().get(index);
+    }
 }
