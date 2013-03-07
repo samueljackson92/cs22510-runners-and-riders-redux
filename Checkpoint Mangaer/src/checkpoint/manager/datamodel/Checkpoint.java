@@ -1,12 +1,12 @@
-package checkpoint.manager;
+package checkpoint.manager.datamodel;
 
-class Checkpoint {
+public class Checkpoint {
     private int id;
-    private cpType type;
+    private CPType type;
 
     public Checkpoint(int id, String type) {
         this.id = id;
-        this.type = cpType.valueOf(type);
+        this.type = CPType.valueOf(type);
     }
     /**
      * @return the id
@@ -18,7 +18,7 @@ class Checkpoint {
     /**
      * @return the type
      */
-    public cpType getType() {
+    public CPType getType() {
         return type;
     }
 }

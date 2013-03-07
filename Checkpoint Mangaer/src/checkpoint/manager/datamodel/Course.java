@@ -1,8 +1,8 @@
-package checkpoint.manager;
+package checkpoint.manager.datamodel;
 
 import java.util.ArrayList;
 
-class Course {
+public class Course {
     private char id;
     private int length;
     private ArrayList<Integer> nodes;

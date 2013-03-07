@@ -1,10 +1,10 @@
-package checkpoint.manager;
+package checkpoint.manager.datamodel;
 
 import java.util.Date;
 
-class CPTimeData {
+public class CPTimeData {
     private int entrantId;
-    private cpType type;
+    private CPType type;
     private int node;
     private Date arrival_time;
 
@@ -25,14 +25,14 @@ class CPTimeData {
     /**
      * @return the type
      */
-    public cpType getType() {
+    public CPType getType() {
         return type;
     }
 
     /**
      * @param type the type to set
      */
-    public void setType(cpType type) {
+    public void setType(CPType type) {
         this.type = type;
     }
 

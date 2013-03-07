@@ -1,9 +1,9 @@
 
-package checkpoint.manager;
+package checkpoint.manager.datamodel;
 
 import java.util.ArrayList;
 
-class Entrant {
+public class Entrant {
     private String name;
     private char course;
     private int id;

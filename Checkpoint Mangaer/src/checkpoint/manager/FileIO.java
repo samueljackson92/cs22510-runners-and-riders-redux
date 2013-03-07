@@ -1,6 +1,12 @@
 
 package checkpoint.manager;
 
+import checkpoint.manager.exceptions.ArguementParseException;
+import checkpoint.manager.datamodel.CPTimeData;
+import checkpoint.manager.datamodel.Checkpoint;
+import checkpoint.manager.datamodel.Course;
+import checkpoint.manager.datamodel.Entrant;
+import checkpoint.manager.datamodel.MCTimeData;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,6 +20,38 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class FileIO {
+    
+    public static HashMap<String, String> parseArgs(String[] args) throws ArguementParseException {
+        HashMap<String, String> argsList = new HashMap<String, String>();
+       
+        if (args.length == 8) {
+            for (int i = 0; i < args.length; i+=2) {
+                String key = "";
+                switch(args[i].charAt(1)) {
+                    case 'E':
+                        key = "entrants";
+                        break;
+                    case 'T':
+                        key = "times";
+                        break;
+                    case 'C':
+                        key = "courses";
+                        break;
+                    case 'K':
+                        key = "checkpoints";
+                        break;
+                    default:
+                        throw new ArguementParseException();
+                }
+
+                argsList.put(key, args[i+1]);
+            }
+        } else {
+            throw new ArguementParseException();
+        }
+        
+        return argsList;
+    }
     
     public HashMap<Integer, Entrant> readEntrants(String filename) throws FileNotFoundException, IOException {
         FileInputStream fis = new FileInputStream(filename);

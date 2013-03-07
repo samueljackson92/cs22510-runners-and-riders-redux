@@ -1,4 +1,4 @@
-package checkpoint.manager;
+package checkpoint.manager.datamodel;
 
 import java.util.Date;
 
