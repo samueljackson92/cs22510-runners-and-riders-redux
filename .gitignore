@@ -13,3 +13,5 @@
 *.a
 /Checkpoint Mangaer/nbproject/private/
 /Checkpoint Mangaer/build/
+/Event Creation/build/
+/Event Creation/dist/
