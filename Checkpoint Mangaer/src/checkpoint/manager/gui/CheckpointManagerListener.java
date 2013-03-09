@@ -26,7 +26,6 @@ public class CheckpointManagerListener implements ActionListener, ListSelectionL
     public void actionPerformed(ActionEvent ae) {
         if(ae.getActionCommand().equals("CheckIn")) {
             parent.doCheckIn();
-            JOptionPane.showMessageDialog(parent, "Checked in!");
         }
     }
 

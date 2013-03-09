@@ -6,7 +6,7 @@ import checkpoint.manager.datamodel.Checkpoint;
 import checkpoint.manager.datamodel.Course;
 import checkpoint.manager.datamodel.Entrant;
 import checkpoint.manager.exceptions.ArguementParseException;
-import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map.Entry;
+import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class FileIO {
@@ -108,10 +110,18 @@ public class FileIO {
         return courses;
     }
     
-    public void readCheckpointData(String filename, LinkedHashMap<Integer, Entrant> entrants) throws FileNotFoundException, ParseException, IOException {
+    public PriorityQueue<CPTimeData> readCheckpointData(String filename, LinkedHashMap<Integer, Entrant> entrants) throws FileNotFoundException, ParseException, IOException {
         RandomAccessFile fis = new RandomAccessFile(filename, "rw");
         FileLock fl = fis.getChannel().tryLock();
         Scanner in = new Scanner(fis.getChannel());
+        
+        PriorityQueue<CPTimeData> times = new PriorityQueue<CPTimeData>();
+        
+        //clear out the entrants times
+        for (Entry entry : entrants.entrySet()) {
+            Entrant e = (Entrant) entry.getValue();
+            e.setTimes(new ArrayList<CPTimeData>());
+        }
         
         if(fl != null) {
             while (in.hasNext()) {
@@ -121,9 +131,7 @@ public class FileIO {
                 int entrantNo = in.nextInt();
                 SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
                 Date date = sdf.parse(in.next());
-
                 Entrant e = entrants.get(entrantNo);
-                e.setTimes(new ArrayList<CPTimeData>());
 
                 switch(type) {
                     case 'E':
@@ -140,13 +148,15 @@ public class FileIO {
                 cp.setTime(date);
 
                 e.addTime(cp);
-                e.incrementPosition();
+                times.add(cp);
             }
             fl.release();
         }
         
         in.close();
         fis.close();
+        
+        return times;
     }
     
     public ArrayList<Checkpoint> readCheckpoints(String filename) throws FileNotFoundException, IOException {
@@ -173,15 +183,27 @@ public class FileIO {
         return checkpoints;
     }
     
-    public void writeTimeData(String filename, CPTimeData data) throws FileNotFoundException, IOException {
-        FileOutputStream fis = new FileOutputStream(filename);
-        FileLock fl = fis.getChannel().tryLock();
-        PrintWriter pw = new PrintWriter(new BufferedOutputStream(fis));
+    private void writeTimeData(PrintWriter pw, CPTimeData data) throws FileNotFoundException, IOException {
+        String time = data.getStringTime();
+        String output = data.getUpdateType() + " " + data.getNode() + " " + data.getEntrantId() + " " + time;
+        pw.write(output + "\n");
+        pw.flush();
+    }
 
-        if (fl != null) {
-            String time = data.getTime();
-            String output = data.getType() + " " + data.getNode() + " " + data.getEntrantId() + " " + time;
-            pw.append(output);
+    public void writeTimes(String filename, PriorityQueue<CPTimeData> times) throws FileNotFoundException, IOException {
+        FileOutputStream fis = new FileOutputStream(new File(filename));
+        FileLock fl = fis.getChannel().tryLock();
+        PrintWriter pw = new PrintWriter(fis);
+        
+        if(fl != null) {
+            for (CPTimeData t : times) {
+                writeTimeData(pw, t);
+            }
+            fl.release();
         }
+        
+        fis.close();
+        pw.close();
+        
     }
 }

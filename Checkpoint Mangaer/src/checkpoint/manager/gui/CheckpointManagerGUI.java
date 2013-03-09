@@ -28,16 +28,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
 
-
 public class CheckpointManagerGUI extends JFrame {
     
     private final DefaultListModel cpListModel;
     private JList JLCheckpointList;
     private JList JLEntrantList;
-    private final DefaultListModel entrantListModel;
+    private DefaultListModel entrantListModel;
     private final JCheckBox chkExcluded;
     private final JButton btnCheckIn;
     private final JSpinner JarrivalTime;
+    private final JSpinner JdepartureTime;
     private final CheckpointManagerListener chkptListener;
     private CheckpointManager cpManager;
     
@@ -62,7 +62,8 @@ public class CheckpointManagerGUI extends JFrame {
         entrantListModel = new DefaultListModel();
         btnCheckIn = new JButton("Check In");
         chkExcluded = new JCheckBox("Exclude entrant for medical reasons");
-        JarrivalTime = new JSpinner( new SpinnerDateModel() );
+        JarrivalTime = new JSpinner(new SpinnerDateModel());
+        JdepartureTime = new JSpinner(new SpinnerDateModel());
         
         initGUI();
         
@@ -106,11 +107,7 @@ public class CheckpointManagerGUI extends JFrame {
         JLEntrantList.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
         JLEntrantList.setLayoutOrientation(JList.VERTICAL);
                 
-        Iterator it = cpManager.getEntrants().entrySet().iterator();
-        while (it.hasNext()) {
-            Entrant e =  (Entrant) ((Entry) it.next()).getValue();
-            entrantListModel.addElement(e.getId() + " " + e.getName());
-        }
+        refreshEntrants();
         
         JLEntrantList.addListSelectionListener(chkptListener);
         
@@ -127,11 +124,14 @@ public class CheckpointManagerGUI extends JFrame {
         rightPanel.add(temp, BorderLayout.SOUTH);
            
         //create centre panel
-        JSpinner.DateEditor timeEditor = new JSpinner.DateEditor(JarrivalTime, "HH:mm:ss");
-        JarrivalTime.setEditor(timeEditor);
+        JSpinner.DateEditor arrivalTimeEditor = new JSpinner.DateEditor(JarrivalTime, "HH:mm:ss");
+        JarrivalTime.setEditor(arrivalTimeEditor);
         JarrivalTime.setValue(new Date());
-        JarrivalTime.setEnabled(false);
         
+        JSpinner.DateEditor departureTimeEditor = new JSpinner.DateEditor(JdepartureTime, "HH:mm:ss");
+        JdepartureTime.setEditor(departureTimeEditor);
+        JdepartureTime.setValue(new Date());
+        JdepartureTime.setEnabled(false);
         
         btnCheckIn.setActionCommand("CheckIn");
         btnCheckIn.addActionListener(chkptListener);
@@ -152,6 +152,11 @@ public class CheckpointManagerGUI extends JFrame {
         tempTop.add(JarrivalTime);
         temp.add(tempTop);
         
+        JPanel temp2 = new JPanel();
+        temp2.add(new JLabel("Dpearture Time: "));
+        temp2.add(JdepartureTime);
+        temp.add(temp2);
+        
         JPanel tempMiddle = new JPanel();
         tempMiddle.add(chkExcluded);
         temp.add(tempMiddle);
@@ -171,14 +176,49 @@ public class CheckpointManagerGUI extends JFrame {
     public void doCheckIn() {
         int index = JLEntrantList.getSelectedIndex();
         int entrantId = (Integer.parseInt(entrantListModel.get(index).toString().split("[a-z ]")[0]));
-        int checkpointId = JLCheckpointList.getSelectedIndex();
+        Checkpoint cp = cpManager.getCheckpoint(JLCheckpointList.getSelectedIndex());
+        int checkpointId = cp.getId();
+        Date arrivalTime = null;
+        Date departureTime = null;
         boolean mcExcluded = chkExcluded.isSelected();
-        try {
-            cpManager.checkInEntrant(entrantId, checkpointId, mcExcluded);
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, ex, "Error:", JOptionPane.ERROR_MESSAGE);
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex, "Error:", JOptionPane.ERROR_MESSAGE);
+        boolean successful = false;
+        boolean validInput = true;
+        
+        if(JdepartureTime.isEnabled()) {
+            arrivalTime = (Date) JdepartureTime.getValue();
+        }
+        
+        if(cp.getType()==CPType.MC) {
+            if(arrivalTime.compareTo(departureTime) < 0) {
+                JOptionPane.showMessageDialog(this, "Invalid time data!");
+                validInput = false;
+            }
+        }
+        
+        if(cpManager.willExcludedEntrant(entrantId, checkpointId) || mcExcluded) {
+            int confirm = JOptionPane.showConfirmDialog(this,
+                    "This will exclude the entrant. Are you sure?", 
+                    "Confirm Choice", JOptionPane.YES_NO_OPTION);
+            validInput = (confirm == JOptionPane.YES_OPTION) ? true : false;
+        }
+        
+        if(validInput) {
+            try {
+                successful = cpManager.checkInEntrant(entrantId, checkpointId, departureTime, arrivalTime, mcExcluded);
+                refreshEntrants();
+            } catch (FileNotFoundException ex) {
+                JOptionPane.showMessageDialog(this, ex, "Error:", JOptionPane.ERROR_MESSAGE);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, ex, "Error:", JOptionPane.ERROR_MESSAGE);
+            } catch (ParseException ex) {
+                JOptionPane.showMessageDialog(this, ex, "Error:", JOptionPane.ERROR_MESSAGE);
+            }
+
+            if(successful) {
+                JOptionPane.showMessageDialog(this, "Checked in!"); 
+            } else {
+                JOptionPane.showMessageDialog(this, "Could not check in entrant!");
+            }
         }
     }
     
@@ -200,10 +240,10 @@ public class CheckpointManagerGUI extends JFrame {
     public void toggleExcludedCheckbox() {
         int index = JLCheckpointList.getSelectedIndex();
         if(cpManager.getCheckpoint(index).getType() == CPType.MC) {
-            JarrivalTime.setEnabled(true);
+            JdepartureTime.setEnabled(true);
             chkExcluded.setEnabled(true);
         } else {
-            JarrivalTime.setEnabled(false);
+            JdepartureTime.setEnabled(false);
             chkExcluded.setEnabled(false); 
         }
     }
@@ -232,5 +272,19 @@ public class CheckpointManagerGUI extends JFrame {
             System.out.println("    -C <courses file>");
             System.out.println("    -K <checkpoints file>");
             System.out.println("    -T <times file>");
+    }
+
+    private void refreshEntrants() {
+        entrantListModel = new DefaultListModel();
+        Iterator it = cpManager.getEntrants().entrySet().iterator();
+        while (it.hasNext()) {
+            Entrant e =  (Entrant) ((Entry) it.next()).getValue();
+            if(!e.isExcluded()) {
+                entrantListModel.addElement(e.getId() + " " + e.getName());
+            }
+        }
+        
+        JLEntrantList.setModel(entrantListModel);
+        JLEntrantList.setSelectedIndex(0);
     }
 }

@@ -3,7 +3,7 @@ package checkpoint.manager.datamodel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class CPTimeData {
+public class CPTimeData implements Comparable {
     private int entrantId;
     private CPType type;
     private char updateType;
@@ -60,8 +60,12 @@ public class CPTimeData {
     /**
      * @return the arrival_time
      */
-    public String getTime() {
+    public String getStringTime() {
         return sdf.format(time);
+    }
+    
+    private Date getTime() {
+        return time;
     }
 
     /**
@@ -84,5 +88,11 @@ public class CPTimeData {
      */
     public void setUpdateType(char updateType) {
         this.updateType = updateType;
+    }
+
+    @Override
+    public int compareTo(Object t) {
+        Date compareDate = ((CPTimeData) t).getTime();
+        return time.compareTo(compareDate);
     }
 }   

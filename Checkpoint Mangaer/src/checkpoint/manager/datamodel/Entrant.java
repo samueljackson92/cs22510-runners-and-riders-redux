@@ -9,7 +9,6 @@ public class Entrant {
     private int id;
     private ArrayList<CPTimeData> times;
     private boolean excluded = false;
-    private int position = -1;
 
     public Entrant() {
         times = new ArrayList<CPTimeData>();
@@ -92,10 +91,14 @@ public class Entrant {
      * @return the position
      */
     public int getPosition() {
-        return position;
+        return times.size()-1;
     }
     
-    public void incrementPosition() {
-        position++;
+    public boolean hasStarted() {
+        return (times.size() > 0);
+    }
+    
+    public CPTimeData getLatestTime() {
+        return times.get(times.size()-1);
     }
 }
