@@ -52,10 +52,13 @@ public class CheckpointManagerGUI extends JFrame {
  
         try {
             cpManager = new CheckpointManager(args);
+            while(!cpManager.updateTimes());
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(this, ex, "Could not Parse Text times file!", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
         }
+        
+
         
         chkptListener = new CheckpointManagerListener(this);
         cpListModel = new DefaultListModel();
@@ -204,8 +207,11 @@ public class CheckpointManagerGUI extends JFrame {
         
         if(validInput) {
             try {
-                successful = cpManager.checkInEntrant(entrantId, checkpointId, departureTime, arrivalTime, mcExcluded);
-                refreshEntrants();
+                successful = cpManager.updateTimes();
+                if(successful) {
+                    successful = cpManager.checkInEntrant(entrantId, checkpointId, departureTime, arrivalTime, mcExcluded);
+                    refreshEntrants();
+                }
             } catch (FileNotFoundException ex) {
                 JOptionPane.showMessageDialog(this, ex, "Error:", JOptionPane.ERROR_MESSAGE);
             } catch (IOException ex) {
@@ -217,7 +223,7 @@ public class CheckpointManagerGUI extends JFrame {
             if(successful) {
                 JOptionPane.showMessageDialog(this, "Checked in!"); 
             } else {
-                JOptionPane.showMessageDialog(this, "Could not check in entrant!");
+                JOptionPane.showMessageDialog(this, "Could not check in entrant! Perhaps file was locked?");
             }
         }
     }

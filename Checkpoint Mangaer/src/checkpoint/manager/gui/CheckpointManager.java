@@ -17,9 +17,7 @@ import java.util.PriorityQueue;
 
 public class CheckpointManager {
     
-    private final FileIO fio;
-    private final HashMap<String, String> filenames;
-        
+    private final FileIO fio;        
     private LinkedHashMap<Integer, Entrant> entrants;
     private ArrayList<Checkpoint> checkpoints;
     private HashMap<Character, Course> courses;
@@ -27,13 +25,11 @@ public class CheckpointManager {
     
     public CheckpointManager(HashMap<String, String> args) 
             throws FileNotFoundException, IOException, ParseException {
-        filenames = args;
-        fio = new FileIO();
-        entrants = fio.readEntrants(args.get("entrants"));
-        checkpoints = fio.readCheckpoints(args.get("checkpoints"));
-        courses = fio.readCourses(args.get("courses"));
         
-        updateTimes();
+        fio = new FileIO(args);
+        entrants = fio.readEntrants();
+        checkpoints = fio.readCheckpoints();
+        courses = fio.readCourses();
     }
     
     public boolean willExcludedEntrant(int entrantId, int chkptId) {
@@ -51,9 +47,12 @@ public class CheckpointManager {
         return false;
     }
     
-    public void updateTimes() 
+    public boolean updateTimes() 
             throws FileNotFoundException, ParseException, IOException {
-        times = fio.readCheckpointData(filenames.get("times"), entrants);
+        times = fio.readCheckpointData(entrants);
+        
+        //Failed to acquire lock or not
+        return (times != null);
     }
     
     public boolean checkInEntrant(int entrantId, int chkptId, 
@@ -67,9 +66,6 @@ public class CheckpointManager {
         CPTimeData lastTime;
         CPTimeData time;
         char updateType = 'T';
-        
-        //reload checkpoint data in case of change
-        updateTimes();
          
         if(!e.isExcluded()) {
             time = new CPTimeData();
@@ -102,9 +98,8 @@ public class CheckpointManager {
 
             e.addTime(time);
             times.add(time);
-            fio.writeTimes(filenames.get("times"), times);
-            
-            checkedIn = true;
+            checkedIn = fio.writeTimes(times);
+            fio.writeLog("Checked in entrant " + time.getEntrantId() + " @ " + time.getNode());
         }
         
         return checkedIn;

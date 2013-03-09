@@ -24,7 +24,12 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class FileIO {
-    
+    private SimpleDateFormat sdf;
+    private HashMap<String, String> filenames;
+    public FileIO (HashMap<String, String> args) {
+        filenames = args;
+        sdf = new SimpleDateFormat("hh:mm");
+    }
     public static HashMap<String, String> parseArgs(String[] args) throws ArguementParseException {
         HashMap<String, String> argsList = new HashMap<String, String>();
        
@@ -57,65 +62,52 @@ public class FileIO {
         return argsList;
     }
     
-    public LinkedHashMap<Integer, Entrant> readEntrants(String filename) throws FileNotFoundException, IOException {
-        RandomAccessFile fis = new RandomAccessFile(filename, "rw");
-        FileLock fl = fis.getChannel().tryLock();
-        Scanner in = new Scanner(fis.getChannel());
+    public LinkedHashMap<Integer, Entrant> readEntrants() throws FileNotFoundException, IOException {
+        Scanner in = new Scanner(new File(filenames.get("entrants")));
         LinkedHashMap<Integer, Entrant> entrants = new LinkedHashMap<Integer, Entrant>();
         
-        if (fl != null) {
-            while(in.hasNext()) {
-                Entrant e = new Entrant();
-                e.setId(in.nextInt());
-                e.setCourse(in.next().charAt(0));
-                e.setName(in.nextLine());
-                entrants.put(e.getId(),e);
-            }
-        
-            fl.release();
+        while(in.hasNext()) {
+            Entrant e = new Entrant();
+            e.setId(in.nextInt());
+            e.setCourse(in.next().charAt(0));
+            e.setName(in.nextLine());
+            entrants.put(e.getId(),e);
         }
+        
         in.close();
-        fis.close();
         
         return entrants;
     }
     
-    public HashMap<Character, Course> readCourses(String filename) throws FileNotFoundException, IOException {
-        RandomAccessFile fis = new RandomAccessFile(filename, "rw");
-        FileLock fl = fis.getChannel().tryLock();
-        Scanner in = new Scanner(fis.getChannel());
+    public HashMap<Character, Course> readCourses() throws FileNotFoundException, IOException {
+        Scanner in = new Scanner(new File(filenames.get("courses")));
         
         HashMap<Character, Course> courses = new HashMap<Character, Course>();
         ArrayList<Integer> nodes = new ArrayList<Integer>();
         
-        if (fl != null) {
-            while (in.hasNext()) {
-                Course c = new Course();
-                c.setId(in.next().charAt(0));
-                c.setLength(in.nextInt());
+        while (in.hasNext()) {
+            Course c = new Course();
+            c.setId(in.next().charAt(0));
+            c.setLength(in.nextInt());
 
-                while(in.hasNextInt()) {
-                    nodes.add(in.nextInt());
-                }
-                c.setNodes(nodes);
-                courses.put(c.getId(), c);
+            while(in.hasNextInt()) {
+                nodes.add(in.nextInt());
             }
-            
-            fl.release();
+            c.setNodes(nodes);
+            courses.put(c.getId(), c);
         }
         
         in.close();
-        fis.close();
         
         return courses;
     }
     
-    public PriorityQueue<CPTimeData> readCheckpointData(String filename, LinkedHashMap<Integer, Entrant> entrants) throws FileNotFoundException, ParseException, IOException {
-        RandomAccessFile fis = new RandomAccessFile(filename, "rw");
+    public PriorityQueue<CPTimeData> readCheckpointData(LinkedHashMap<Integer, Entrant> entrants) throws FileNotFoundException, ParseException, IOException {
+        RandomAccessFile fis = new RandomAccessFile(filenames.get("times"), "rw");
         FileLock fl = fis.getChannel().tryLock();
         Scanner in = new Scanner(fis.getChannel());
         
-        PriorityQueue<CPTimeData> times = new PriorityQueue<CPTimeData>();
+        PriorityQueue<CPTimeData> times = null;
         
         //clear out the entrants times
         for (Entry entry : entrants.entrySet()) {
@@ -124,12 +116,12 @@ public class FileIO {
         }
         
         if(fl != null) {
+            times  = new PriorityQueue<CPTimeData>();
             while (in.hasNext()) {
                 CPTimeData cp = new CPTimeData();
                 char type = in.next().charAt(0);
                 int node = in.nextInt();
                 int entrantNo = in.nextInt();
-                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
                 Date date = sdf.parse(in.next());
                 Entrant e = entrants.get(entrantNo);
 
@@ -159,27 +151,21 @@ public class FileIO {
         return times;
     }
     
-    public ArrayList<Checkpoint> readCheckpoints(String filename) throws FileNotFoundException, IOException {
-        RandomAccessFile fis = new RandomAccessFile(filename, "rw");
-        FileLock fl = fis.getChannel().tryLock();
-        Scanner in = new Scanner(fis.getChannel());
+    public ArrayList<Checkpoint> readCheckpoints() throws FileNotFoundException, IOException {
+        Scanner in = new Scanner(new File(filenames.get("checkpoints")));
         
         ArrayList<Checkpoint> checkpoints = new ArrayList<Checkpoint>();
-        
-        if (fl != null) {
-            while(in.hasNext()) {
-                int id = in.nextInt();
-                String type = in.next();
-                if(!type.equals("JN")) {
-                    checkpoints.add(new Checkpoint(id, type));
-                }
+       
+        while(in.hasNext()) {
+            int id = in.nextInt();
+            String type = in.next();
+            if(!type.equals("JN")) {
+                checkpoints.add(new Checkpoint(id, type));
             }
-            fl.release();
         }
         
         in.close();
-        fis.close();
-        
+  
         return checkpoints;
     }
     
@@ -190,20 +176,41 @@ public class FileIO {
         pw.flush();
     }
 
-    public void writeTimes(String filename, PriorityQueue<CPTimeData> times) throws FileNotFoundException, IOException {
-        FileOutputStream fis = new FileOutputStream(new File(filename));
+    public boolean writeTimes(PriorityQueue<CPTimeData> times) throws FileNotFoundException, IOException {
+        FileOutputStream fis = new FileOutputStream(new File(filenames.get("times")));
         FileLock fl = fis.getChannel().tryLock();
         PrintWriter pw = new PrintWriter(fis);
+        boolean writeSuccess = false;
         
         if(fl != null) {
             for (CPTimeData t : times) {
                 writeTimeData(pw, t);
             }
             fl.release();
+            writeSuccess = true;
         }
         
         fis.close();
         pw.close();
+
         
+        return writeSuccess;
+        
+    }
+    
+    public void writeLog(String updateText) throws FileNotFoundException, IOException {
+        String output;
+        Date time = new Date();
+        FileOutputStream fis = new FileOutputStream(new File(filenames.get("log")), true);
+        FileLock fl = fis.getChannel().tryLock();
+        PrintWriter pw = new PrintWriter(fis);
+        
+        if(fl != null) {
+            output = time.toString() + " CMP: " + updateText;
+            pw.append(output + "\n");
+            pw.flush();
+        }
+        fis.close();
+        pw.close();
     }
 }
