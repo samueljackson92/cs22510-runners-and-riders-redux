@@ -11,8 +11,55 @@
 #include <stdlib.h> 
 
 #include "FileIO.h"
+#include "Entrant.h"
+#include "Course.h"
 
 FileIO::FileIO() {
+}
+
+bool FileIO::WriteCoursesFile(std::string filename, 
+        std::vector<Course> courses) {
+    using namespace std;
+    ofstream out(filename.c_str());
+    bool success = false;
+    
+    if(out.is_open()) {
+        for(std::vector<Course>::iterator it = courses.begin(); 
+                it != courses.end(); ++it) {
+            out << it->GetId() << " ";
+            out << it->GetNodes().size() << " ";
+            
+            std::vector<int> nodes = it->GetNodes();
+            for(std::vector<int>::iterator jt = nodes.begin();
+                    jt != courses.end(); ++jt) {
+                out << *jt;
+            }
+            
+            out << endl;
+        }
+    }
+    
+    return success;
+}
+
+bool FileIO::WriteEntrantsFile(std::string filename, 
+        std::vector<Entrant> entrants) {
+    using namespace std;
+    ofstream out(filename.c_str());
+    bool success = false;
+    if(out.is_open()) {
+        for(std::vector<Entrant>::iterator it = entrants.begin(); 
+                it != entrants.end(); ++it) {
+            out << it->GetId() << " ";
+            out << it->GetCourse() << " ";
+            out << it->GetName() << << endl;
+        }
+        
+        out.close();
+        success = true;
+    }
+    
+    return success;
 }
 
 std::vector<int> FileIO::readNodesList(std::string filename) {
@@ -54,7 +101,7 @@ bool FileIO::WriteEventFile(std::string filename, std::string name, tm date, tm 
     ofstream out(filename.c_str());
     
  
-    if (out) {
+    if (out.is_open()) {
         strftime(monthname, 10, "%B", &date);
         strftime(year, 5, "%Y", &date);
         strftime(outputTime, 6, "%R", &time);
