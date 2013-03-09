@@ -33,7 +33,7 @@ public class FileIO {
     public static HashMap<String, String> parseArgs(String[] args) throws ArguementParseException {
         HashMap<String, String> argsList = new HashMap<String, String>();
        
-        if (args.length == 8) {
+        if (args.length == 10) {
             for (int i = 0; i < args.length; i+=2) {
                 String key = "";
                 switch(args[i].charAt(1)) {
@@ -48,6 +48,9 @@ public class FileIO {
                         break;
                     case 'K':
                         key = "checkpoints";
+                        break;
+                    case 'L':
+                        key = "log";
                         break;
                     default:
                         throw new ArguementParseException();
