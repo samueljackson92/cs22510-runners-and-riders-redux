@@ -2,7 +2,6 @@
 package checkpoint.manager;
 
 import checkpoint.manager.datamodel.CPTimeData;
-import checkpoint.manager.datamodel.CPType;
 import checkpoint.manager.datamodel.Checkpoint;
 import checkpoint.manager.datamodel.Course;
 import checkpoint.manager.datamodel.Entrant;
@@ -221,7 +220,7 @@ public class FileIO {
         PrintWriter pw = new PrintWriter(fis);
         
         if(fl != null) {
-            output = time.toString() + " CMP: " + updateText;
+            output = sdf.format(time) + " CMP: " + updateText;
             pw.append(output + "\n");
             pw.flush();
         }
