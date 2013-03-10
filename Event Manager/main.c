@@ -1,7 +1,10 @@
 /* 
  * File:   main.c
  * Author: Samuel Jackson
- *
+ * 
+ * File contains the main function along with functions for 
+ * most of the major requirements of the assignment.
+ * 
  * Created on 11 November 2012, 14:31
  */
 
@@ -9,151 +12,156 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "structures.h"
 #include "main.h"
+#include "structures.h"
 #include "fileio.h"
-
+#include "util.h"
 
 int main(int argc, char** argv) {
+    event evt;
     int option, result;
-    Event *e = malloc(sizeof(Event));
     
-    e->courselist.head = NULL;
-    e->courselist.tail = NULL;
-    e->entrantlist.head = NULL;
-    e->entrantlist.tail = NULL;
-    e->nodelist.head = NULL;
-    e->nodelist.tail = NULL;
-    e->tracklist.head = NULL;
-    e->tracklist.tail = NULL;
+    printf("|==============================================|\n");
+    printf("|--------------RUNNERS AND RIDERS--------------|\n");
+    printf("|----------------------------------------------|\n");
+    printf("|----------Event tracking application----------|\n");
+    printf("|==============================================|\n");
     
-    read_file_data(e);
+    printf("\nLoading data files...\n");
     
-    puts("Event data loaded!");
+    /*init all linked lists to NULL for safety*/
+    evt.courselist.head = NULL;
+    evt.courselist.tail = NULL;
+    evt.entrantlist.head = NULL;
+    evt.entrantlist.tail = NULL;
+    evt.nodelist.head = NULL;
+    evt.nodelist.tail = NULL;
+    evt.tracklist.head = NULL;
+    evt.tracklist.tail = NULL;
     
+    read_file_data(&evt); /*read data files*/
+    
+    /*begin main menu*/
     do {
         printf("Enter an Option:\n"
-                "0 - Exit\n"
-                "1 - Query Competitor\n"
-                "2 - Check how many competitors not yet started\n"
-                "3 - Check how many competitors are out on courses\n"
-                "4 - Check how many competitors have finished\n"
-                "5 - Manually update a competitor\n"
-                "6 - Read in a file of updates\n"
-                "7 - Print table of results\n");
+                "0  - Exit\n"
+                "1  - Event Details\n"
+                "2  - Query Competitor\n"
+                "3  - Check how many competitors not yet started\n"
+                "4  - Check how many competitors are out on courses\n"
+                "5  - Check how many competitors have finished\n"
+                "6  - Manually update a competitor\n"
+                "7  - Read in a file of updates\n"
+                "8  - Print table of results\n"
+                "9  - Print entrants excluded at medical checkpoints\n"
+                "10 - Print entrants excluded at regular checkpoints\n");
         
-        scanf("%d", &option);
-        clearScreen();
+        scanf(" %d", &option);
+        clear_screen();
+        
         switch(option) {
+            case 0: break;
             case 1:
-                queryCompetitor(e);
+                print_event_data(&evt);
                 break;
-            case 2:
-                result = check_num_competitors(&e->entrantlist, NOT_STARTED);
+            case 2: /*query a competitor based on there id*/
+                query_competitor(evt.entrantlist);
+                break;
+            case 3: /* Check the number of competitors not yet started*/
+                result = check_num_competitors(evt.entrantlist, NOT_STARTED);
                 printf("%d competitors have not yet started\n", result);
                 break;
-            case 3:
-                result = check_num_competitors(&e->entrantlist, ON_TRACK);
+            case 4: /* Check the number of competitors currently out on tracks */
+                result = check_num_competitors(evt.entrantlist, ON_TRACK);
                 printf("%d competitors are out on a course\n", result);
                 break;
-            case 4:
-                result = check_num_competitors(&e->entrantlist, COMPLETED);
+            case 5: /* Check the number of competitors who have completed the course*/
+                result = check_num_competitors(evt.entrantlist, COMPLETED);
                 printf("%d competitors have completed their course\n", result);
                 break;
-            case 5:
-                manually_read_data(e);
+            case 6: /* Manually enter a time checkpoint update */
+                manually_read_data(&evt);
                 break;
-            case 6:
-                read_updates(e);
+            case 7: /* Read a file of time checkpoint updates */
+                read_updates(&evt);
                 break;
-            case 7:
-                print_results(e);
+            case 8: /* Print out a table of results */
+                print_results(evt.entrantlist);
+                break;
+            case 9: /* Print a table of entrants who have been excluded at medical checkpoints*/
+                print_entrants_excluded(evt.entrantlist, EXCLUDED_MC);
+                break;
+            case 10: /* Print a table of entrants who have been excluded for getting lost */
+                print_entrants_excluded(evt.entrantlist, EXCLUDED_IR);
+                break;
+            default:
+                printf("That was not an option!");
                 break;
         }
     } while (option != 0);
     
-    free(e);
     return (EXIT_SUCCESS);
 }
 
-void clearScreen() {
-    if(system("clear")) {
-        system("cls");
-    }
+/*Print out the details about this event.*/
+void print_event_data(event *evt) {
+    printf("%s\n", evt->name);
+    printf("%s\n", evt->date);
+    printf("Start Time: %s\n", evt->start_time);
 }
 
-char * convert_type_status(enum type_status type, char * output) {
-    switch(type) {
-        case NOT_STARTED:
-            strcpy(output, "Not yet started.");
-            break;
-        case MC_CHECKPOINT:
-            strcpy(output, "At medical checkpoint.");
-            break;
-        case ON_TRACK:
-            strcpy(output, "Out on track.");
-            break;
-        case TIME_CHECKPOINT:
-            strcpy(output, "At time checkpoint.");
-            break;
-        case COMPLETED:
-            strcpy(output, "Completed course.");
-            break;
-        case EXCLUDED_MC:
-            strcpy(output, "Excluded at medical checkpoint.");
-            break;
-        case EXCLUDED_IR:
-            strcpy(output, "Excluded at incorrect checkpoint.");
-            break;
-    }
-    return output;
-}
-
-void queryCompetitor(Event *e) {
-    char output[35];
-    int id;
-    List_Node *competitor;
-    List_Node *node = e->tracklist.head;
-    Track *t;
-    Entrant *entrant;
+/* Query a competitor by supplying a competitor ID */
+void query_competitor(linked_list entrantlist) {
+    int entrant_id;
+    track *track_data;
+    entrant *entrant;
+    char status_buff[OUTPUT_BUFF];
     
+    /* get competitor id from user */
     printf("Enter id for the competitor:\n");
-    scanf("%d", &id);
+    scanf(" %d", &entrant_id);
     
-    id--; /*linked lists are zero based*/
+    clear_screen();
     
-    competitor = get_element(e->entrantlist.head, id);
-    entrant = (Entrant*) competitor->data;
+    entrant = find_entrant(entrantlist, entrant_id);
+    convert_type_status_verbose(entrant->state.type, status_buff);
     
-    printf("COMPETITOR %d:\n", id+1);
+    /*output the current status of a competitor */
+    
+    printf("COMPETITOR %d:\n", entrant_id);
     printf("Name: %s\n", entrant->name);
-    printf("Status: %s\n", convert_type_status(entrant->state.type, output));
+    printf("Status: %s\n", status_buff);
     
-    if (entrant->state.type == ON_TRACK) {
-        while (node->next != NULL){
-            t = (Track*) node->data;
-            if(t->number == entrant->state.location_ref) {
-                break;
+    switch(entrant->state.type) {
+        case ON_TRACK: /*Output for if they are presumed on a track */
+            track_data = (track*) entrant->current_track->data;
+            printf("Last recorded time: %s\n", entrant->state.current_cp_data.time);
+            if(entrant->state.late) {
+                printf("This entrant is currently running late to the next checkpoint\n");
             }
-            node = node->next;
-        }
-        printf("Location Reference: %d\n", entrant->state.location_ref);
-        printf("Currently on track between node %d and node %d\n", t->nodea, t->nodeb);
-    } else {
-        printf("Currently at node: %d\n", entrant->state.location_ref);
+            printf("Last checkpoint visited: %d\n", entrant->state.current_cp_data.node);
+            printf("Track Reference No.: %d\n", entrant->state.location_ref);
+            printf("Presumed on track between node %d and node %d\n", track_data->nodea, track_data->nodeb);
+            break;
+        default: /*output if they are at a checkpoint or have been excluded */
+            printf("Currently at node: %d\n", entrant->state.location_ref);
+            break;
     }
 }
 
-int check_num_competitors(Linked_List *el, enum type_status type) {
+/* Check the number of competitors with a given entrant status e.g. ON_TRACK */
+int check_num_competitors(linked_list entrantlist, enum entrant_status type) {
     int count = 0;
-    List_Node *current = el->head;
-    Entrant *entrant;
+    list_node *current = entrantlist.head;
+    entrant *entrant_data;
     
-    while (current->next != NULL) {
-        entrant = (Entrant*) current->data;
-        if (entrant->state.type == type) {
+    /* loop through each entrant and check their state.
+     * Display if equal.
+     */
+    while (current != NULL) {
+        entrant_data = (entrant*) current->data;
+        if (entrant_data->state.type == type) {
             count++;
-            printf("%s\n", entrant->name);
         }
         current = current->next;
     }
@@ -161,180 +169,281 @@ int check_num_competitors(Linked_List *el, enum type_status type) {
     return count;
 }
 
-void add_new_time(Event *e, char time[TIME_STRING_SIZE], char type, 
-                                int entrant_num, int checkpoint_num){
+/* Let the user manually input a checkpoint update*/
+void manually_read_data(event *evt) {
+    CP_Data checkpoint_data;
     
-    List_Node *competitor = get_element(e->entrantlist.head, entrant_num);
-    Entrant *entrant = (Entrant*) competitor->data;
-    CP_Data cp;
-       
-    List_Node *current = e->courselist.head;
-    Course *c;
+    printf("Enter the type of check point (T|I|A|D|E):\n");
+    scanf(" %[TIADE]c", &checkpoint_data.type);
     
-    while(current->next != NULL) {
-        c = (Course *) current->data;
-        if (c->name == entrant->course) {
-            break;
+    printf("Enter the competitor number:\n");
+    scanf(" %d", &checkpoint_data.competitor_num);
+    
+    printf("Enter the check point number:\n");
+    scanf(" %d", &checkpoint_data.node);
+    
+    printf("Enter the time recorded:\n");
+    scanf(" %[0-9:]s", checkpoint_data.time);
+
+    add_new_time(evt, checkpoint_data);
+    update_others(evt, checkpoint_data);
+}
+
+/* Read in a file of updates and add them into the system. */
+void read_updates(event *e) {
+    char filename[MAX_FILEPATH_LENGTH];
+    CP_Data checkpoint_data;
+    int status = 4, count = 0;
+    
+    printf("Enter name of the checkpoint files:\n");
+    scanf(" %100s", filename);
+    
+    FILE *file = fopen(filename, "r");
+    
+    if(file != NULL) {
+        /* Read in an update and add it to the system. */
+        while (!feof(file) && status == 4){
+            status = fscanf(file, "%c %d %d %5[0-9:]\n", &checkpoint_data.type, &checkpoint_data.node, 
+                    &checkpoint_data.competitor_num, checkpoint_data.time);
+            if(status == 4) {
+                add_new_time(e, checkpoint_data);
+            } else {
+                printf("Parse error on line %d. Stopping read.\n", count);
+            }
+            count++;
+        }
+        fclose(file);
+    
+        /* Update the rest of the competitors' positions relative to the most recent time. */
+        update_others(e, checkpoint_data);
+    } else {
+        printf("Error reading file!");
+        exit(0);
+    }
+
+}
+
+/* Function defines how to print an entrant in a format that fits the results table. */
+void print_entrant(void *data) {
+    entrant *entrant_data = (entrant*) data;
+    int total_time_mins = 0;
+    int hours = 0, mins = 0;
+    int delay_hours, delay_mins;
+    
+    char status_buff[OUTPUT_BUFF];
+    char start_time[TIME_STRING_SIZE];
+    char end_time[TIME_STRING_SIZE];
+    char delay_time[TIME_STRING_SIZE];
+        
+    convert_mins_to_time(entrant_data->start_time, start_time);
+    convert_type_status(entrant_data->state.type, status_buff);
+    
+   /* Check whether the entrant has completed the course yet. If so then calculate their finish time. */
+    if(entrant_data->state.type == COMPLETED) {
+        
+        total_time_mins = entrant_data->end_time - entrant_data->start_time;
+        total_time_mins -= entrant_data->mc_time_delay;
+
+        hours = total_time_mins /60;
+        mins = total_time_mins %60;
+        
+        delay_hours = entrant_data->mc_time_delay /60;
+        delay_mins = entrant_data->mc_time_delay %60;
+
+        convert_mins_to_time(entrant_data->end_time, end_time);
+        convert_mins_to_time(entrant_data->mc_time_delay, delay_time);
+
+
+        printf("|%-21s|    %c     |%-16s|    %s    |    %s    |  %.2dhrs %.2dmins  |  %.2dhrs %.2dmins  |\n", 
+                entrant_data->name, entrant_data->course, 
+                status_buff, 
+                start_time, end_time, 
+                delay_hours, delay_mins,
+                hours, mins);
+            
+    } else {
+        printf("|%-21s|    %c     |%-16s|    %s    |     N/a     |       N/a      |       N/a      |\n", 
+                entrant_data->name, entrant_data->course, 
+                status_buff, start_time);
+    }
+}
+
+/* Print each entrants results along with the table header/footer. */
+void print_results(linked_list entrantlist){
+    printf("-----------------------------------------------------------------------------------------------------------------\n");
+    printf("|Competitor           |  Course  |     Status     |  Start Time |   End Time  |    MC Delay    |     Total      |\n");
+    printf("|---------------------------------------------------------------------------------------------------------------|\n");
+    
+    traverse_list(entrantlist.head, &print_entrant);
+    
+    printf("-----------------------------------------------------------------------------------------------------------------\n");
+}
+
+/* Print a table of entrant which have been excluded from the event. */
+void print_entrants_excluded(linked_list entrantlist, enum entrant_status type) {    
+    list_node *current = entrantlist.head;
+    entrant *entrant_data;
+    
+    /* check what type of exclusion we're dealing with */
+    if(type == EXCLUDED_MC) {
+        printf("Competitors Excluded from Medical Checkpoints\n");
+    } else {
+        printf("Competitors Excluded from Regular Checkpoints\n");
+    }
+    
+    /*output table header*/
+    printf("------------------------------------------\n");
+    printf("|Competitor           |  Node  |  Time   |\n");
+    printf("|----------------------------------------|\n");
+    
+    /* For each entrant, if they are excluded, print them*/
+    while (current->next != NULL) {
+        entrant_data = (entrant*) current->data;
+        if(entrant_data->state.type == type) {
+            printf("|%-21s|   %.2d   |  %s  |\n", entrant_data->name, 
+                entrant_data->state.location_ref, entrant_data->state.current_cp_data.time);
         }
         current = current->next;
     }
     
+    printf("------------------------------------------\n");
+}
+
+/* Add a new checkpoint time update to the system. */
+void add_new_time(event *evt, CP_Data checkpoint_data){
+    track *current_track;
+    entrant *entrant_data = find_entrant(evt->entrantlist, checkpoint_data.competitor_num);
+    course *course_data = find_course(evt->courselist, entrant_data->course);
+    int found = 0;
     
-    cp.competitor = entrant_num;
-    cp.node = checkpoint_num;
-    strcpy(cp.time, time);
-    cp.type = type;
-    
-    switch(type) {
+    /* Select what time of checkpoint we're dealing with. */
+    switch(checkpoint_data.type) {
+        /*regular time update*/
         case 'T':
-            if(entrant->state.type == NOT_STARTED){
-                strcpy(entrant->start_time, cp.time);
-            }
-            entrant->state.type = TIME_CHECKPOINT;
-            
-            while(c->nodes[entrant->state.nodes_visited] != cp.node) {
-                entrant->state.nodes_visited++;
+            /* if this is the first updated, set their start time. */
+            if(entrant_data->state.type == NOT_STARTED){
+                entrant_data->start_time = convert_time_to_mins(checkpoint_data.time);
             }
             
-            entrant->state.location_ref = cp.node; 
+            entrant_data->state.type = TIME_CHECKPOINT;
             
-            if(entrant->state.nodes_visited == c->path_size-1) {
-                entrant->state.type = COMPLETED;
-                strcpy(entrant->end_time, cp.time);
+            /* update the number of nodes this competitor has visited */
+            while(course_data->nodes[entrant_data->state.nodes_visited] != checkpoint_data.node) {
+                entrant_data->state.nodes_visited++;
+            }
+            
+            entrant_data->state.location_ref = checkpoint_data.node; 
+
+            /* if this is the last node on the course,
+             * the competitor has finished */
+            if(entrant_data->state.nodes_visited >= course_data->path_size-1) {
+                entrant_data->state.type = COMPLETED;
+                entrant_data->end_time = convert_time_to_mins(checkpoint_data.time);
+            } else {
+                while (!found && entrant_data->current_track->next != NULL) {
+                    current_track = (track*) entrant_data->current_track->data;
+                    if((current_track->nodea == checkpoint_data.node 
+                            && current_track->nodeb == course_data->nodes[entrant_data->state.nodes_visited+1])
+                            || (current_track->nodeb == checkpoint_data.node 
+                            && current_track->nodea == course_data->nodes[entrant_data->state.nodes_visited+1])){
+                        found = 1;
+                    } else {
+                         entrant_data->current_track = entrant_data->current_track->next;
+                    }
+                }
             }
             
             break;
+        /* Excluded at checkpoint for taking wrong direction */
+        case 'I':
+            entrant_data->state.type = EXCLUDED_IR;
+            entrant_data->state.location_ref = checkpoint_data.node;
+            break;
+        /* Arrived at medical checkpoint */
+        case 'A':
+            entrant_data->state.type = MC_CHECKPOINT;
+            
+            /* update the number of nodes this competitor has visited */
+            while(course_data->nodes[entrant_data->state.nodes_visited] != checkpoint_data.node) {
+                entrant_data->state.nodes_visited++;
+            }
+            
+            entrant_data->state.location_ref = checkpoint_data.node;
+            
+            /* record the time they reached the MC for delay calculations*/
+            entrant_data->mc_time_stopped = convert_time_to_mins(checkpoint_data.time);
+            break;
+        /* Departed from medical checkpoint */
+        case 'D':
+            /* calculate the time spent a the checkpoint and record the delay accordingly*/
+            entrant_data->mc_time_delay += convert_time_to_mins(checkpoint_data.time) - entrant_data->mc_time_stopped;
+            break;
+        /* Excluded for failing medical checkpoint */
+        case 'E':
+            entrant_data->state.type = EXCLUDED_MC;
+            entrant_data->state.location_ref = checkpoint_data.node;
+            break;
     }
  
-    entrant->cp_data = cp;
+    entrant_data->state.current_cp_data = checkpoint_data;
 }
 
-void manually_read_data(Event *e) {
-    char cp_type;
-    int comp_num, cp_num;
-    char time[TIME_STRING_SIZE];
+/* Update other competitors with estimations of where they are. */
+void update_others(event *evt, CP_Data checkpoint_data){
+    list_node *current_entrant = evt->entrantlist.head;
+    entrant *entrant_data = NULL;
+    enum entrant_status status;
     
-    printf("Enter the type of check point (T/I/A/D/E):\n");
-    scanf(" %[TIADE]c", &cp_type);
-    
-    printf("Enter the competitor number:\n");
-    scanf(" %d", &comp_num);
-    
-    printf("Enter the check point number:\n");
-    scanf(" %d", &cp_num);
-    
-    printf("Enter the time recorded:\n");
-    scanf(" %[0-9:]s", time);
-    
-    add_new_time(e, time, cp_type, comp_num-1, cp_num);
-    update_others(e, comp_num);
-}
-
-void update_others(Event *evt, int latest){
-    List_Node *current_entrant = evt->entrantlist.head;
-    List_Node *current_course;
-    List_Node *current_track;
-    Entrant *e;
-    Course *c;
-    Track *t;
-    
-    int i=0, node_a, node_b, found=0;
-    
-    
-    while(current_entrant->next != NULL) {
-        e = (Entrant *) current_entrant->data;
+    /*Loop through each entrant in the competition*/
+    while(current_entrant != NULL) {
+        entrant_data = (entrant*) current_entrant->data;
+        status = entrant_data->state.type;
         
-        current_course = evt->courselist.head;
-        current_track = evt->tracklist.head;
-        
-        if(e->state.type != COMPLETED && e->state.type != NOT_STARTED 
-                && latest != e->number) {
-            
-            /* get current course*/
-            while(e->course != c->name && current_course->next != NULL){
-                c = (Course*) current_course->data;
-                current_course = current_course->next;
-            }
-
-            /*get current track numbers*/
-            for (i=0; i< c->path_size; i++) {
-                if (e->state.location_ref == c->nodes[i]) {
-                    node_a = c->nodes[i];
-                    node_b = c->nodes[i+1];
-                    break;
-                }
-            }
-            
-            /*find the track id and set their location to it*/
-            found = 0;
-            while(!found && current_track->next != NULL) {
-                t = (Track*) current_track->data;
-                if ((node_a == t->nodea && node_b == t->nodeb)
-                        || (node_a == t->nodeb && node_b == t->nodea)) {
-                    e->state.location_ref = t->number;
-                    e->state.type = ON_TRACK;
-                    found = 1;
-                }
-                current_track = current_track->next;
-            }
+        /*set others to be on track and update there position*/
+        if((status == TIME_CHECKPOINT && checkpoint_data.competitor_num != entrant_data->number) || status == ON_TRACK) {
+            update_entrant_on_track(evt, entrant_data, checkpoint_data);
         }
         
         current_entrant = current_entrant->next;
     }
 }
 
-void read_updates(Event *e) {
-    char filename[MAX_FILENAME_LENGTH];
-    CP_Data cp_data;
+/* Calculate a new estimate of where the entrant might be between two checkpoints */
+void update_entrant_on_track(event *evt, entrant *entrant_data, CP_Data checkpoint_data) {
+    int check_time, current_time, 
+        track_total, hit_cp = 0;
     
-    printf("Enter name of the checkpoint files:\n");
-    scanf(" %s", filename);
+    track *track_data = (track *) entrant_data->current_track->data;
     
-    FILE *file = fopen(filename, "r");
-    
-    while (!feof(file)){
-        fscanf(file, "%c %d %d %5[0-9:]s", &cp_data.type, &cp_data.node, 
-                &cp_data.competitor, cp_data.time);
-        add_new_time(e, cp_data.time, cp_data.type, cp_data.competitor-1, cp_data.node);
+    if(entrant_data->state.type == TIME_CHECKPOINT) {
+        /*get next checkpoint*/
+        entrant_data->state.next_cp = find_next_checkpoint(evt->nodelist, entrant_data);
     }
-    update_others(e, cp_data.competitor);
-}
 
-int calc_total_time (char *start, char *end) {
-    int start_t, end_t, total;
+    check_time = convert_time_to_mins(entrant_data->state.current_cp_data.time);  /*time at last checkpoint*/
+    current_time = convert_time_to_mins(checkpoint_data.time);            /*current time*/
+    track_total = track_data->time;                                 /*time it should take on track*/
 
-    start_t  = atoi(start);
-    end_t  = atoi(end);
-   
-    total = end_t - start_t;
-    
-    return total;  
-}
+    /*Estimate how far between checkpoints an entrant is.*/
+    /*fast forward the entrant along the course if applicable*/
+    while(!hit_cp && track_total < current_time - check_time) {
 
-void print_results(Event *e){
-    int i, total_hours, total_mins;
-    Entrant *entrant;
+        track_data = (track*) entrant_data->current_track->data;
 
-    printf("-------------------------------------------------------------------------------\n");
-    printf("|Competitor           |  Course  |  Start Time |   End Time  |     Total      |\n");
-    printf("|-----------------------------------------------------------------------------|\n");
-    
-    for (i=0; i< e->no_of_entrants-1; i++) {
-        total_hours = 0;
-        total_mins = 0;
-    
-        entrant = (Entrant*)get_element_data(e->entrantlist.head, i);
-        
-        if(entrant->state.type == COMPLETED) {
-                total_hours = calc_total_time(entrant->start_time, entrant->end_time);
-                total_mins = calc_total_time(&entrant->start_time[3], &entrant->start_time[3]);
+        /* if we should have reached a checkpoint, but are late*/
+        if(track_data->nodea == entrant_data->state.next_cp || 
+                track_data->nodeb == entrant_data->state.next_cp){
+            hit_cp = 1;
+        } else {
+            /*if we should not have reached a checkpoint move forward on the track*/
+            entrant_data->current_track = entrant_data->current_track->next;
+            track_data = (track*) entrant_data->current_track->data;
         }
-        
-        printf("|%-21s|    %c     |    %s    |    %s    |  %.2dhrs %.2dmins  |\n", 
-                entrant->name, entrant->course, 
-                entrant->start_time, entrant->end_time, 
-                total_hours, total_mins);
+
+        /* accumulate the estimated time travelled along the track*/
+        track_total += track_data->time;
     }
-    
-    printf("-------------------------------------------------------------------------------\n");
+    entrant_data->state.type = ON_TRACK;
+    entrant_data->state.late = hit_cp;
+    entrant_data->state.location_ref = track_data->number;
 }
