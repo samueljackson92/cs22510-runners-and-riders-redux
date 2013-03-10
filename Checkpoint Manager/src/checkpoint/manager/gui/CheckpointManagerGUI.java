@@ -218,9 +218,6 @@ public class CheckpointManagerGUI extends JFrame {
 
         
         if(cp.getType()==CPType.MC) {
-            System.out.println(arrivalTime);
-            System.out.println(departureTime);
-            
             if(arrivalTime.compareTo(departureTime) >= 0) {
                 JOptionPane.showMessageDialog(this, "Invalid time data!");
                 validInput = false;
