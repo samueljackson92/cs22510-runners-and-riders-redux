@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=CS237_Assignment1
+PROJECTNAME=Event Manager
 
 # Active Configuration
 DEFAULTCONF=Debug

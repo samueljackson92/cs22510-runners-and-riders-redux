@@ -1,0 +1,4 @@
+11:50 EMP: Viewed event data
+11:54 EMP: Viewed event data
+11:58 EMP: Loaded the times file.
+11:58 EMP: Viewed a list of results

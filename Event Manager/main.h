@@ -31,9 +31,6 @@ void query_competitor(linked_list eventlist);
 /*Check the number of competitors with a given status, e.g. ON_TRACK or COMPLETED*/
 int check_num_competitors(linked_list eventlist, enum entrant_status type);
 
-/*Let the user manually enter a checkpoint update into the system.*/
-void manually_read_data(event *evt);
-
 /*Read in a specified file of recorded checkpoint times into the system.*/
 void read_updates(event *evt);
 

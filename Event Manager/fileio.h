@@ -13,6 +13,9 @@ extern "C" {
 #endif
 
 #include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <errno.h>
 #include "structures.h"
     
 /*
@@ -21,8 +24,12 @@ extern "C" {
  */
 #define MAX_FILEPATH_LENGTH 101
 
+    
+/*function used to create file lock*/
+struct flock* file_lock(short type, short whence);
+    
 /*read in the name of each of the data files from the user.*/
-void read_file_data(event *e);
+void read_file_data(event *e, char *logfile);
 
 /*open a file for reading with the given name and a function to read the contents.*/
 int read_file(char name[MAX_FILEPATH_LENGTH], void (*read_file_func) (FILE *file, event *e), event *e);
@@ -41,6 +48,9 @@ void read_courses(FILE * file, event *e);
 
 /*function to read in a data file of entrants*/
 void read_entrants(FILE *file, event *e);
+
+/*Write a string to the log file*/
+void write_log_file(char *filename, char *data);
 
 #ifdef	__cplusplus
 }

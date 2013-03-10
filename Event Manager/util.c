@@ -69,9 +69,7 @@ course * find_course(linked_list list, char c) {
 int find_next_checkpoint(linked_list nodes, entrant * e) {
     node *node_data = NULL;
     list_node *current = nodes.head;
-    int i, count = 0, found = 0;
-    
-    i = e->state.nodes_visited+2; /* ID is not zero based, so +2 */
+    int count = 0, found = 0;
     
     /* Keep looking ahead until we find a checkpoint */
     while(!found && current->next != NULL) {
@@ -175,4 +173,15 @@ void convert_mins_to_time(int total_mins, char buff[TIME_STRING_SIZE]){
     strcpy(buff, h);
     strcat(buff, ":");
     strcat(buff, m);
+}
+
+
+void get_current_time(char *time_str) {
+    time_t current_time;
+    struct tm * time_info;
+
+    time(&current_time);
+    time_info = localtime(&current_time);
+
+    strftime(time_str, sizeof(time_str), "%H:%M", time_info);
 }

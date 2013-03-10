@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
-CND_ARTIFACT_NAME_Debug=cs237_assignment1
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/cs237_assignment1
+CND_ARTIFACT_NAME_Debug=event_manager
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/event_manager
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=cs237assignment1.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/cs237assignment1.tar
+CND_PACKAGE_NAME_Debug=eventmanager.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/eventmanager.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
-CND_ARTIFACT_NAME_Release=cs237_assignment1
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/cs237_assignment1
+CND_ARTIFACT_NAME_Release=event_manager
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/event_manager
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=cs237assignment1.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/cs237assignment1.tar
+CND_PACKAGE_NAME_Release=eventmanager.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/eventmanager.tar
 #
 # include compiler specific variables
 #

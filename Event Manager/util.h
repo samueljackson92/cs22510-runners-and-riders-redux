@@ -16,6 +16,8 @@ extern "C" {
     #include "structures.h"
 #endif
 
+    
+#include "time.h"
 /*Macro specifying the maximum size of a buffer to convert
  *a type enum to a string*/    
 #define OUTPUT_BUFF 50
@@ -46,6 +48,9 @@ course * find_course(linked_list list, char c);
 
 /*Find the given entrant's next checkpoint on their course*/
 int find_next_checkpoint(linked_list nodes, entrant * e);
+
+/*Get the current time*/
+void get_current_time(char *time_str);
 
 #ifdef	__cplusplus
 }

@@ -17,7 +17,7 @@
  */
 
 /* Read in all of the data files for this event */
-void read_file_data(event *e){
+void read_file_data(event *e, char *logfile){
     char filename[MAX_FILEPATH_LENGTH];
     int success = 0;
     
@@ -50,6 +50,12 @@ void read_file_data(event *e){
         printf("Enter location and name of the entrants file:\n");
         scanf(" %100s", filename);
         success = read_file(filename, &read_entrants, e);
+    } while(!success);
+    
+    do {
+        printf("Enter location and name of the log file:\n");
+        scanf(" %100s", filename);
+        strcpy(logfile, filename);
     } while(!success);
     
 }
@@ -194,4 +200,50 @@ void read_entrants(FILE *file, event *e) {
             add_element(&e->entrantlist, new_element);
         }
     } 
+}
+
+void write_log_file(char *filename, char *data) {
+    FILE *file = NULL;
+    int fd = 0;
+    char time_str[6];
+    struct flock* fl = file_lock(F_WRLCK, SEEK_SET);
+
+    fd = open(filename, O_RDWR);
+    if (fd == -1) {
+        printf("File descriptor error");
+        exit(1);
+    }
+    
+    if (fcntl(fd, F_SETLK, fl) == -1) {
+        if (errno == EACCES || errno == EAGAIN) {
+            printf("Already locked by another process... bad luck\n");
+            exit(1);
+        } else {
+            printf("Unexpected error. Quitting...\n");
+            exit(1);
+        }
+    } else {
+        file = fopen(filename, "a");
+        if (file != NULL) {
+            get_current_time(time_str);
+            fprintf(file, "%s ", time_str);
+            fprintf(file, "EMP: %s\n", data);
+        } else {
+            printf("Error writing to log file!\n");
+            exit(1);
+        }
+        
+        fcntl(fd, F_SETLKW, file_lock(F_UNLCK, SEEK_SET));
+        fclose(file);
+    }
+}
+
+struct flock* file_lock(short type, short whence) {
+    static struct flock ret;
+    ret.l_type = type;
+    ret.l_start = 0;
+    ret.l_whence = whence;
+    ret.l_len = 0;
+    ret.l_pid = getpid();
+    return &ret;
 }
