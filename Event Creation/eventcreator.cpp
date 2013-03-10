@@ -34,9 +34,11 @@ void EventCreator::ShowMainMenu() {
         cout << "2 - Add entrants to event" << endl;
         cout << "3 - Create course for event" << endl;
         cout << "4 - Write an event to file" << endl;
-        cout << "5 - Exit Program" << endl;
+        cout << "5 - View an event in the system" << endl;
+        cout << "6 - Exit Program" << endl;
 
         input = scanner.ReadInt();
+        int evt_index;
         switch(input) {
             case 1:
                 MakeEvent();
@@ -48,15 +50,18 @@ void EventCreator::ShowMainMenu() {
                 CreateCourse();
                 break;
             case 4:
-                int evt_index = ChooseEvent();
+                evt_index = ChooseEvent();
                 if(evt_index >= 0) {
                     Event e = events[evt_index];
                     fio.WriteEvent(e);
                 }
                 break;
+            case 5:
+                ViewEvent();
+                break;
         }
 
-    } while (input != 5);
+    } while (input != 6);
 }
 
 void EventCreator::MakeEvent() {
@@ -203,6 +208,42 @@ void EventCreator::CreateCourse() {
 
         } else {
             cout << "Events can not have more than 26 courses" << endl;
+        }
+    }
+}
+
+void EventCreator::ViewEvent() {
+    using namespace std;
+    int eventIndex = ChooseEvent();
+    if(eventIndex >= 0) {
+        Event e = events[eventIndex];
+        
+        cout << "------------------------------------------" << endl;
+        cout << e.GetName() << endl;
+        cout << "------------------------------------------" << endl;
+        cout << "COURSES" << endl;
+        cout << "------------------------------------------" << endl;
+        
+        for (vector<Course>::iterator it = e.GetCourses().begin();
+                it != e.GetCourses().end(); ++it) {
+            cout << it->GetId() << " " << it->GetNodes().size() << " ";
+            
+            for(vector<int>::iterator jt = it->GetNodes().begin();
+                    jt != it->GetNodes().end(); ++jt) {
+                cout << *jt << " ";
+            }
+            
+            cout << endl;
+        }
+        
+        cout << "------------------------------------------" << endl;
+        cout << "ENRTANTS" << endl;
+        cout << "------------------------------------------" << endl;
+        
+        for (vector<Entrant>::iterator it = e.GetEntrants().begin();
+                it != e.GetEntrants().end(); ++it) {
+            cout << it->GetId() << " " << it->GetCourse() << " ";
+            cout << it->GetName() << endl;
         }
     }
 }

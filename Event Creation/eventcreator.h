@@ -26,6 +26,7 @@ private:
     void CreateCourse();
     int ChooseEvent(void);
     char ChooseCourse(Event event);
+    void ViewEvent(void);
 };
 
 #endif	/* MENU_H */
