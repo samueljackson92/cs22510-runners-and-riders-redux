@@ -1,15 +1,9 @@
-package checkpoint.manager.gui;
+package checkpoint.manager.datamodel;
 
 import checkpoint.manager.FileIO;
-import checkpoint.manager.datamodel.CPTimeData;
-import checkpoint.manager.datamodel.CPType;
-import checkpoint.manager.datamodel.Checkpoint;
-import checkpoint.manager.datamodel.Course;
-import checkpoint.manager.datamodel.Entrant;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -19,7 +13,7 @@ public class CheckpointManager {
     
     private final FileIO fio;        
     private LinkedHashMap<Integer, Entrant> entrants;
-    private ArrayList<Checkpoint> checkpoints;
+    private LinkedHashMap<Integer, Checkpoint> checkpoints;
     private HashMap<Character, Course> courses;
     private PriorityQueue<CPTimeData> times;
     
@@ -29,7 +23,7 @@ public class CheckpointManager {
         fio = new FileIO(args);
         entrants = fio.readEntrants();
         checkpoints = fio.readCheckpoints();
-        courses = fio.readCourses();
+        courses = fio.readCourses(checkpoints);
     }
     
     public boolean willExcludedEntrant(int entrantId, int chkptId) {
@@ -39,7 +33,7 @@ public class CheckpointManager {
         
         if(e.hasStarted()) {
             if(c.getNode(e.getPosition()+1)  != chkptId 
-                || e.getLatestTime().getUpdateType() != 'A') {
+                && e.getLatestTime().getUpdateType() != 'A') {
                 return true;
             }
         }
@@ -49,7 +43,7 @@ public class CheckpointManager {
     
     public boolean updateTimes() 
             throws FileNotFoundException, ParseException, IOException {
-        times = fio.readCheckpointData(entrants);
+        times = fio.readCheckpointData(entrants, courses);
         
         //Failed to acquire lock or not
         return (times != null);
@@ -69,10 +63,11 @@ public class CheckpointManager {
          
         if(!e.isExcluded()) {
             time = new CPTimeData();
-            time.setTime(new Date());
+            time.setTime(arrivalDate);
 
             
             if (cp.getType() == CPType.MC) {
+                time.setTime(departureDate);
                 addArrivalTime(entrantId, chkptId, arrivalDate);
                 updateType = 'D';
             }
@@ -80,7 +75,7 @@ public class CheckpointManager {
             if(e.hasStarted()) {
                 lastTime = e.getTimes().get(e.getPosition());
                 if(course.getNode(e.getPosition()+1) != chkptId
-                        || lastTime.getUpdateType() != 'A') {
+                        && lastTime.getUpdateType() != 'A') {
                     e.setExcluded(true);
                     updateType = 'I';
                 }
@@ -90,12 +85,17 @@ public class CheckpointManager {
                 e.setExcluded(true);
                 updateType = 'E';
             }
+            
+            if(e.getPosition() >= course.getLength()-2) {
+                e.setFinished(true);
+            }
 
             time.setEntrantId(entrantId);
             time.setNode(chkptId);
             time.setType(cp.getType());
             time.setUpdateType(updateType);
 
+            e.incrementPosition();
             e.addTime(time);
             times.add(time);
             checkedIn = fio.writeTimes(times);
@@ -113,6 +113,7 @@ public class CheckpointManager {
         arrivalTime.setUpdateType('A');
         arrivalTime.setNode(chkptId);
         entrants.get(entrantId).addTime(arrivalTime);
+        times.add(arrivalTime);
     }
     
     public Entrant getEntrant(int index) {
@@ -133,7 +134,7 @@ public class CheckpointManager {
     /**
      * @return the checkpoints
      */
-    public ArrayList<Checkpoint> getCheckpoints() {
+    public LinkedHashMap<Integer, Checkpoint> getCheckpoints() {
         return checkpoints;
     }
 }

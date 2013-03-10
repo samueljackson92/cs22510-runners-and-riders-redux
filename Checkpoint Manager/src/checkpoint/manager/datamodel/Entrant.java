@@ -8,10 +8,15 @@ public class Entrant {
     private char course;
     private int id;
     private ArrayList<CPTimeData> times;
-    private boolean excluded = false;
+    private boolean excluded;
+    private boolean finished;
+    private int position;
 
     public Entrant() {
         times = new ArrayList<CPTimeData>();
+        excluded = false;
+        finished = false;
+        position = -1;
     }
     /**
      * @return the name
@@ -91,7 +96,15 @@ public class Entrant {
      * @return the position
      */
     public int getPosition() {
-        return times.size()-1;
+        return position;
+    }
+    
+    public void resetPosition() {
+        position = -1;
+    }
+    
+    public void incrementPosition() {
+        position++;
     }
     
     public boolean hasStarted() {
@@ -100,5 +113,19 @@ public class Entrant {
     
     public CPTimeData getLatestTime() {
         return times.get(times.size()-1);
+    }
+
+    /**
+     * @return the finished
+     */
+    public boolean isFinished() {
+        return finished;
+    }
+
+    /**
+     * @param finished the finished to set
+     */
+    public void setFinished(boolean finished) {
+        this.finished = finished;
     }
 }

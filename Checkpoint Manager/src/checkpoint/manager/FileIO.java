@@ -2,6 +2,7 @@
 package checkpoint.manager;
 
 import checkpoint.manager.datamodel.CPTimeData;
+import checkpoint.manager.datamodel.CPType;
 import checkpoint.manager.datamodel.Checkpoint;
 import checkpoint.manager.datamodel.Course;
 import checkpoint.manager.datamodel.Entrant;
@@ -82,20 +83,23 @@ public class FileIO {
         return entrants;
     }
     
-    public HashMap<Character, Course> readCourses() throws FileNotFoundException, IOException {
+    public HashMap<Character, Course> readCourses(LinkedHashMap<Integer, Checkpoint> checkpoints) throws FileNotFoundException, IOException {
         Scanner in = new Scanner(new File(filenames.get("courses")));
         
         HashMap<Character, Course> courses = new HashMap<Character, Course>();
-        ArrayList<Integer> nodes = new ArrayList<Integer>();
-        
+
         while (in.hasNext()) {
+            ArrayList<Integer> nodes = new ArrayList<Integer>();
             Course c = new Course();
             c.setId(in.next().charAt(0));
-            c.setLength(in.nextInt());
 
             while(in.hasNextInt()) {
-                nodes.add(in.nextInt());
+                int node = in.nextInt();
+                if(checkpoints.containsKey(node)) {
+                    nodes.add(node);
+                }
             }
+            c.setLength(nodes.size());
             c.setNodes(nodes);
             courses.put(c.getId(), c);
         }
@@ -105,7 +109,7 @@ public class FileIO {
         return courses;
     }
     
-    public PriorityQueue<CPTimeData> readCheckpointData(LinkedHashMap<Integer, Entrant> entrants) throws FileNotFoundException, ParseException, IOException {
+    public PriorityQueue<CPTimeData> readCheckpointData(LinkedHashMap<Integer, Entrant> entrants, HashMap<Character, Course> courses) throws FileNotFoundException, ParseException, IOException {
         RandomAccessFile fis = new RandomAccessFile(filenames.get("times"), "rw");
         FileLock fl = fis.getChannel().tryLock();
         Scanner in = new Scanner(fis.getChannel());
@@ -127,12 +131,14 @@ public class FileIO {
                 int entrantNo = in.nextInt();
                 Date date = sdf.parse(in.next());
                 Entrant e = entrants.get(entrantNo);
-
+                
+                if(e.getTimes().isEmpty()) {
+                    e.resetPosition();
+                }
+                
                 switch(type) {
-                    case 'E':
-                        e.setExcluded(true);
-                        break;
                     case 'I':
+                    case 'E':
                         e.setExcluded(true);
                         break;
                 }
@@ -141,7 +147,13 @@ public class FileIO {
                 cp.setNode(node);
                 cp.setEntrantId(entrantNo);
                 cp.setTime(date);
-
+                
+                Course course = courses.get(e.getCourse());
+                if(e.getPosition() >= course.getLength()-2) {
+                    e.setFinished(true);
+                }
+                
+                e.incrementPosition();
                 e.addTime(cp);
                 times.add(cp);
             }
@@ -154,16 +166,16 @@ public class FileIO {
         return times;
     }
     
-    public ArrayList<Checkpoint> readCheckpoints() throws FileNotFoundException, IOException {
+    public LinkedHashMap<Integer, Checkpoint> readCheckpoints() throws FileNotFoundException, IOException {
         Scanner in = new Scanner(new File(filenames.get("checkpoints")));
         
-        ArrayList<Checkpoint> checkpoints = new ArrayList<Checkpoint>();
+        LinkedHashMap<Integer, Checkpoint> checkpoints = new LinkedHashMap<Integer, Checkpoint>();
        
         while(in.hasNext()) {
             int id = in.nextInt();
-            String type = in.next();
+            String type = in.next();    
             if(!type.equals("JN")) {
-                checkpoints.add(new Checkpoint(id, type));
+                checkpoints.put(id, new Checkpoint(id, type));
             }
         }
         
