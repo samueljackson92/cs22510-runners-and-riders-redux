@@ -11,6 +11,7 @@
 #include <vector>
 #include <string>
 
+#include "event.h"
 #include "Entrant.h"
 #include "Course.h"
 
@@ -19,7 +20,8 @@ public:
     FileIO();
     bool WriteCoursesFile(std::string filename, std::vector<Course> courses);
     bool WriteEntrantsFile(std::string filename, std::vector<Entrant> entrants);
-    bool WriteEventFile(std::string filename, std::string name, tm date, tm time);
+    bool WriteEventFile(std::string filename, Event e);
+    bool WriteEvent(Event e);
     std::vector<int> readNodesList(std::string filename);
     virtual ~FileIO();
 private:

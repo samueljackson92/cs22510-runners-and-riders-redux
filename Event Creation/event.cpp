@@ -29,6 +29,7 @@ void Event::AddCourse(char id, std::vector<int> nodes) {
     Course c;
     c.SetId(id);
     c.SetNodes(nodes);
+    courses.push_back(c);
 }
 
 void Event::SetCourses(std::vector<Course> courses) {

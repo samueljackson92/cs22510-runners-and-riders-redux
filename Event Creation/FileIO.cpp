@@ -9,12 +9,21 @@
 #include <fstream>
 #include <sstream>
 #include <stdlib.h> 
+#include <sys/stat.h>
 
 #include "FileIO.h"
 #include "Entrant.h"
 #include "Course.h"
+#include "event.h"
 
 FileIO::FileIO() {
+}
+
+bool FileIO::WriteEvent(Event e) {
+    mkdir (e.GetName().c_str(), 0755);
+    WriteEventFile(e.GetName() + "/name.txt", e);
+    WriteCoursesFile(e.GetName() + "/courses.txt", e.GetCourses());
+    WriteEntrantsFile(e.GetName() + "/entrants.txt", e.GetEntrants());
 }
 
 bool FileIO::WriteCoursesFile(std::string filename, 
@@ -32,7 +41,7 @@ bool FileIO::WriteCoursesFile(std::string filename,
             std::vector<int> nodes = it->GetNodes();
             for(std::vector<int>::iterator jt = nodes.begin();
                     jt != nodes.end(); ++jt) {
-                out << *jt;
+                out << *jt << " ";
             }
             
             out << endl;
@@ -91,7 +100,7 @@ std::vector<int> FileIO::readNodesList(std::string filename) {
     
 }
 
-bool FileIO::WriteEventFile(std::string filename, std::string name, tm date, tm time) {
+bool FileIO::WriteEventFile(std::string filename, Event e) {
     using namespace std;
     ostringstream outputDate;
     ostringstream timeString;
@@ -99,6 +108,10 @@ bool FileIO::WriteEventFile(std::string filename, std::string name, tm date, tm 
     char monthname[10];
     char year[5];
     ofstream out(filename.c_str());
+        
+    string name = e.GetName();
+    tm date = e.GetDate();
+    tm time = e.GetTime();
     
  
     if (out.is_open()) {

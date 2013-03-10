@@ -32,10 +32,11 @@ void EventCreator::ShowMainMenu() {
         cout << "MAIN MENU" << endl;
         cout << "---------------------------" << endl;
         cout << "Enter an option: " << endl;
-        cout << "1 - Create new event" << endl;
+        cout << "1 - Make new event" << endl;
         cout << "2 - Add entrants to event" << endl;
         cout << "3 - Create course for event" << endl;
-        cout << "4 - Exit Program" << endl;
+        cout << "4 - Write an event to file" << endl;
+        cout << "5 - Exit Program" << endl;
 
         input = scanner.ReadInt();
         switch(input) {
@@ -48,9 +49,16 @@ void EventCreator::ShowMainMenu() {
             case 3:
                 CreateCourse();
                 break;
+            case 4:
+                int evt_index = ChooseEvent();
+                if(evt_index >= 0) {
+                    Event e = events[evt_index];
+                    fio.WriteEvent(e);
+                }
+                break;
         }
 
-    } while (input != 4);
+    } while (input != 5);
 }
 
 void EventCreator::MakeEvent() {
@@ -67,7 +75,8 @@ void EventCreator::MakeEvent() {
     cout << "Enter event start time (HH:MM):" << endl;
     time = scanner.ReadTime();
     
-    fio.WriteEventFile("myevent.txt", evt_name, date, time);
+    Event e(evt_name, date, time);
+    events.push_back(e);
 }
 
 void EventCreator::AddEntrants() {
@@ -80,23 +89,28 @@ void EventCreator::AddEntrants() {
     
     if(eventIndex >= 0) {
         Event event = events[eventIndex];
-        cout << "Enter number of entrants to add: " << endl;
         
-        do {
-            numEntrants = scanner.ReadInt();
-            if(numEntrants <=0) {
-                cout << "Not a valid number of entrants" << endl;
-            }
-        } while (numEntrants <= 0);
-        
-        for(int i = 0; i < numEntrants; i++) {
-            Entrant entrant;
-            cout << "Enter entrant's name: " << endl;
-            name = scanner.ReadString();
-            course = ChooseCourse(event);
-            id = event.GetEntrants().size()+1;
-            event.AddEntrant(name, id, course);
-        }        
+        if(event.GetCourses().size() > 0) {
+            cout << "Enter number of entrants to add: " << endl;
+
+            do {
+                numEntrants = scanner.ReadInt();
+                if(numEntrants <=0) {
+                    cout << "Not a valid number of entrants" << endl;
+                }
+            } while (numEntrants <= 0);
+
+            for(int i = 0; i < numEntrants; i++) {
+                cout << "Enter entrant's name: " << endl;
+                name = scanner.ReadString();
+                course = ChooseCourse(event);
+                id = event.GetEntrants().size()+1;
+                event.AddEntrant(name, id, course);
+                events[eventIndex] = event;
+            }        
+        } else {
+            cout << "You must create at least one course first." << endl;
+        }
     }
 }
 
@@ -106,7 +120,7 @@ int EventCreator::ChooseEvent() {
     bool validChoice = false;
     
     if(events.size() > 0 ) {
-        cout << "Please choose an event to add entrants too:" << endl;
+        cout << "Please choose an event:" << endl;
         for(std::vector<int>::size_type i = 0; i != events.size(); i++) {
             cout << i << " - " << events[i].GetName() << endl;
         }
@@ -131,6 +145,7 @@ char EventCreator::ChooseCourse(Event event) {
     using namespace std;
     bool validChoice = false;
     int index;
+    char choice;
     std::vector<Course> courses = event.GetCourses();
     
     if(courses.size() > 0 ) {
@@ -141,16 +156,18 @@ char EventCreator::ChooseCourse(Event event) {
         
          do {
             index = scanner.ReadInt();
-            if (index >= 0 && index < events.size()) {
+            if (index >= 0 && index < courses.size()) {
                 validChoice = true;
             } else {
                 cout << "Not a valid course choice." << endl;
             }
         } while(!validChoice);
-        
+        choice = courses[index].GetId();
     } else {
         cout << "You must create at least one course first." << endl;
     }
+    
+    return choice;
 }
 
 void EventCreator::CreateCourse() {
@@ -161,14 +178,14 @@ void EventCreator::CreateCourse() {
     if(eventIndex >= 0) {
         Event event = events[eventIndex];
         
-        if(event.GetCourses().size() >= 26) {
+        if(event.GetCourses().size() <= 26) {
             cout << "Enter nodes for course. Enter 0 to finish: " << endl;
 
             do {
                 node = scanner.ReadInt();
                 if(find(nodes.begin(), nodes.end(), node)!=nodes.end()) {
                     courseNodes.push_back(node);
-                } else if (node < 0) {
+                } else if (node != 0) {
                     cout << "Not a valid node number!" << endl;
                 }
             } while(node != 0);
@@ -177,14 +194,21 @@ void EventCreator::CreateCourse() {
             char id = (int)event.GetCourses().size()+65;
             
             event.AddCourse(id, courseNodes);
+            events[eventIndex] = event;
+
         } else {
             cout << "Events can not have more than 26 courses" << endl;
         }
     }
 }
 
-
-
 EventCreator::~EventCreator() {
 }
 
+int main(int argc, char** argv) {
+    using namespace std;
+    
+    EventCreator ec;
+    ec.ShowMainMenu();
+    return 0;
+}
