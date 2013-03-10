@@ -31,7 +31,7 @@ bool FileIO::WriteCoursesFile(std::string filename,
             
             std::vector<int> nodes = it->GetNodes();
             for(std::vector<int>::iterator jt = nodes.begin();
-                    jt != courses.end(); ++jt) {
+                    jt != nodes.end(); ++jt) {
                 out << *jt;
             }
             
@@ -52,7 +52,7 @@ bool FileIO::WriteEntrantsFile(std::string filename,
                 it != entrants.end(); ++it) {
             out << it->GetId() << " ";
             out << it->GetCourse() << " ";
-            out << it->GetName() << << endl;
+            out << it->GetName() << endl;
         }
         
         out.close();

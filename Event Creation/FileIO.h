@@ -11,6 +11,9 @@
 #include <vector>
 #include <string>
 
+#include "Entrant.h"
+#include "Course.h"
+
 class FileIO {
 public:
     FileIO();
