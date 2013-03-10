@@ -51,6 +51,9 @@ void update_others(event *evt, CP_Data data);
 /*Update the position on an entrant currently out on a track*/
 void update_entrant_on_track(event * evt, entrant * entrant, CP_Data data);
 
+/*Reset all entrants positions. Used before new update.*/
+void reset_entrants(event *evt);
+
 #ifdef	__cplusplus
 }
 #endif

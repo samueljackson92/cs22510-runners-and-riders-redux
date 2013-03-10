@@ -2,3 +2,25 @@
 11:54 EMP: Viewed event data
 11:58 EMP: Loaded the times file.
 11:58 EMP: Viewed a list of results
+12:17 EMP: Loaded the times file.
+12:17 EMP: Viewed a list of results
+12:19 EMP: Viewed event data
+12:19 EMP: Viewed a list of results
+12:20 EMP: Loaded the times file.
+12:20 EMP: Viewed a list of results
+12:21 EMP: Loaded the times file.
+12:21 EMP: Viewed a list of results
+12:29 EMP: Loaded the times file.
+12:29 EMP: Viewed a list of results
+12:29 EMP: Loaded the times file.
+12:29 EMP: Viewed a list of results
+12:33 EMP: Loaded the times file.
+12:33 EMP: Viewed a list of results
+12:33 EMP: Loaded the times file.
+12:33 EMP: Viewed a list of results
+12:37 EMP: Loaded the times file.
+12:37 EMP: Viewed a list of results
+12:43 EMP: Loaded the times file.
+12:43 EMP: Viewed a list of results
+12:43 EMP: Loaded the times file.
+12:43 EMP: Viewed a list of results

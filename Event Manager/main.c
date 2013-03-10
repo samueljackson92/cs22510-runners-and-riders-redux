@@ -192,6 +192,8 @@ void read_updates(event *e) {
     CP_Data checkpoint_data;
     int status = 4, count = 0;
     
+    reset_entrants(e);
+    
     printf("Enter name of the checkpoint files:\n");
     scanf(" %100s", filename);
     
@@ -224,6 +226,8 @@ void read_updates(event *e) {
                 }
                 count++;
             }
+            
+            fcntl(fd, F_SETLKW, file_lock(F_UNLCK, SEEK_SET));
             fclose(file);
 
             /* Update the rest of the competitors' positions relative to the most recent time. */
@@ -319,6 +323,31 @@ void print_entrants_excluded(linked_list entrantlist, enum entrant_status type) 
     }
     
     printf("------------------------------------------\n");
+}
+
+void reset_entrants(event *evt) { 
+    entrant *entrant_data = NULL;
+    list_node *current_entrant = evt->entrantlist.head;
+    course *c = NULL;
+    
+    while(current_entrant != NULL) {
+        entrant_data = (entrant*) current_entrant->data;
+        entrant_data->state.type = NOT_STARTED;
+        entrant_data->start_time = 0;
+        entrant_data->end_time = 0;
+
+        c = find_course(evt->courselist, entrant_data->course);
+        entrant_data->current_track = c->tracks.head;
+
+        entrant_data->state.nodes_visited = 0;
+        entrant_data->state.location_ref = 0;
+        entrant_data->state.late = 0;
+        entrant_data->mc_time_delay = 0;
+        
+        current_entrant = current_entrant->next;
+    }
+    
+
 }
 
 /* Add a new checkpoint time update to the system. */
