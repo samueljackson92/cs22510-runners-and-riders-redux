@@ -20,7 +20,6 @@ public:
 private:
     FileIO fio;
     IOScanner scanner;
-    std::vector<int> nodes;
     std::vector<Event> events;
     void MakeEvent(void);
     void AddEntrants(void);

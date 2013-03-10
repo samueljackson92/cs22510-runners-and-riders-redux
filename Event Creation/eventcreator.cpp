@@ -17,8 +17,6 @@
 EventCreator::EventCreator() {
     using namespace std;
     
-    nodes = fio.readNodesList("/home/samuel/Dropbox/Aber/uni_docs/Paradigms/cs22510-runners-and-riders-redux/event_3/nodes.txt");
-    
     cout << "----------------------" << endl;
     cout << "EVENT CREATION PROGRAM" << endl;
     cout << "----------------------" << endl << endl;
@@ -75,7 +73,12 @@ void EventCreator::MakeEvent() {
     cout << "Enter event start time (HH:MM):" << endl;
     time = scanner.ReadTime();
     
+    cout << "Enter location of nodes file for event:" << endl;
+    string nodesfile = scanner.ReadString();
+    vector<int> nodes = fio.readNodesList(nodesfile);
+    
     Event e(evt_name, date, time);
+    e.SetNodes(nodes);
     events.push_back(e);
 }
 
@@ -175,15 +178,17 @@ void EventCreator::CreateCourse() {
     int eventIndex = ChooseEvent();
     int node;
     vector<int> courseNodes;
+    vector<int> allowedNodes;
     if(eventIndex >= 0) {
         Event event = events[eventIndex];
+        allowedNodes = event.GetNodes();
         
         if(event.GetCourses().size() <= 26) {
             cout << "Enter nodes for course. Enter 0 to finish: " << endl;
 
             do {
                 node = scanner.ReadInt();
-                if(find(nodes.begin(), nodes.end(), node)!=nodes.end()) {
+                if(find(allowedNodes.begin(), allowedNodes.end(), node)!=allowedNodes.end()) {
                     courseNodes.push_back(node);
                 } else if (node != 0) {
                     cout << "Not a valid node number!" << endl;

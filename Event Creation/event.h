@@ -30,12 +30,15 @@ class Event {
         tm GetDate() const;
         void SetTime(tm time);
         tm GetTime() const;
+        void SetNodes(std::vector<int> nodes);
+        std::vector<int> GetNodes() const;
     private:
         tm time;
         tm date;
         std::string name;
         std::vector<Entrant> entrants;
         std::vector<Course> courses;
+        std::vector<int> nodes;
 };
 
 #endif	/* EVENT_H */

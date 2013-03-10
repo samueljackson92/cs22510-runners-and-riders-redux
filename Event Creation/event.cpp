@@ -72,3 +72,11 @@ tm Event::GetTime() const {
     return time;
 }
 
+void Event::SetNodes(std::vector<int> nodes) {
+    this->nodes = nodes;
+}
+
+std::vector<int> Event::GetNodes() const {
+    return nodes;
+}
+
