@@ -1,0 +1,116 @@
+17:27:43 **** Clean-only build of configuration Debug for project Event Creator ****
+make clean 
+rm -rf  ./course.o ./entrant.o ./event.o ./eventcreator.o ./fileio.o ./ioscanner.o  ./course.d ./entrant.d ./event.d ./eventcreator.d ./fileio.d ./ioscanner.d  "Event Creator"
+ 
+17:27:43 **** Build of configuration Debug for project Event Creator ****
+make all 
+Building file: ../course.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"course.d" -MT"course.d" -o "course.o" "../course.cpp"
+Finished building: ../course.cpp
+ 
+Building file: ../entrant.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"entrant.d" -MT"entrant.d" -o "entrant.o" "../entrant.cpp"
+Finished building: ../entrant.cpp
+ 
+Building file: ../event.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"event.d" -MT"event.d" -o "event.o" "../event.cpp"
+Finished building: ../event.cpp
+ 
+Building file: ../eventcreator.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"eventcreator.d" -MT"eventcreator.d" -o "eventcreator.o" "../eventcreator.cpp"
+../eventcreator.cpp: In member function ‘int EventCreator::ChooseEvent()’:
+../eventcreator.cpp:137:51: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../eventcreator.cpp: In member function ‘char EventCreator::ChooseCourse(Event)’:
+../eventcreator.cpp:166:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Finished building: ../eventcreator.cpp
+ 
+Building file: ../fileio.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fileio.d" -MT"fileio.d" -o "fileio.o" "../fileio.cpp"
+Finished building: ../fileio.cpp
+ 
+Building file: ../ioscanner.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ioscanner.d" -MT"ioscanner.d" -o "ioscanner.o" "../ioscanner.cpp"
+../ioscanner.cpp: In member function ‘std::string IOScanner::ReadString(int)’:
+../ioscanner.cpp:50:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../ioscanner.cpp:53:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Finished building: ../ioscanner.cpp
+ 
+Building target: Event Creator
+Invoking: GCC C++ Linker
+g++  -o "Event Creator"  ./course.o ./entrant.o ./event.o ./eventcreator.o ./fileio.o ./ioscanner.o   
+./event.o: In function `Event::AddCourse(char, std::vector<int, std::allocator<int> >)':
+/home/samuel/Dropbox/Aber/uni_docs/Paradigms/cs22510-runners-and-riders-redux/Event Creator/Debug/../event.cpp:29: undefined reference to `Course::Course()'
+/home/samuel/Dropbox/Aber/uni_docs/Paradigms/cs22510-runners-and-riders-redux/Event Creator/Debug/../event.cpp:32: undefined reference to `Course::~Course()'
+/home/samuel/Dropbox/Aber/uni_docs/Paradigms/cs22510-runners-and-riders-redux/Event Creator/Debug/../event.cpp:32: undefined reference to `Course::~Course()'
+./event.o: In function `Course':
+/home/samuel/Dropbox/Aber/uni_docs/Paradigms/cs22510-runners-and-riders-redux/Event Creator/Debug/../course.h:13: undefined reference to `vtable for Course'
+./event.o: In function `std::vector<Course, std::allocator<Course> >::_M_insert_aux(__gnu_cxx::__normal_iterator<Course*, std::vector<Course, std::allocator<Course> > >, Course const&)':
+/usr/include/c++/4.6/bits/vector.tcc:317: undefined reference to `Course::~Course()'
+/usr/include/c++/4.6/bits/vector.tcc:317: undefined reference to `Course::~Course()'
+collect2: ld returned 1 exit status
+make: *** [Event Creator] Error 1
+17:27:58 **** Incremental Build of configuration Debug for project Event Creator ****
+make all 
+Building target: Event Creator
+Invoking: GCC C++ Linker
+g++  -o "Event Creator"  ./course.o ./entrant.o ./event.o ./eventcreator.o ./fileio.o ./ioscanner.o   
+./event.o: In function `Event::AddCourse(char, std::vector<int, std::allocator<int> >)':
+/home/samuel/Dropbox/Aber/uni_docs/Paradigms/cs22510-runners-and-riders-redux/Event Creator/Debug/../event.cpp:29: undefined reference to `Course::Course()'
+/home/samuel/Dropbox/Aber/uni_docs/Paradigms/cs22510-runners-and-riders-redux/Event Creator/Debug/../event.cpp:32: undefined reference to `Course::~Course()'
+/home/samuel/Dropbox/Aber/uni_docs/Paradigms/cs22510-runners-and-riders-redux/Event Creator/Debug/../event.cpp:32: undefined reference to `Course::~Course()'
+./event.o: In function `Course':
+/home/samuel/Dropbox/Aber/uni_docs/Paradigms/cs22510-runners-and-riders-redux/Event Creator/Debug/../course.h:13: undefined reference to `vtable for Course'
+./event.o: In function `std::vector<Course, std::allocator<Course> >::_M_insert_aux(__gnu_cxx::__normal_iterator<Course*, std::vector<Course, std::allocator<Course> > >, Course const&)':
+/usr/include/c++/4.6/bits/vector.tcc:317: undefined reference to `Course::~Course()'
+/usr/include/c++/4.6/bits/vector.tcc:317: undefined reference to `Course::~Course()'
+collect2: ld returned 1 exit status
+make: *** [Event Creator] Error 1
+17:28:41 **** Incremental Build of configuration Debug for project Event Creator ****
+make all 
+Building file: ../course.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"course.d" -MT"course.d" -o "course.o" "../course.cpp"
+Finished building: ../course.cpp
+ 
+Building target: Event Creator
+Invoking: GCC C++ Linker
+g++  -o "Event Creator"  ./course.o ./entrant.o ./event.o ./eventcreator.o ./fileio.o ./ioscanner.o   
+Finished building target: Event Creator
+ 
+17:28:42 **** Clean-only build of configuration Debug for project Event Manager ****
+make clean 
+rm -rf  ./fileio.o ./linked_list.o ./main.o ./util.o  ./fileio.d ./linked_list.d ./main.d ./util.d  "Event Manager"
+ 
+17:28:42 **** Build of configuration Debug for project Event Manager ****
+make all 
+Building file: ../fileio.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fileio.d" -MT"fileio.d" -o "fileio.o" "../fileio.c"
+Finished building: ../fileio.c
+ 
+Building file: ../linked_list.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"linked_list.d" -MT"linked_list.d" -o "linked_list.o" "../linked_list.c"
+Finished building: ../linked_list.c
+ 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building file: ../util.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"util.d" -MT"util.d" -o "util.o" "../util.c"
+Finished building: ../util.c
+ 
+Building target: Event Manager
+Invoking: GCC C Linker
+gcc  -o "Event Manager"  ./fileio.o ./linked_list.o ./main.o ./util.o   
+Finished building target: Event Manager
+ 

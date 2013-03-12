@@ -205,11 +205,9 @@ void read_updates(event *e) {
     
     if (fcntl(fd, F_SETLK, fl) == -1) {
         if (errno == EACCES || errno == EAGAIN) {
-            printf("Already locked by another process... bad luck\n");
-            exit(1);
+            printf("File locked by another process.\n");
         } else {
-            printf("Unexpected error. Quitting...\n");
-            exit(1);
+            printf("Unexpected error.\n");
         }
     } else {
         file = fopen(filename, "r");

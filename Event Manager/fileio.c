@@ -216,11 +216,9 @@ void write_log_file(char *filename, char *data) {
     
     if (fcntl(fd, F_SETLK, fl) == -1) {
         if (errno == EACCES || errno == EAGAIN) {
-            printf("Already locked by another process... bad luck\n");
-            exit(1);
+            printf("File locked by another process.\n");
         } else {
-            printf("Unexpected error. Quitting...\n");
-            exit(1);
+            printf("Unexpected error. Quitting.\n");
         }
     } else {
         file = fopen(filename, "a");

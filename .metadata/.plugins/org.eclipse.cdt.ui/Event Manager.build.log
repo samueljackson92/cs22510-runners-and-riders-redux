@@ -1,0 +1,30 @@
+17:28:42 **** Build of configuration Debug for project Event Manager ****
+make all 
+Building file: ../fileio.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fileio.d" -MT"fileio.d" -o "fileio.o" "../fileio.c"
+Finished building: ../fileio.c
+ 
+Building file: ../linked_list.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"linked_list.d" -MT"linked_list.d" -o "linked_list.o" "../linked_list.c"
+Finished building: ../linked_list.c
+ 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building file: ../util.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"util.d" -MT"util.d" -o "util.o" "../util.c"
+Finished building: ../util.c
+ 
+Building target: Event Manager
+Invoking: GCC C Linker
+gcc  -o "Event Manager"  ./fileio.o ./linked_list.o ./main.o ./util.o   
+Finished building target: Event Manager
+ 
+
+17:28:44 Build Finished (took 1s.588ms)
+

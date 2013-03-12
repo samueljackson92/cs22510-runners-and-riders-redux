@@ -1,21 +1,45 @@
 package checkpoint.manager.datamodel;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
-public class CPTimeData implements Comparable {
+/**
+ * The Class CPTimeData.
+ * Holds data about a single checkpoint time update.
+ * 
+ * @author Samuel Jackson (slj11@aber.ac.uk)
+ */
+public class CPTimeData implements Comparable<CPTimeData> {
+    
+    /** The entrant id of the entrant. */
     private int entrantId;
+    
+    /** The type of checkpoint. */
     private CPType type;
+    
+    /** The update type. One of the 5 types of updates allowed (T, I, A, D, E) . */
     private char updateType;
+    
+    /** The node that the checkpoint update occurred on. */
     private int node;
+    
+    /** The time the update occurred. */
     private Date time;
+    
+    /** The date formatter object. */
     private final SimpleDateFormat sdf;
 
+    /**
+     * Instantiates a new instance of a checkpoint time data object.
+     */
     public CPTimeData() {
         sdf = new SimpleDateFormat("HH:mm");
     }
 
     /**
+     * Gets the entrant's id.
+     *
      * @return the entrantId
      */
     public int getEntrantId() {
@@ -23,6 +47,8 @@ public class CPTimeData implements Comparable {
     }
 
     /**
+     * Sets the entrant id.
+     *
      * @param entrantId the entrantId to set
      */
     public void setEntrantId(int entrantId) {
@@ -30,6 +56,8 @@ public class CPTimeData implements Comparable {
     }
 
     /**
+     * Gets the type.
+     *
      * @return the type
      */
     public CPType getType() {
@@ -37,6 +65,8 @@ public class CPTimeData implements Comparable {
     }
 
     /**
+     * Sets the type of update.
+     *
      * @param type the type to set
      */
     public void setType(CPType type) {
@@ -44,6 +74,8 @@ public class CPTimeData implements Comparable {
     }
 
     /**
+     * Gets the node that the update occurred on.
+     *
      * @return the cpId
      */
     public int getNode() {
@@ -51,25 +83,36 @@ public class CPTimeData implements Comparable {
     }
 
     /**
-     * @param cpId the cpId to set
+     * Sets the node that the update occurred on.
+     *
+     * @param checkpointId the cpId to set
      */
-    public void setNode(int cpId) {
-        this.node = cpId;
+    public void setNode(int checkpointId) {
+        this.node = checkpointId;
     }
 
     /**
-     * @return the arrival_time
+     * Gets the time as a string.
+     *
+     * @return the time
      */
     public String getStringTime() {
         return sdf.format(time);
     }
     
-    private Date getTime() {
+    /**
+     * Gets the time (Date) object.
+     *
+     * @return the time
+     */
+    public Date getTime() {
         return time;
     }
 
     /**
-     * @param arrival_time the arrival_time to set
+     * Sets the time.
+     *
+     * @param time the new time
      */
     public void setTime(Date time) {
 
@@ -77,6 +120,8 @@ public class CPTimeData implements Comparable {
     }
 
     /**
+     * Gets the update type. One of the 5 types of updates (T,I,A,D,E)
+     *
      * @return the updateType
      */
     public char getUpdateType() {
@@ -84,15 +129,26 @@ public class CPTimeData implements Comparable {
     }
 
     /**
+     * Sets the update type. One of the 5 types of updates (T,I,A,D,E)
+     *
      * @param updateType the updateType to set
      */
     public void setUpdateType(char updateType) {
         this.updateType = updateType;
     }
 
-    @Override
-    public int compareTo(Object t) {
-        Date compareDate = ((CPTimeData) t).getTime();
+	/* (non-Javadoc)
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	@Override
+	public int compareTo(CPTimeData t) {
+        Date compareDate = t.getTime();
+        
+        Calendar c = Calendar.getInstance();
+        c.setTime(compareDate);
+        c.set(1970, 1, 1);
+        compareDate = c.getTime();
+        
         return time.compareTo(compareDate);
-    }
+	}
 }   

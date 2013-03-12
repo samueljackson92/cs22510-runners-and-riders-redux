@@ -15,7 +15,7 @@ extern "C" {
 #include "linked_list.h"
     
 /*Macro defining the maximum size of an event name.*/
-#define MAX_EVENT_NAME_SIZE 80
+#define MAX_EVENT_NAME_SIZE 81
     
 /*Macro defining the maximum size of an entrant name.*/
 #define MAX_ENTRANT_NAME_SIZE 51
