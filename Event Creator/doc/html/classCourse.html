@@ -90,7 +90,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourse.html#a6b959ccf15d9ceed9e9c14a701561982">Course</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourse.html#a2151dd20a9c4805efd35725ffa718650">Course</a> (char <a class="el" href="classCourse.html#ae0d417ad4feae0725245ed6a15e8ea57">id</a>, std::vector&lt; int &gt; <a class="el" href="classCourse.html#a4632a36a3759d00c6da824eafe8a50b2">nodes</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises an instance of a course with an id and a set of nodes.  <a href="#a2151dd20a9c4805efd35725ffa718650"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourse.html#aa9038f2e129526920037dda9e76d69d0">~Course</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourse.html#adf3085828bb525ab154269ccec3e92a0">SetNodes</a> (std::vector&lt; int &gt; <a class="el" href="classCourse.html#a4632a36a3759d00c6da824eafe8a50b2">nodes</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the list of nodes in this course.  <a href="#adf3085828bb525ab154269ccec3e92a0"></a><br/></td></tr>
@@ -106,19 +107,39 @@ Private Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCourse.html#a4632a36a3759d00c6da824eafe8a50b2">nodes</a></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a6b959ccf15d9ceed9e9c14a701561982"></a><!-- doxytag: member="Course::Course" ref="a6b959ccf15d9ceed9e9c14a701561982" args="()" -->
+<a class="anchor" id="a2151dd20a9c4805efd35725ffa718650"></a><!-- doxytag: member="Course::Course" ref="a2151dd20a9c4805efd35725ffa718650" args="(char id, std::vector&lt; int &gt; nodes)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classCourse.html#a6b959ccf15d9ceed9e9c14a701561982">Course::Course</a> </td>
+          <td class="memname"><a class="el" href="classCourse.html#a2151dd20a9c4805efd35725ffa718650">Course::Course</a> </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::vector&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>nodes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Initialises an instance of a course with an id and a set of nodes. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the id of the course </td></tr>
+    <tr><td class="paramname">nodes</td><td>the nodes in the course </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -276,7 +297,7 @@ Private Attributes</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 12 2013 18:18:56 for Event Creator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 12 2013 18:48:50 for Event Creator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

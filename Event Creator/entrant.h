@@ -12,7 +12,7 @@
 
 class Entrant {
     public:
-        Entrant();
+        Entrant(int id, std::string name, char course);
         virtual ~Entrant();
         void SetCourse(char course);
         char GetCourse() const;

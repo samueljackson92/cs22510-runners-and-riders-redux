@@ -7,7 +7,18 @@
 
 #include "entrant.h"
 
-Entrant::Entrant() {
+/**
+ * Initilises a new instance of an entrant with an ID,
+ * name and course.
+ *
+ * @param id the ID of the entrant
+ * @param name the name of entrant
+ * @param course the ID of the course the entrant is registered on.
+ */
+Entrant::Entrant(int id, std::string name, char course) {
+	SetId(id);
+	SetName(name);
+	SetCourse(course);
 }
 
 Entrant::~Entrant() {

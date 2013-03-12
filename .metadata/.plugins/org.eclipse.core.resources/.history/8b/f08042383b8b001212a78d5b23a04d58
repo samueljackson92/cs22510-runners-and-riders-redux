@@ -1,0 +1,47 @@
+/**
+ * @file   entrant.cpp
+ * @Author Samuel Jackson (slj11@aber.ac.uk)
+ * @date 09 March 2013
+ * @brief class to hold data about an entrant in an event.
+ */
+
+#include "entrant.h"
+
+Entrant::Entrant() {
+}
+
+Entrant::~Entrant() {
+}
+
+/**
+ * Set the course the entrant is on.
+ * @param course the course id
+ */
+void Entrant::SetCourse(char course) {
+    this->course = course;
+}
+
+/**
+ * Get the course the entrant is on.
+ * @return the course id
+ */
+char Entrant::GetCourse() const {
+    return course;
+}
+
+void Entrant::SetName(std::string name) {
+    this->name = name;
+}
+
+std::string Entrant::GetName() const {
+    return name;
+}
+
+void Entrant::SetId(int id) {
+    this->id = id;
+}
+
+int Entrant::GetId() const {
+    return id;
+}
+

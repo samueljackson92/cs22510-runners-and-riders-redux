@@ -12,7 +12,7 @@
 
 class Course {
     public:
-        Course();
+        Course(char id, std::vector<int> nodes);
         virtual ~Course();
         void SetNodes(std::vector<int> nodes);
         std::vector<int> GetNodes() const;

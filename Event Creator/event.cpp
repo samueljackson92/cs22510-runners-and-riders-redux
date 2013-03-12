@@ -31,11 +31,8 @@ Event::~Event() {
  * @param course the if of the entrant's course
  */
 void Event::AddEntrant(std::string name, int id, char course) {
-    Entrant e;
-    e.SetId(id);
-    e.SetName(name);
-    e.SetCourse(course);
-    entrants.push_back(e);
+    Entrant entrant(id, name, course);
+    entrants.push_back(entrant);
 }
 
 /**
@@ -44,10 +41,8 @@ void Event::AddEntrant(std::string name, int id, char course) {
  * @param nodes the vector of nodes for the course
  */
 void Event::AddCourse(char id, std::vector<int> nodes) {
-    Course c;
-    c.SetId(id);
-    c.SetNodes(nodes);
-    courses.push_back(c);
+    Course course(id, nodes);
+    courses.push_back(course);
 }
 
 /**

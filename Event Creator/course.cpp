@@ -7,7 +7,15 @@
 
 #include "course.h"
 
-Course::Course() {
+/**
+ * Initialises an instance of a course with an id
+ * and a set of nodes
+ * @param id the id of the course
+ * @param nodes the nodes in the course
+ */
+Course::Course(char id, std::vector<int> nodes) {
+	SetId(id);
+	SetNodes(nodes);
 }
 
 Course::~Course() {
