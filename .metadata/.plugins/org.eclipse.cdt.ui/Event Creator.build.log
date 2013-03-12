@@ -1,20 +1,5 @@
-18:47:19 **** Incremental Build of configuration Debug for project Event Creator ****
+19:36:26 **** Incremental Build of configuration Debug for project Event Creator ****
 make all 
-Building file: ../course.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"course.d" -MT"course.d" -o "course.o" "../course.cpp"
-Finished building: ../course.cpp
- 
-Building file: ../entrant.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"entrant.d" -MT"entrant.d" -o "entrant.o" "../entrant.cpp"
-Finished building: ../entrant.cpp
- 
-Building file: ../event.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"event.d" -MT"event.d" -o "event.o" "../event.cpp"
-Finished building: ../event.cpp
- 
 Building file: ../eventcreator.cpp
 Invoking: GCC C++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"eventcreator.d" -MT"eventcreator.d" -o "eventcreator.o" "../eventcreator.cpp"
@@ -24,24 +9,11 @@ g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"eventcreator.d" -MT"eventcr
 ../eventcreator.cpp:194:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
 Finished building: ../eventcreator.cpp
  
-Building file: ../fileio.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fileio.d" -MT"fileio.d" -o "fileio.o" "../fileio.cpp"
-Finished building: ../fileio.cpp
- 
-Building file: ../ioscanner.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ioscanner.d" -MT"ioscanner.d" -o "ioscanner.o" "../ioscanner.cpp"
-../ioscanner.cpp: In member function ‘std::string IOScanner::ReadString(int)’:
-../ioscanner.cpp:49:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-../ioscanner.cpp:52:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-Finished building: ../ioscanner.cpp
- 
 Building target: Event Creator
 Invoking: GCC C++ Linker
 g++  -o "Event Creator"  ./course.o ./entrant.o ./event.o ./eventcreator.o ./fileio.o ./ioscanner.o   
 Finished building target: Event Creator
  
 
-18:47:25 Build Finished (took 6s.116ms)
+19:36:27 Build Finished (took 977ms)
 

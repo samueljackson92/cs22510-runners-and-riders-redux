@@ -1,6 +1,6 @@
-18:47:26 **** Incremental Build of configuration Debug for project Event Manager ****
+19:20:55 **** Incremental Build of configuration Debug for project Event Manager ****
 make all 
 make: Nothing to be done for `all'.
 
-18:47:27 Build Finished (took 166ms)
+19:20:55 Build Finished (took 68ms)
 

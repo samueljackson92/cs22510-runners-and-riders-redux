@@ -233,7 +233,7 @@ void EventCreator::CreateCourse() {
             //convert numerical index to character index
             // e.g. ASCII 'A' is 65, 'B' is 66 etc.
             char id = (int)event.GetCourses().size()+65;
-            
+
             event.AddCourse(id, courseNodes);
             events[eventIndex] = event;
 
@@ -251,20 +251,22 @@ void EventCreator::ViewEvent() {
     using namespace std;
     int eventIndex = ChooseEvent();
     if(eventIndex >= 0) {
-        Event e = events[eventIndex];
+        Event event = events[eventIndex];
         
         cout << "------------------------------------------" << endl;
-        cout << e.GetName() << endl;
+        cout << event.GetName() << endl;
         cout << "------------------------------------------" << endl;
         cout << "COURSES" << endl;
         cout << "------------------------------------------" << endl;
         
-        for (vector<Course>::iterator it = e.GetCourses().begin();
-                it != e.GetCourses().end(); ++it) {
-            cout << it->GetId() << " " << it->GetNodes().size() << " ";
+        for(std::vector<Course>::iterator it = event.GetCourses().begin();
+                it != event.GetCourses().end(); ++it) {
+            cout << it->GetId() << " ";
+            cout << it->GetNodes().size() << " ";
             
-            for(vector<int>::iterator jt = it->GetNodes().begin();
-                    jt != it->GetNodes().end(); ++jt) {
+            std::vector<int> nodes = it->GetNodes();
+            for(std::vector<int>::iterator jt = nodes.begin();
+                    jt != nodes.end(); ++jt) {
                 cout << *jt << " ";
             }
             
@@ -275,8 +277,8 @@ void EventCreator::ViewEvent() {
         cout << "ENRTANTS" << endl;
         cout << "------------------------------------------" << endl;
         
-        for (vector<Entrant>::iterator it = e.GetEntrants().begin();
-                it != e.GetEntrants().end(); ++it) {
+        for (vector<Entrant>::iterator it = event.GetEntrants().begin();
+                it != event.GetEntrants().end(); ++it) {
             cout << it->GetId() << " " << it->GetCourse() << " ";
             cout << it->GetName() << endl;
         }

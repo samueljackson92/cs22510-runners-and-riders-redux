@@ -16,3 +16,5 @@
 /Event Creation/build/
 /Event Creation/dist/
 /Checkpoint Manager/dist/
+
+.metadata/*
