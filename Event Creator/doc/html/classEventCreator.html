@@ -30,7 +30,7 @@
    <div id="projectname">Event Creator
    
    </div>
-   
+   <div id="projectbrief">Event Creation program for the runners and riders project.</div>
   </td>
   
   
@@ -77,19 +77,262 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">EventCreator Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="EventCreator" -->
+<p><code>#include &lt;<a class="el" href="eventcreator_8h_source.html">eventcreator.h</a>&gt;</code></p>
+
 <p><a href="classEventCreator-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b1f77352fb2ee059087e319ec1c007d"></a><!-- doxytag: member="EventCreator::ShowMainMenu" ref="a0b1f77352fb2ee059087e319ec1c007d" args="(void)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ShowMainMenu</b> (void)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventCreator.html#a23adb753ff46c970018641ba6cd8ad04">EventCreator</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the event creator program and outputs startup message.  <a href="#a23adb753ff46c970018641ba6cd8ad04"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventCreator.html#a0b1f77352fb2ee059087e319ec1c007d">ShowMainMenu</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the main menu to the user and processes users choice.  <a href="#a0b1f77352fb2ee059087e319ec1c007d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventCreator.html#a3e1b2dde8d5979b26019e30fe70b3a96">~EventCreator</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventCreator.html#aa75feec3c8b162cdc0ec722cb790d89b">MakeEvent</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Member function to create a new event on the system.  <a href="#aa75feec3c8b162cdc0ec722cb790d89b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventCreator.html#ac08bc21732115a2c9120047e930d9c0a">AddEntrants</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Member function to add a new entrant to an event.  <a href="#ac08bc21732115a2c9120047e930d9c0a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventCreator.html#ac138263790915b9ada256dd1f1c1db35">CreateCourse</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a course based on the selected event.  <a href="#ac138263790915b9ada256dd1f1c1db35"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventCreator.html#a074ab8233bb96a3b8ced83d256065753">ChooseEvent</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Choose an event to work with if there are events on the system.  <a href="#a074ab8233bb96a3b8ced83d256065753"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventCreator.html#aee16394ee17f9e82879f271deda9fc41">ChooseCourse</a> (<a class="el" href="classEvent.html">Event</a> event)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Choose a course based on the selected event.  <a href="#aee16394ee17f9e82879f271deda9fc41"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventCreator.html#a9451c2b14b634beae55ca2deb31db8d9">ViewEvent</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">View an event on the system.  <a href="#a9451c2b14b634beae55ca2deb31db8d9"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classFileIO.html">FileIO</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventCreator.html#a77bc97278893e0291491e9a6c0442289">fio</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIOScanner.html">IOScanner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventCreator.html#a4386d8f873758f8b15ca461c65ffbda6">scanner</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classEvent.html">Event</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEventCreator.html#a8912f1587918f32a99ad9d04b80dddb6">events</a></td></tr>
 </table>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a23adb753ff46c970018641ba6cd8ad04"></a><!-- doxytag: member="EventCreator::EventCreator" ref="a23adb753ff46c970018641ba6cd8ad04" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEventCreator.html#a23adb753ff46c970018641ba6cd8ad04">EventCreator::EventCreator</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Initialises the event creator program and outputs startup message. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3e1b2dde8d5979b26019e30fe70b3a96"></a><!-- doxytag: member="EventCreator::~EventCreator" ref="a3e1b2dde8d5979b26019e30fe70b3a96" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEventCreator.html#a3e1b2dde8d5979b26019e30fe70b3a96">EventCreator::~EventCreator</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ac08bc21732115a2c9120047e930d9c0a"></a><!-- doxytag: member="EventCreator::AddEntrants" ref="ac08bc21732115a2c9120047e930d9c0a" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEventCreator.html#ac08bc21732115a2c9120047e930d9c0a">EventCreator::AddEntrants</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Member function to add a new entrant to an event. </p>
+
+</div>
+</div>
+<a class="anchor" id="aee16394ee17f9e82879f271deda9fc41"></a><!-- doxytag: member="EventCreator::ChooseCourse" ref="aee16394ee17f9e82879f271deda9fc41" args="(Event event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="classEventCreator.html#aee16394ee17f9e82879f271deda9fc41">EventCreator::ChooseCourse</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classEvent.html">Event</a>&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Choose a course based on the selected event. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>the currently selected event </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>the id of the chosen course </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a074ab8233bb96a3b8ced83d256065753"></a><!-- doxytag: member="EventCreator::ChooseEvent" ref="a074ab8233bb96a3b8ced83d256065753" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classEventCreator.html#a074ab8233bb96a3b8ced83d256065753">EventCreator::ChooseEvent</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Choose an event to work with if there are events on the system. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>the id of the chosen event </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac138263790915b9ada256dd1f1c1db35"></a><!-- doxytag: member="EventCreator::CreateCourse" ref="ac138263790915b9ada256dd1f1c1db35" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEventCreator.html#ac138263790915b9ada256dd1f1c1db35">EventCreator::CreateCourse</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Create a course based on the selected event. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa75feec3c8b162cdc0ec722cb790d89b"></a><!-- doxytag: member="EventCreator::MakeEvent" ref="aa75feec3c8b162cdc0ec722cb790d89b" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEventCreator.html#aa75feec3c8b162cdc0ec722cb790d89b">EventCreator::MakeEvent</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Member function to create a new event on the system. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0b1f77352fb2ee059087e319ec1c007d"></a><!-- doxytag: member="EventCreator::ShowMainMenu" ref="a0b1f77352fb2ee059087e319ec1c007d" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEventCreator.html#a0b1f77352fb2ee059087e319ec1c007d">EventCreator::ShowMainMenu</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Displays the main menu to the user and processes users choice. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9451c2b14b634beae55ca2deb31db8d9"></a><!-- doxytag: member="EventCreator::ViewEvent" ref="a9451c2b14b634beae55ca2deb31db8d9" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEventCreator.html#a9451c2b14b634beae55ca2deb31db8d9">EventCreator::ViewEvent</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>View an event on the system. </p>
+<p>This will list all course and entrants associated with the chosen event. </p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a8912f1587918f32a99ad9d04b80dddb6"></a><!-- doxytag: member="EventCreator::events" ref="a8912f1587918f32a99ad9d04b80dddb6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classEvent.html">Event</a>&gt; <a class="el" href="classEventCreator.html#a8912f1587918f32a99ad9d04b80dddb6">EventCreator::events</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a77bc97278893e0291491e9a6c0442289"></a><!-- doxytag: member="EventCreator::fio" ref="a77bc97278893e0291491e9a6c0442289" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classFileIO.html">FileIO</a> <a class="el" href="classEventCreator.html#a77bc97278893e0291491e9a6c0442289">EventCreator::fio</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4386d8f873758f8b15ca461c65ffbda6"></a><!-- doxytag: member="EventCreator::scanner" ref="a4386d8f873758f8b15ca461c65ffbda6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIOScanner.html">IOScanner</a> <a class="el" href="classEventCreator.html#a4386d8f873758f8b15ca461c65ffbda6">EventCreator::scanner</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="eventcreator_8h_source.html">eventcreator.h</a></li>
 <li><a class="el" href="eventcreator_8cpp.html">eventcreator.cpp</a></li>
@@ -100,7 +343,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShowMainMenu</b> (voi
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,7 +355,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ShowMainMenu</b> (voi
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 12 2013 17:30:42 for Event Creator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 12 2013 18:18:56 for Event Creator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

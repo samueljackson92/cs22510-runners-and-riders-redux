@@ -1,57 +1,340 @@
 \hypertarget{classEvent}{\section{\-Event \-Class \-Reference}
 \label{classEvent}\index{\-Event@{\-Event}}
 }
+
+
+{\ttfamily \#include $<$event.\-h$>$}
+
 \subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classEvent_a8f1894bd5c65c832e95b42bd4565e631}{{\bfseries \-Event} (std\-::string name, tm date, tm time)}\label{classEvent_a8f1894bd5c65c832e95b42bd4565e631}
-
+\hyperlink{classEvent_a8f1894bd5c65c832e95b42bd4565e631}{\-Event} (std\-::string \hyperlink{classEvent_ae116bf76fb01a92e000579a5a0d6f35c}{name}, tm \hyperlink{classEvent_a5df9ecce46e9db33b3b29b99156aa70a}{date}, tm \hyperlink{classEvent_a91d5938dce4b4328e35f5626c22ec844}{time})
+\begin{DoxyCompactList}\small\item\em \-Create a new event and initilise it with a name, date and time. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_af38a15ffed314b5251a124f45ea41575}{\-Add\-Entrant} (std\-::string \hyperlink{classEvent_ae116bf76fb01a92e000579a5a0d6f35c}{name}, int id, char course)
+\begin{DoxyCompactList}\small\item\em \-Add an entrant to this event. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a1a1fba26c0066499be299b3d3ff938b5}{\-Add\-Course} (char id, std\-::vector$<$ int $>$ \hyperlink{classEvent_a2b330c8081c3c907a02daa7da8043fc6}{nodes})
+\begin{DoxyCompactList}\small\item\em \-Add a course to this event. \end{DoxyCompactList}\item 
+virtual \hyperlink{classEvent_a7704ec01ce91e673885792054214b3d2}{$\sim$\-Event} ()
 \item 
-\hypertarget{classEvent_af38a15ffed314b5251a124f45ea41575}{void {\bfseries \-Add\-Entrant} (std\-::string name, int id, char course)}\label{classEvent_af38a15ffed314b5251a124f45ea41575}
-
+void \hyperlink{classEvent_a894b95d4d8b4844798ec95fa5ef8141a}{\-Set\-Courses} (std\-::vector$<$ \hyperlink{classCourse}{\-Course} $>$ \hyperlink{classEvent_a54f5b521beee9f8714ac33e304c948b0}{courses})
+\begin{DoxyCompactList}\small\item\em \-Set the list of courses for this event. \end{DoxyCompactList}\item 
+std\-::vector$<$ \hyperlink{classCourse}{\-Course} $>$ \hyperlink{classEvent_a7fc2ac39ff5fc682762451b277c73d68}{\-Get\-Courses} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the list of courses for this event. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a11e2729e7676c2950dfc7cb56dbbea94}{\-Set\-Entrants} (std\-::vector$<$ \hyperlink{classEntrant}{\-Entrant} $>$ \hyperlink{classEvent_adede353249fa65a02148e7fcce077449}{entrants})
+\begin{DoxyCompactList}\small\item\em \-Set the list of entrants for this event. \end{DoxyCompactList}\item 
+std\-::vector$<$ \hyperlink{classEntrant}{\-Entrant} $>$ \hyperlink{classEvent_ab0232dfcc1b986cb2a79fef05b2d7efc}{\-Get\-Entrants} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the list of entrants for this event. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a2c91dbd3d7a2a3c31895d9f16a55f70e}{\-Set\-Name} (std\-::string \hyperlink{classEvent_ae116bf76fb01a92e000579a5a0d6f35c}{name})
+\begin{DoxyCompactList}\small\item\em \-Set the name of this event. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{classEvent_af4202c6d2371029b117d37ba7cc12ae6}{\-Get\-Name} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the name of this event. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a5f606cada35150b7c9ad554f4252b53c}{\-Set\-Date} (tm \hyperlink{classEvent_a5df9ecce46e9db33b3b29b99156aa70a}{date})
+\begin{DoxyCompactList}\small\item\em \-Set the date of this event. \end{DoxyCompactList}\item 
+tm \hyperlink{classEvent_a0d3002c0e3961c360fa0f11412bf1e5c}{\-Get\-Date} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the date of this event. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a693cefccd31003ade280a7e737f8be6c}{\-Set\-Time} (tm \hyperlink{classEvent_a91d5938dce4b4328e35f5626c22ec844}{time})
+\begin{DoxyCompactList}\small\item\em \-Set the time of this event. \end{DoxyCompactList}\item 
+tm \hyperlink{classEvent_aad5efdddefaa7de4196d1f22fce2c51e}{\-Get\-Time} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the time of this event. \end{DoxyCompactList}\item 
+void \hyperlink{classEvent_a8f68ec5701be042f63a4f277af171adc}{\-Set\-Nodes} (std\-::vector$<$ int $>$ \hyperlink{classEvent_a2b330c8081c3c907a02daa7da8043fc6}{nodes})
+\begin{DoxyCompactList}\small\item\em \-Set the list of nodes for this event. \end{DoxyCompactList}\item 
+std\-::vector$<$ int $>$ \hyperlink{classEvent_ae3b200210aa9e4f20db5221d13d4746e}{\-Get\-Nodes} () const 
+\begin{DoxyCompactList}\small\item\em \-Get the list of nodes for this event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
 \item 
-\hypertarget{classEvent_a1a1fba26c0066499be299b3d3ff938b5}{void {\bfseries \-Add\-Course} (char id, std\-::vector$<$ int $>$ nodes)}\label{classEvent_a1a1fba26c0066499be299b3d3ff938b5}
-
+tm \hyperlink{classEvent_a91d5938dce4b4328e35f5626c22ec844}{time}
 \item 
-\hypertarget{classEvent_a894b95d4d8b4844798ec95fa5ef8141a}{void {\bfseries \-Set\-Courses} (std\-::vector$<$ \hyperlink{classCourse}{\-Course} $>$ courses)}\label{classEvent_a894b95d4d8b4844798ec95fa5ef8141a}
-
+tm \hyperlink{classEvent_a5df9ecce46e9db33b3b29b99156aa70a}{date}
 \item 
-\hypertarget{classEvent_a7fc2ac39ff5fc682762451b277c73d68}{std\-::vector$<$ \hyperlink{classCourse}{\-Course} $>$ {\bfseries \-Get\-Courses} () const }\label{classEvent_a7fc2ac39ff5fc682762451b277c73d68}
-
+std\-::string \hyperlink{classEvent_ae116bf76fb01a92e000579a5a0d6f35c}{name}
 \item 
-\hypertarget{classEvent_a11e2729e7676c2950dfc7cb56dbbea94}{void {\bfseries \-Set\-Entrants} (std\-::vector$<$ \hyperlink{classEntrant}{\-Entrant} $>$ entrants)}\label{classEvent_a11e2729e7676c2950dfc7cb56dbbea94}
-
+std\-::vector$<$ \hyperlink{classEntrant}{\-Entrant} $>$ \hyperlink{classEvent_adede353249fa65a02148e7fcce077449}{entrants}
 \item 
-\hypertarget{classEvent_ab0232dfcc1b986cb2a79fef05b2d7efc}{std\-::vector$<$ \hyperlink{classEntrant}{\-Entrant} $>$ {\bfseries \-Get\-Entrants} () const }\label{classEvent_ab0232dfcc1b986cb2a79fef05b2d7efc}
-
+std\-::vector$<$ \hyperlink{classCourse}{\-Course} $>$ \hyperlink{classEvent_a54f5b521beee9f8714ac33e304c948b0}{courses}
 \item 
-\hypertarget{classEvent_a2c91dbd3d7a2a3c31895d9f16a55f70e}{void {\bfseries \-Set\-Name} (std\-::string name)}\label{classEvent_a2c91dbd3d7a2a3c31895d9f16a55f70e}
-
-\item 
-\hypertarget{classEvent_af4202c6d2371029b117d37ba7cc12ae6}{std\-::string {\bfseries \-Get\-Name} () const }\label{classEvent_af4202c6d2371029b117d37ba7cc12ae6}
-
-\item 
-\hypertarget{classEvent_a5f606cada35150b7c9ad554f4252b53c}{void {\bfseries \-Set\-Date} (tm date)}\label{classEvent_a5f606cada35150b7c9ad554f4252b53c}
-
-\item 
-\hypertarget{classEvent_a0d3002c0e3961c360fa0f11412bf1e5c}{tm {\bfseries \-Get\-Date} () const }\label{classEvent_a0d3002c0e3961c360fa0f11412bf1e5c}
-
-\item 
-\hypertarget{classEvent_a693cefccd31003ade280a7e737f8be6c}{void {\bfseries \-Set\-Time} (tm time)}\label{classEvent_a693cefccd31003ade280a7e737f8be6c}
-
-\item 
-\hypertarget{classEvent_aad5efdddefaa7de4196d1f22fce2c51e}{tm {\bfseries \-Get\-Time} () const }\label{classEvent_aad5efdddefaa7de4196d1f22fce2c51e}
-
-\item 
-\hypertarget{classEvent_a8f68ec5701be042f63a4f277af171adc}{void {\bfseries \-Set\-Nodes} (std\-::vector$<$ int $>$ nodes)}\label{classEvent_a8f68ec5701be042f63a4f277af171adc}
-
-\item 
-\hypertarget{classEvent_ae3b200210aa9e4f20db5221d13d4746e}{std\-::vector$<$ int $>$ {\bfseries \-Get\-Nodes} () const }\label{classEvent_ae3b200210aa9e4f20db5221d13d4746e}
-
+std\-::vector$<$ int $>$ \hyperlink{classEvent_a2b330c8081c3c907a02daa7da8043fc6}{nodes}
 \end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classEvent_a8f1894bd5c65c832e95b42bd4565e631}{\index{\-Event@{\-Event}!\-Event@{\-Event}}
+\index{\-Event@{\-Event}!Event@{\-Event}}
+\subsubsection[{\-Event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Event\-::\-Event} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{tm}]{date, }
+\item[{tm}]{time}
+\end{DoxyParamCaption}
+)}}\label{classEvent_a8f1894bd5c65c832e95b42bd4565e631}
+
+
+\-Create a new event and initilise it with a name, date and time. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em name} & the name of the event \\
+\hline
+{\em date} & the date of the event \\
+\hline
+{\em time} & the time of the event \\
+\hline
+\end{DoxyParams}
+\hypertarget{classEvent_a7704ec01ce91e673885792054214b3d2}{\index{\-Event@{\-Event}!$\sim$\-Event@{$\sim$\-Event}}
+\index{$\sim$\-Event@{$\sim$\-Event}!Event@{\-Event}}
+\subsubsection[{$\sim$\-Event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Event\-::$\sim$\-Event} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classEvent_a7704ec01ce91e673885792054214b3d2}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classEvent_a1a1fba26c0066499be299b3d3ff938b5}{\index{\-Event@{\-Event}!\-Add\-Course@{\-Add\-Course}}
+\index{\-Add\-Course@{\-Add\-Course}!Event@{\-Event}}
+\subsubsection[{\-Add\-Course}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-::\-Add\-Course} (
+\begin{DoxyParamCaption}
+\item[{char}]{id, }
+\item[{std\-::vector$<$ int $>$}]{nodes}
+\end{DoxyParamCaption}
+)}}\label{classEvent_a1a1fba26c0066499be299b3d3ff938b5}
+
+
+\-Add a course to this event. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em id} & the id of the course \\
+\hline
+{\em nodes} & the vector of nodes for the course \\
+\hline
+\end{DoxyParams}
+\hypertarget{classEvent_af38a15ffed314b5251a124f45ea41575}{\index{\-Event@{\-Event}!\-Add\-Entrant@{\-Add\-Entrant}}
+\index{\-Add\-Entrant@{\-Add\-Entrant}!Event@{\-Event}}
+\subsubsection[{\-Add\-Entrant}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-::\-Add\-Entrant} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name, }
+\item[{int}]{id, }
+\item[{char}]{course}
+\end{DoxyParamCaption}
+)}}\label{classEvent_af38a15ffed314b5251a124f45ea41575}
+
+
+\-Add an entrant to this event. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em name} & the name of the entrant \\
+\hline
+{\em id} & the id of the entrant \\
+\hline
+{\em course} & the if of the entrant's course \\
+\hline
+\end{DoxyParams}
+\hypertarget{classEvent_a7fc2ac39ff5fc682762451b277c73d68}{\index{\-Event@{\-Event}!\-Get\-Courses@{\-Get\-Courses}}
+\index{\-Get\-Courses@{\-Get\-Courses}!Event@{\-Event}}
+\subsubsection[{\-Get\-Courses}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf \-Course} $>$ {\bf \-Event\-::\-Get\-Courses} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classEvent_a7fc2ac39ff5fc682762451b277c73d68}
+
+
+\-Get the list of courses for this event. 
+
+\begin{DoxyReturn}{\-Returns}
+the vector of courses for an event 
+\end{DoxyReturn}
+\hypertarget{classEvent_a0d3002c0e3961c360fa0f11412bf1e5c}{\index{\-Event@{\-Event}!\-Get\-Date@{\-Get\-Date}}
+\index{\-Get\-Date@{\-Get\-Date}!Event@{\-Event}}
+\subsubsection[{\-Get\-Date}]{\setlength{\rightskip}{0pt plus 5cm}tm {\bf \-Event\-::\-Get\-Date} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classEvent_a0d3002c0e3961c360fa0f11412bf1e5c}
+
+
+\-Get the date of this event. 
+
+\begin{DoxyReturn}{\-Returns}
+the date of this event 
+\end{DoxyReturn}
+\hypertarget{classEvent_ab0232dfcc1b986cb2a79fef05b2d7efc}{\index{\-Event@{\-Event}!\-Get\-Entrants@{\-Get\-Entrants}}
+\index{\-Get\-Entrants@{\-Get\-Entrants}!Event@{\-Event}}
+\subsubsection[{\-Get\-Entrants}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ {\bf \-Entrant} $>$ {\bf \-Event\-::\-Get\-Entrants} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classEvent_ab0232dfcc1b986cb2a79fef05b2d7efc}
+
+
+\-Get the list of entrants for this event. 
+
+\begin{DoxyReturn}{\-Returns}
+the vector of entrants for an event 
+\end{DoxyReturn}
+\hypertarget{classEvent_af4202c6d2371029b117d37ba7cc12ae6}{\index{\-Event@{\-Event}!\-Get\-Name@{\-Get\-Name}}
+\index{\-Get\-Name@{\-Get\-Name}!Event@{\-Event}}
+\subsubsection[{\-Get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-Event\-::\-Get\-Name} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classEvent_af4202c6d2371029b117d37ba7cc12ae6}
+
+
+\-Get the name of this event. 
+
+\begin{DoxyReturn}{\-Returns}
+the name of this event 
+\end{DoxyReturn}
+\hypertarget{classEvent_ae3b200210aa9e4f20db5221d13d4746e}{\index{\-Event@{\-Event}!\-Get\-Nodes@{\-Get\-Nodes}}
+\index{\-Get\-Nodes@{\-Get\-Nodes}!Event@{\-Event}}
+\subsubsection[{\-Get\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ int $>$ {\bf \-Event\-::\-Get\-Nodes} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classEvent_ae3b200210aa9e4f20db5221d13d4746e}
+
+
+\-Get the list of nodes for this event. 
+
+\begin{DoxyReturn}{\-Returns}
+the vector of nodes for this event 
+\end{DoxyReturn}
+\hypertarget{classEvent_aad5efdddefaa7de4196d1f22fce2c51e}{\index{\-Event@{\-Event}!\-Get\-Time@{\-Get\-Time}}
+\index{\-Get\-Time@{\-Get\-Time}!Event@{\-Event}}
+\subsubsection[{\-Get\-Time}]{\setlength{\rightskip}{0pt plus 5cm}tm {\bf \-Event\-::\-Get\-Time} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classEvent_aad5efdddefaa7de4196d1f22fce2c51e}
+
+
+\-Get the time of this event. 
+
+\begin{DoxyReturn}{\-Returns}
+the time of this event 
+\end{DoxyReturn}
+\hypertarget{classEvent_a894b95d4d8b4844798ec95fa5ef8141a}{\index{\-Event@{\-Event}!\-Set\-Courses@{\-Set\-Courses}}
+\index{\-Set\-Courses@{\-Set\-Courses}!Event@{\-Event}}
+\subsubsection[{\-Set\-Courses}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-::\-Set\-Courses} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf \-Course} $>$}]{courses}
+\end{DoxyParamCaption}
+)}}\label{classEvent_a894b95d4d8b4844798ec95fa5ef8141a}
+
+
+\-Set the list of courses for this event. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em courses} & the vector of courses for an event \\
+\hline
+\end{DoxyParams}
+\hypertarget{classEvent_a5f606cada35150b7c9ad554f4252b53c}{\index{\-Event@{\-Event}!\-Set\-Date@{\-Set\-Date}}
+\index{\-Set\-Date@{\-Set\-Date}!Event@{\-Event}}
+\subsubsection[{\-Set\-Date}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-::\-Set\-Date} (
+\begin{DoxyParamCaption}
+\item[{tm}]{date}
+\end{DoxyParamCaption}
+)}}\label{classEvent_a5f606cada35150b7c9ad554f4252b53c}
+
+
+\-Set the date of this event. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em date} & the date of this event \\
+\hline
+\end{DoxyParams}
+\hypertarget{classEvent_a11e2729e7676c2950dfc7cb56dbbea94}{\index{\-Event@{\-Event}!\-Set\-Entrants@{\-Set\-Entrants}}
+\index{\-Set\-Entrants@{\-Set\-Entrants}!Event@{\-Event}}
+\subsubsection[{\-Set\-Entrants}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-::\-Set\-Entrants} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf \-Entrant} $>$}]{entrants}
+\end{DoxyParamCaption}
+)}}\label{classEvent_a11e2729e7676c2950dfc7cb56dbbea94}
+
+
+\-Set the list of entrants for this event. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em entrants} & the vector of entrants for an event \\
+\hline
+\end{DoxyParams}
+\hypertarget{classEvent_a2c91dbd3d7a2a3c31895d9f16a55f70e}{\index{\-Event@{\-Event}!\-Set\-Name@{\-Set\-Name}}
+\index{\-Set\-Name@{\-Set\-Name}!Event@{\-Event}}
+\subsubsection[{\-Set\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-::\-Set\-Name} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name}
+\end{DoxyParamCaption}
+)}}\label{classEvent_a2c91dbd3d7a2a3c31895d9f16a55f70e}
+
+
+\-Set the name of this event. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em name} & the name of this event \\
+\hline
+\end{DoxyParams}
+\hypertarget{classEvent_a8f68ec5701be042f63a4f277af171adc}{\index{\-Event@{\-Event}!\-Set\-Nodes@{\-Set\-Nodes}}
+\index{\-Set\-Nodes@{\-Set\-Nodes}!Event@{\-Event}}
+\subsubsection[{\-Set\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-::\-Set\-Nodes} (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ int $>$}]{nodes}
+\end{DoxyParamCaption}
+)}}\label{classEvent_a8f68ec5701be042f63a4f277af171adc}
+
+
+\-Set the list of nodes for this event. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em nodes} & the vector of nodes for this event \\
+\hline
+\end{DoxyParams}
+\hypertarget{classEvent_a693cefccd31003ade280a7e737f8be6c}{\index{\-Event@{\-Event}!\-Set\-Time@{\-Set\-Time}}
+\index{\-Set\-Time@{\-Set\-Time}!Event@{\-Event}}
+\subsubsection[{\-Set\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-::\-Set\-Time} (
+\begin{DoxyParamCaption}
+\item[{tm}]{time}
+\end{DoxyParamCaption}
+)}}\label{classEvent_a693cefccd31003ade280a7e737f8be6c}
+
+
+\-Set the time of this event. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em time} & the time of this event \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classEvent_a54f5b521beee9f8714ac33e304c948b0}{\index{\-Event@{\-Event}!courses@{courses}}
+\index{courses@{courses}!Event@{\-Event}}
+\subsubsection[{courses}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf \-Course}$>$ {\bf \-Event\-::courses}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEvent_a54f5b521beee9f8714ac33e304c948b0}
+\hypertarget{classEvent_a5df9ecce46e9db33b3b29b99156aa70a}{\index{\-Event@{\-Event}!date@{date}}
+\index{date@{date}!Event@{\-Event}}
+\subsubsection[{date}]{\setlength{\rightskip}{0pt plus 5cm}tm {\bf \-Event\-::date}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEvent_a5df9ecce46e9db33b3b29b99156aa70a}
+\hypertarget{classEvent_adede353249fa65a02148e7fcce077449}{\index{\-Event@{\-Event}!entrants@{entrants}}
+\index{entrants@{entrants}!Event@{\-Event}}
+\subsubsection[{entrants}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf \-Entrant}$>$ {\bf \-Event\-::entrants}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEvent_adede353249fa65a02148e7fcce077449}
+\hypertarget{classEvent_ae116bf76fb01a92e000579a5a0d6f35c}{\index{\-Event@{\-Event}!name@{name}}
+\index{name@{name}!Event@{\-Event}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-Event\-::name}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEvent_ae116bf76fb01a92e000579a5a0d6f35c}
+\hypertarget{classEvent_a2b330c8081c3c907a02daa7da8043fc6}{\index{\-Event@{\-Event}!nodes@{nodes}}
+\index{nodes@{nodes}!Event@{\-Event}}
+\subsubsection[{nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$int$>$ {\bf \-Event\-::nodes}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEvent_a2b330c8081c3c907a02daa7da8043fc6}
+\hypertarget{classEvent_a91d5938dce4b4328e35f5626c22ec844}{\index{\-Event@{\-Event}!time@{time}}
+\index{time@{time}!Event@{\-Event}}
+\subsubsection[{time}]{\setlength{\rightskip}{0pt plus 5cm}tm {\bf \-Event\-::time}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEvent_a91d5938dce4b4328e35f5626c22ec844}
 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-event.\-h\item 
-event.\-cpp\end{DoxyCompactItemize}
+\hyperlink{event_8h}{event.\-h}\item 
+\hyperlink{event_8cpp}{event.\-cpp}\end{DoxyCompactItemize}

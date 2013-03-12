@@ -1,15 +1,15 @@
 
+/**
+ * @file   ioscanner.h
+ * @author Samuel Jackson (slj11@aber.ac.uk)
+ * @date 09 March 2013
+ * @brief class to read user input in from the command line in a variety of formats.
+ */
+
 #ifndef IOSCANNER_H
 #define	IOSCANNER_H
 
 #include <string>
-
-/**
- * @file   ioscanner.h
- * @Author Samuel Jackson (slj11@aber.ac.uk)
- * @date 09 March 2013
- * @brief class to read user input in from the command line in a variety of formats.
- */
 
 class IOScanner {
 public:

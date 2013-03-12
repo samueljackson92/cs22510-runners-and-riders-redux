@@ -1,8 +1,8 @@
-/* 
- * File:   FileIO.cpp
- * Author: samuel
- * 
- * Created on 09 March 2013, 15:56
+/**
+ * @file   fileio.cpp
+ * @author Samuel Jackson (slj11@aber.ac.uk)
+ * @date 09 March 2013
+ * @brief class to read in data files and write out the created event.
  */
 
 #include <iostream>
@@ -19,15 +19,26 @@
 FileIO::FileIO() {
 }
 
-void FileIO::WriteEvent(Event e) {
-	mkdir (e.GetName().c_str(), 0755);
+/**
+ * Write an event to file. This makes the courses, entrants and
+ * name files.
+ * @param evt the event to be written to file
+ */
+void FileIO::WriteEvent(Event evt) {
+	mkdir (evt.GetName().c_str(), 0755);
 
-    WriteEventFile(e.GetName() + "/name.txt", e);
-    WriteCoursesFile(e.GetName() + "/courses.txt", e.GetCourses());
-    WriteEntrantsFile(e.GetName() + "/entrants.txt", e.GetEntrants());
+    WriteEventFile(evt.GetName() + "/name.txt", evt);
+    WriteCoursesFile(evt.GetName() + "/courses.txt", evt.GetCourses());
+    WriteEntrantsFile(evt.GetName() + "/entrants.txt", evt.GetEntrants());
 
 }
 
+/**
+ * Member function to write a vector of courses to a file
+ * @param filename the name and path to create the file
+ * @param courses the vector of courses to write to file
+ * @return whether the write operation was successful
+ */
 bool FileIO::WriteCoursesFile(std::string filename, 
         std::vector<Course> courses) {
     using namespace std;
@@ -53,6 +64,12 @@ bool FileIO::WriteCoursesFile(std::string filename,
     return success;
 }
 
+/**
+ * Member function to write a vector of entrants to a file
+ * @param filename the name and path to create the file
+ * @param entrants the vector of entrants to write to file
+ * @return whether the write operation was successful
+ */
 bool FileIO::WriteEntrantsFile(std::string filename, 
         std::vector<Entrant> entrants) {
     using namespace std;
@@ -73,6 +90,11 @@ bool FileIO::WriteEntrantsFile(std::string filename,
     return success;
 }
 
+/**
+ * Member function to read in a list of nodes for a given file
+ * @param filename the name and path to the nodes file
+ * @return vector of nodes read in from file.
+ */
 std::vector<int> FileIO::readNodesList(std::string filename) {
     using namespace std;
     string input = "";
@@ -102,7 +124,13 @@ std::vector<int> FileIO::readNodesList(std::string filename) {
     
 }
 
-bool FileIO::WriteEventFile(std::string filename, Event e) {
+/**
+ * Member function to write an event to a file
+ * @param filename the name and path to create the file
+ * @param event the event to write to file
+ * @return whether the write operation was successful
+ */
+bool FileIO::WriteEventFile(std::string filename, Event event) {
     using namespace std;
     ostringstream outputDate;
     ostringstream timeString;
@@ -111,9 +139,9 @@ bool FileIO::WriteEventFile(std::string filename, Event e) {
     char year[5];
     ofstream out(filename.c_str());
         
-    string name = e.GetName();
-    tm date = e.GetDate();
-    tm time = e.GetTime();
+    string name = event.GetName();
+    tm date = event.GetDate();
+    tm time = event.GetTime();
     
  
     if (out.is_open()) {
@@ -141,6 +169,12 @@ bool FileIO::WriteEventFile(std::string filename, Event e) {
 
 }
 
+/**
+ * Member function to get the postfix of the date's day
+ * will return a string with either 'st', 'nd' or 'rd'.
+ * @param day the day to get the postfix for
+ * @return the postfix for the date's day
+ */
 std::string FileIO::GetDayPostfix(int day) {
     std::string postfix = "th";
     switch(day) {

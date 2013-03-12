@@ -1,6 +1,9 @@
 /**
- * @file eventcreator.cpp
- * @brief class to read user input in from the command line in a variety of formats.
+ * @file   eventcreator.cpp
+ * @author Samuel Jackson (slj11@aber.ac.uk)
+ * @date 09 March 2013
+ * @brief class to create courses, entrants and events.
+ * Also outputs and handles user navigation between menus.
  */
 
 #include <iostream>
@@ -13,6 +16,9 @@
 #include "fileio.h"
 #include "event.h"
 
+/**
+ * Initialises the event creator program and outputs startup message
+ */
 EventCreator::EventCreator() {
     using namespace std;
     
@@ -21,6 +27,9 @@ EventCreator::EventCreator() {
     cout << "----------------------" << endl << endl;
 }
 
+/**
+ * Displays the main menu to the user and processes users choice
+ */
 void EventCreator::ShowMainMenu() {
     using namespace std;
     int input = 0;
@@ -63,6 +72,9 @@ void EventCreator::ShowMainMenu() {
     } while (input != 6);
 }
 
+/**
+ * Member function to create a new event on the system.
+ */
 void EventCreator::MakeEvent() {
     using namespace std;
     string evt_name;
@@ -86,6 +98,9 @@ void EventCreator::MakeEvent() {
     events.push_back(e);
 }
 
+/**
+ * Member function to add a new entrant to an event.
+ */
 void EventCreator::AddEntrants() {
     using namespace std;
     int eventIndex = ChooseEvent();
@@ -94,9 +109,11 @@ void EventCreator::AddEntrants() {
     int id;
     char course;
     
+    //if user picked an event
     if(eventIndex >= 0) {
         Event event = events[eventIndex];
         
+        //check if we have some courses already.
         if(event.GetCourses().size() > 0) {
             cout << "Enter number of entrants to add: " << endl;
 
@@ -104,6 +121,8 @@ void EventCreator::AddEntrants() {
                 numEntrants = scanner.ReadInt();
                 if(numEntrants <=0) {
                     cout << "Not a valid number of entrants" << endl;
+                } else if (numEntrants > 50) {
+                	cout << "Too many entrants to create at once!" << endl;
                 }
             } while (numEntrants <= 0);
 
@@ -121,6 +140,10 @@ void EventCreator::AddEntrants() {
     }
 }
 
+/**
+ * Choose an event to work with if there are events on the system.
+ * @return the id of the chosen event
+ */
 int EventCreator::ChooseEvent() {
     using namespace std;
     int index = -1;
@@ -148,6 +171,11 @@ int EventCreator::ChooseEvent() {
     return index;
 }
 
+/**
+ * Choose a course based on the selected event
+ * @param event the currently selected event
+ * @return the id of the chosen course
+ */
 char EventCreator::ChooseCourse(Event event) {
     using namespace std;
     bool validChoice = false;
@@ -177,6 +205,9 @@ char EventCreator::ChooseCourse(Event event) {
     return choice;
 }
 
+/**
+ * Create a course based on the selected event
+ */
 void EventCreator::CreateCourse() {
     using namespace std;
     int eventIndex = ChooseEvent();
@@ -200,6 +231,7 @@ void EventCreator::CreateCourse() {
             } while(node != 0);
             
             //convert numerical index to character index
+            // e.g. ASCII 'A' is 65, 'B' is 66 etc.
             char id = (int)event.GetCourses().size()+65;
             
             event.AddCourse(id, courseNodes);
@@ -211,6 +243,10 @@ void EventCreator::CreateCourse() {
     }
 }
 
+/**
+ * View an event on the system. This will list all course and
+ * entrants associated with the chosen event.
+ */
 void EventCreator::ViewEvent() {
     using namespace std;
     int eventIndex = ChooseEvent();
@@ -250,9 +286,15 @@ void EventCreator::ViewEvent() {
 EventCreator::~EventCreator() {
 }
 
+/**
+ * Main method and application entry point.
+ * Simply shows the main menu.
+ *
+ * @param argc the number of command line arguments
+ * @param argv the char array of command line arguments
+ * @return program exit status (0)
+ */
 int main(int argc, char** argv) {
-    using namespace std;
-    
     EventCreator ec;
     ec.ShowMainMenu();
     return 0;

@@ -1,27 +1,175 @@
 \hypertarget{classFileIO}{\section{\-File\-I\-O \-Class \-Reference}
 \label{classFileIO}\index{\-File\-I\-O@{\-File\-I\-O}}
 }
+
+
+{\ttfamily \#include $<$fileio.\-h$>$}
+
 \subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classFileIO_ae08f875719305997f40dd2971feae32d}{bool {\bfseries \-Write\-Courses\-File} (std\-::string filename, std\-::vector$<$ \hyperlink{classCourse}{\-Course} $>$ courses)}\label{classFileIO_ae08f875719305997f40dd2971feae32d}
-
+\hyperlink{classFileIO_a8b0d602c3461181e12c05f655dea5018}{\-File\-I\-O} ()
 \item 
-\hypertarget{classFileIO_a6ae3512e650f4bdf7413d99856f36722}{bool {\bfseries \-Write\-Entrants\-File} (std\-::string filename, std\-::vector$<$ \hyperlink{classEntrant}{\-Entrant} $>$ entrants)}\label{classFileIO_a6ae3512e650f4bdf7413d99856f36722}
-
-\item 
-\hypertarget{classFileIO_ac97971c675d1398f98fd9c0ffbb3b278}{bool {\bfseries \-Write\-Event\-File} (std\-::string filename, \hyperlink{classEvent}{\-Event} e)}\label{classFileIO_ac97971c675d1398f98fd9c0ffbb3b278}
-
-\item 
-\hypertarget{classFileIO_a5dd25c0348cbb2de0a8b5ad8849362ab}{void {\bfseries \-Write\-Event} (\hyperlink{classEvent}{\-Event} e)}\label{classFileIO_a5dd25c0348cbb2de0a8b5ad8849362ab}
-
-\item 
-\hypertarget{classFileIO_a2307b9dbc55e0385337544c856ee16eb}{std\-::vector$<$ int $>$ {\bfseries read\-Nodes\-List} (std\-::string filename)}\label{classFileIO_a2307b9dbc55e0385337544c856ee16eb}
-
+bool \hyperlink{classFileIO_ae08f875719305997f40dd2971feae32d}{\-Write\-Courses\-File} (std\-::string filename, std\-::vector$<$ \hyperlink{classCourse}{\-Course} $>$ courses)
+\begin{DoxyCompactList}\small\item\em \-Member function to write a vector of courses to a file. \end{DoxyCompactList}\item 
+bool \hyperlink{classFileIO_a6ae3512e650f4bdf7413d99856f36722}{\-Write\-Entrants\-File} (std\-::string filename, std\-::vector$<$ \hyperlink{classEntrant}{\-Entrant} $>$ entrants)
+\begin{DoxyCompactList}\small\item\em \-Member function to write a vector of entrants to a file. \end{DoxyCompactList}\item 
+bool \hyperlink{classFileIO_ac97971c675d1398f98fd9c0ffbb3b278}{\-Write\-Event\-File} (std\-::string filename, \hyperlink{classEvent}{\-Event} e)
+\begin{DoxyCompactList}\small\item\em \-Member function to write an event to a file. \end{DoxyCompactList}\item 
+void \hyperlink{classFileIO_a5dd25c0348cbb2de0a8b5ad8849362ab}{\-Write\-Event} (\hyperlink{classEvent}{\-Event} e)
+\begin{DoxyCompactList}\small\item\em \-Write an event to file. \end{DoxyCompactList}\item 
+std\-::vector$<$ int $>$ \hyperlink{classFileIO_a2307b9dbc55e0385337544c856ee16eb}{read\-Nodes\-List} (std\-::string filename)
+\begin{DoxyCompactList}\small\item\em \-Member function to read in a list of nodes for a given file. \end{DoxyCompactList}\item 
+virtual \hyperlink{classFileIO_adc3caa8f1e5d76274d8ffb8b5c17288b}{$\sim$\-File\-I\-O} ()
 \end{DoxyCompactItemize}
+\subsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{classFileIO_a712a04639c12b222fa2cc7b9dfa08cf1}{\-Get\-Day\-Postfix} (int day)
+\begin{DoxyCompactList}\small\item\em \-Member function to get the postfix of the date's day will return a string with either 'st', 'nd' or 'rd'. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classFileIO_a8b0d602c3461181e12c05f655dea5018}{\index{\-File\-I\-O@{\-File\-I\-O}!\-File\-I\-O@{\-File\-I\-O}}
+\index{\-File\-I\-O@{\-File\-I\-O}!FileIO@{\-File\-I\-O}}
+\subsubsection[{\-File\-I\-O}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-File\-I\-O\-::\-File\-I\-O} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classFileIO_a8b0d602c3461181e12c05f655dea5018}
+\hypertarget{classFileIO_adc3caa8f1e5d76274d8ffb8b5c17288b}{\index{\-File\-I\-O@{\-File\-I\-O}!$\sim$\-File\-I\-O@{$\sim$\-File\-I\-O}}
+\index{$\sim$\-File\-I\-O@{$\sim$\-File\-I\-O}!FileIO@{\-File\-I\-O}}
+\subsubsection[{$\sim$\-File\-I\-O}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-File\-I\-O\-::$\sim$\-File\-I\-O} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classFileIO_adc3caa8f1e5d76274d8ffb8b5c17288b}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classFileIO_a712a04639c12b222fa2cc7b9dfa08cf1}{\index{\-File\-I\-O@{\-File\-I\-O}!\-Get\-Day\-Postfix@{\-Get\-Day\-Postfix}}
+\index{\-Get\-Day\-Postfix@{\-Get\-Day\-Postfix}!FileIO@{\-File\-I\-O}}
+\subsubsection[{\-Get\-Day\-Postfix}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string {\bf \-File\-I\-O\-::\-Get\-Day\-Postfix} (
+\begin{DoxyParamCaption}
+\item[{int}]{day}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFileIO_a712a04639c12b222fa2cc7b9dfa08cf1}
+
+
+\-Member function to get the postfix of the date's day will return a string with either 'st', 'nd' or 'rd'. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em day} & the day to get the postfix for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the postfix for the date's day 
+\end{DoxyReturn}
+\hypertarget{classFileIO_a2307b9dbc55e0385337544c856ee16eb}{\index{\-File\-I\-O@{\-File\-I\-O}!read\-Nodes\-List@{read\-Nodes\-List}}
+\index{read\-Nodes\-List@{read\-Nodes\-List}!FileIO@{\-File\-I\-O}}
+\subsubsection[{read\-Nodes\-List}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ int $>$ {\bf \-File\-I\-O\-::read\-Nodes\-List} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{filename}
+\end{DoxyParamCaption}
+)}}\label{classFileIO_a2307b9dbc55e0385337544c856ee16eb}
+
+
+\-Member function to read in a list of nodes for a given file. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em filename} & the name and path to the nodes file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+vector of nodes read in from file. 
+\end{DoxyReturn}
+\hypertarget{classFileIO_ae08f875719305997f40dd2971feae32d}{\index{\-File\-I\-O@{\-File\-I\-O}!\-Write\-Courses\-File@{\-Write\-Courses\-File}}
+\index{\-Write\-Courses\-File@{\-Write\-Courses\-File}!FileIO@{\-File\-I\-O}}
+\subsubsection[{\-Write\-Courses\-File}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-File\-I\-O\-::\-Write\-Courses\-File} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{filename, }
+\item[{std\-::vector$<$ {\bf \-Course} $>$}]{courses}
+\end{DoxyParamCaption}
+)}}\label{classFileIO_ae08f875719305997f40dd2971feae32d}
+
+
+\-Member function to write a vector of courses to a file. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em filename} & the name and path to create the file \\
+\hline
+{\em courses} & the vector of courses to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+whether the write operation was successful 
+\end{DoxyReturn}
+\hypertarget{classFileIO_a6ae3512e650f4bdf7413d99856f36722}{\index{\-File\-I\-O@{\-File\-I\-O}!\-Write\-Entrants\-File@{\-Write\-Entrants\-File}}
+\index{\-Write\-Entrants\-File@{\-Write\-Entrants\-File}!FileIO@{\-File\-I\-O}}
+\subsubsection[{\-Write\-Entrants\-File}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-File\-I\-O\-::\-Write\-Entrants\-File} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{filename, }
+\item[{std\-::vector$<$ {\bf \-Entrant} $>$}]{entrants}
+\end{DoxyParamCaption}
+)}}\label{classFileIO_a6ae3512e650f4bdf7413d99856f36722}
+
+
+\-Member function to write a vector of entrants to a file. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em filename} & the name and path to create the file \\
+\hline
+{\em entrants} & the vector of entrants to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+whether the write operation was successful 
+\end{DoxyReturn}
+\hypertarget{classFileIO_a5dd25c0348cbb2de0a8b5ad8849362ab}{\index{\-File\-I\-O@{\-File\-I\-O}!\-Write\-Event@{\-Write\-Event}}
+\index{\-Write\-Event@{\-Write\-Event}!FileIO@{\-File\-I\-O}}
+\subsubsection[{\-Write\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-File\-I\-O\-::\-Write\-Event} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Event}}]{evt}
+\end{DoxyParamCaption}
+)}}\label{classFileIO_a5dd25c0348cbb2de0a8b5ad8849362ab}
+
+
+\-Write an event to file. 
+
+\-This makes the courses, entrants and name files. 
+\begin{DoxyParams}{\-Parameters}
+{\em evt} & the event to be written to file \\
+\hline
+\end{DoxyParams}
+\hypertarget{classFileIO_ac97971c675d1398f98fd9c0ffbb3b278}{\index{\-File\-I\-O@{\-File\-I\-O}!\-Write\-Event\-File@{\-Write\-Event\-File}}
+\index{\-Write\-Event\-File@{\-Write\-Event\-File}!FileIO@{\-File\-I\-O}}
+\subsubsection[{\-Write\-Event\-File}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-File\-I\-O\-::\-Write\-Event\-File} (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{filename, }
+\item[{{\bf \-Event}}]{event}
+\end{DoxyParamCaption}
+)}}\label{classFileIO_ac97971c675d1398f98fd9c0ffbb3b278}
+
+
+\-Member function to write an event to a file. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em filename} & the name and path to create the file \\
+\hline
+{\em event} & the event to write to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+whether the write operation was successful 
+\end{DoxyReturn}
 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-fileio.\-h\item 
-fileio.\-cpp\end{DoxyCompactItemize}
+\hyperlink{fileio_8h}{fileio.\-h}\item 
+\hyperlink{fileio_8cpp}{fileio.\-cpp}\end{DoxyCompactItemize}

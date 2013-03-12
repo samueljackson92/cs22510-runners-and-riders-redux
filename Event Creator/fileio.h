@@ -1,8 +1,8 @@
-/* 
- * File:   FileIO.h
- * Author: samuel
- *
- * Created on 09 March 2013, 15:56
+/**
+ * @file   fileio.h
+ * @author Samuel Jackson (slj11@aber.ac.uk)
+ * @date 09 March 2013
+ * @brief class to read in data files and write out the created event.
  */
 
 #ifndef FILEIO_H

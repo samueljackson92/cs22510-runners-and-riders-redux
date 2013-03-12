@@ -1,8 +1,8 @@
-/* 
- * File:   Entrant.h
- * Author: samuel
- *
- * Created on 09 March 2013, 17:04
+/**
+ * @file   entrant.cpp
+ * @author Samuel Jackson (slj11@aber.ac.uk)
+ * @date 09 March 2013
+ * @brief class to hold data about an entrant in an event.
  */
 
 #ifndef ENTRANT_H

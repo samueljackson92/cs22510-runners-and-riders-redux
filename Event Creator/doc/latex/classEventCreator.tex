@@ -1,15 +1,170 @@
 \hypertarget{classEventCreator}{\section{\-Event\-Creator \-Class \-Reference}
 \label{classEventCreator}\index{\-Event\-Creator@{\-Event\-Creator}}
 }
+
+
+{\ttfamily \#include $<$eventcreator.\-h$>$}
+
 \subsection*{\-Public \-Member \-Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classEventCreator_a0b1f77352fb2ee059087e319ec1c007d}{void {\bfseries \-Show\-Main\-Menu} (void)}\label{classEventCreator_a0b1f77352fb2ee059087e319ec1c007d}
-
+\hyperlink{classEventCreator_a23adb753ff46c970018641ba6cd8ad04}{\-Event\-Creator} ()
+\begin{DoxyCompactList}\small\item\em \-Initialises the event creator program and outputs startup message. \end{DoxyCompactList}\item 
+void \hyperlink{classEventCreator_a0b1f77352fb2ee059087e319ec1c007d}{\-Show\-Main\-Menu} (void)
+\begin{DoxyCompactList}\small\item\em \-Displays the main menu to the user and processes users choice. \end{DoxyCompactList}\item 
+virtual \hyperlink{classEventCreator_a3e1b2dde8d5979b26019e30fe70b3a96}{$\sim$\-Event\-Creator} ()
 \end{DoxyCompactItemize}
+\subsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classEventCreator_aa75feec3c8b162cdc0ec722cb790d89b}{\-Make\-Event} (void)
+\begin{DoxyCompactList}\small\item\em \-Member function to create a new event on the system. \end{DoxyCompactList}\item 
+void \hyperlink{classEventCreator_ac08bc21732115a2c9120047e930d9c0a}{\-Add\-Entrants} (void)
+\begin{DoxyCompactList}\small\item\em \-Member function to add a new entrant to an event. \end{DoxyCompactList}\item 
+void \hyperlink{classEventCreator_ac138263790915b9ada256dd1f1c1db35}{\-Create\-Course} ()
+\begin{DoxyCompactList}\small\item\em \-Create a course based on the selected event. \end{DoxyCompactList}\item 
+int \hyperlink{classEventCreator_a074ab8233bb96a3b8ced83d256065753}{\-Choose\-Event} (void)
+\begin{DoxyCompactList}\small\item\em \-Choose an event to work with if there are events on the system. \end{DoxyCompactList}\item 
+char \hyperlink{classEventCreator_aee16394ee17f9e82879f271deda9fc41}{\-Choose\-Course} (\hyperlink{classEvent}{\-Event} event)
+\begin{DoxyCompactList}\small\item\em \-Choose a course based on the selected event. \end{DoxyCompactList}\item 
+void \hyperlink{classEventCreator_a9451c2b14b634beae55ca2deb31db8d9}{\-View\-Event} (void)
+\begin{DoxyCompactList}\small\item\em \-View an event on the system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFileIO}{\-File\-I\-O} \hyperlink{classEventCreator_a77bc97278893e0291491e9a6c0442289}{fio}
+\item 
+\hyperlink{classIOScanner}{\-I\-O\-Scanner} \hyperlink{classEventCreator_a4386d8f873758f8b15ca461c65ffbda6}{scanner}
+\item 
+std\-::vector$<$ \hyperlink{classEvent}{\-Event} $>$ \hyperlink{classEventCreator_a8912f1587918f32a99ad9d04b80dddb6}{events}
+\end{DoxyCompactItemize}
+
+
+\subsection{\-Constructor \& \-Destructor \-Documentation}
+\hypertarget{classEventCreator_a23adb753ff46c970018641ba6cd8ad04}{\index{\-Event\-Creator@{\-Event\-Creator}!\-Event\-Creator@{\-Event\-Creator}}
+\index{\-Event\-Creator@{\-Event\-Creator}!EventCreator@{\-Event\-Creator}}
+\subsubsection[{\-Event\-Creator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Event\-Creator\-::\-Event\-Creator} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classEventCreator_a23adb753ff46c970018641ba6cd8ad04}
+
+
+\-Initialises the event creator program and outputs startup message. 
+
+\hypertarget{classEventCreator_a3e1b2dde8d5979b26019e30fe70b3a96}{\index{\-Event\-Creator@{\-Event\-Creator}!$\sim$\-Event\-Creator@{$\sim$\-Event\-Creator}}
+\index{$\sim$\-Event\-Creator@{$\sim$\-Event\-Creator}!EventCreator@{\-Event\-Creator}}
+\subsubsection[{$\sim$\-Event\-Creator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-Event\-Creator\-::$\sim$\-Event\-Creator} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}\label{classEventCreator_a3e1b2dde8d5979b26019e30fe70b3a96}
+
+
+\subsection{\-Member \-Function \-Documentation}
+\hypertarget{classEventCreator_ac08bc21732115a2c9120047e930d9c0a}{\index{\-Event\-Creator@{\-Event\-Creator}!\-Add\-Entrants@{\-Add\-Entrants}}
+\index{\-Add\-Entrants@{\-Add\-Entrants}!EventCreator@{\-Event\-Creator}}
+\subsubsection[{\-Add\-Entrants}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-Creator\-::\-Add\-Entrants} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEventCreator_ac08bc21732115a2c9120047e930d9c0a}
+
+
+\-Member function to add a new entrant to an event. 
+
+\hypertarget{classEventCreator_aee16394ee17f9e82879f271deda9fc41}{\index{\-Event\-Creator@{\-Event\-Creator}!\-Choose\-Course@{\-Choose\-Course}}
+\index{\-Choose\-Course@{\-Choose\-Course}!EventCreator@{\-Event\-Creator}}
+\subsubsection[{\-Choose\-Course}]{\setlength{\rightskip}{0pt plus 5cm}char {\bf \-Event\-Creator\-::\-Choose\-Course} (
+\begin{DoxyParamCaption}
+\item[{{\bf \-Event}}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEventCreator_aee16394ee17f9e82879f271deda9fc41}
+
+
+\-Choose a course based on the selected event. 
+
+
+\begin{DoxyParams}{\-Parameters}
+{\em event} & the currently selected event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{\-Returns}
+the id of the chosen course 
+\end{DoxyReturn}
+\hypertarget{classEventCreator_a074ab8233bb96a3b8ced83d256065753}{\index{\-Event\-Creator@{\-Event\-Creator}!\-Choose\-Event@{\-Choose\-Event}}
+\index{\-Choose\-Event@{\-Choose\-Event}!EventCreator@{\-Event\-Creator}}
+\subsubsection[{\-Choose\-Event}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf \-Event\-Creator\-::\-Choose\-Event} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEventCreator_a074ab8233bb96a3b8ced83d256065753}
+
+
+\-Choose an event to work with if there are events on the system. 
+
+\begin{DoxyReturn}{\-Returns}
+the id of the chosen event 
+\end{DoxyReturn}
+\hypertarget{classEventCreator_ac138263790915b9ada256dd1f1c1db35}{\index{\-Event\-Creator@{\-Event\-Creator}!\-Create\-Course@{\-Create\-Course}}
+\index{\-Create\-Course@{\-Create\-Course}!EventCreator@{\-Event\-Creator}}
+\subsubsection[{\-Create\-Course}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-Creator\-::\-Create\-Course} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEventCreator_ac138263790915b9ada256dd1f1c1db35}
+
+
+\-Create a course based on the selected event. 
+
+\hypertarget{classEventCreator_aa75feec3c8b162cdc0ec722cb790d89b}{\index{\-Event\-Creator@{\-Event\-Creator}!\-Make\-Event@{\-Make\-Event}}
+\index{\-Make\-Event@{\-Make\-Event}!EventCreator@{\-Event\-Creator}}
+\subsubsection[{\-Make\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-Creator\-::\-Make\-Event} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEventCreator_aa75feec3c8b162cdc0ec722cb790d89b}
+
+
+\-Member function to create a new event on the system. 
+
+\hypertarget{classEventCreator_a0b1f77352fb2ee059087e319ec1c007d}{\index{\-Event\-Creator@{\-Event\-Creator}!\-Show\-Main\-Menu@{\-Show\-Main\-Menu}}
+\index{\-Show\-Main\-Menu@{\-Show\-Main\-Menu}!EventCreator@{\-Event\-Creator}}
+\subsubsection[{\-Show\-Main\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-Creator\-::\-Show\-Main\-Menu} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{classEventCreator_a0b1f77352fb2ee059087e319ec1c007d}
+
+
+\-Displays the main menu to the user and processes users choice. 
+
+\hypertarget{classEventCreator_a9451c2b14b634beae55ca2deb31db8d9}{\index{\-Event\-Creator@{\-Event\-Creator}!\-View\-Event@{\-View\-Event}}
+\index{\-View\-Event@{\-View\-Event}!EventCreator@{\-Event\-Creator}}
+\subsubsection[{\-View\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-Event\-Creator\-::\-View\-Event} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEventCreator_a9451c2b14b634beae55ca2deb31db8d9}
+
+
+\-View an event on the system. 
+
+\-This will list all course and entrants associated with the chosen event. 
+
+\subsection{\-Member \-Data \-Documentation}
+\hypertarget{classEventCreator_a8912f1587918f32a99ad9d04b80dddb6}{\index{\-Event\-Creator@{\-Event\-Creator}!events@{events}}
+\index{events@{events}!EventCreator@{\-Event\-Creator}}
+\subsubsection[{events}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf \-Event}$>$ {\bf \-Event\-Creator\-::events}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEventCreator_a8912f1587918f32a99ad9d04b80dddb6}
+\hypertarget{classEventCreator_a77bc97278893e0291491e9a6c0442289}{\index{\-Event\-Creator@{\-Event\-Creator}!fio@{fio}}
+\index{fio@{fio}!EventCreator@{\-Event\-Creator}}
+\subsubsection[{fio}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-File\-I\-O} {\bf \-Event\-Creator\-::fio}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEventCreator_a77bc97278893e0291491e9a6c0442289}
+\hypertarget{classEventCreator_a4386d8f873758f8b15ca461c65ffbda6}{\index{\-Event\-Creator@{\-Event\-Creator}!scanner@{scanner}}
+\index{scanner@{scanner}!EventCreator@{\-Event\-Creator}}
+\subsubsection[{scanner}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-I\-O\-Scanner} {\bf \-Event\-Creator\-::scanner}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classEventCreator_a4386d8f873758f8b15ca461c65ffbda6}
 
 
 \-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-eventcreator.\-h\item 
+\hyperlink{eventcreator_8h}{eventcreator.\-h}\item 
 \hyperlink{eventcreator_8cpp}{eventcreator.\-cpp}\end{DoxyCompactItemize}

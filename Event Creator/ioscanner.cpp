@@ -1,3 +1,9 @@
+/**
+ * @file   ioscanner.cpp
+ * @author Samuel Jackson (slj11@aber.ac.uk)
+ * @date 09 March 2013
+ * @brief class to read user input in from the command line in a variety of formats.
+ */
 
 #include <iostream>
 #include <limits>
@@ -6,13 +12,6 @@
 #include <locale>
 
 #include "ioscanner.h"
-
-/**
- * @file   ioscanner.cpp
- * @Author Samuel Jackson (slj11@aber.ac.uk)
- * @date 09 March 2013
- * @brief class to read user input in from the command line in a variety of formats.
- */
 
 IOScanner::IOScanner() {
 }

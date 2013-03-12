@@ -30,7 +30,7 @@
    <div id="projectname">Event Creator
    
    </div>
-   
+   <div id="projectbrief">Event Creation program for the runners and riders project.</div>
   </td>
   
   
@@ -77,50 +77,545 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">Event Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="Event" -->
+<p><code>#include &lt;<a class="el" href="event_8h_source.html">event.h</a>&gt;</code></p>
+
 <p><a href="classEvent-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f1894bd5c65c832e95b42bd4565e631"></a><!-- doxytag: member="Event::Event" ref="a8f1894bd5c65c832e95b42bd4565e631" args="(std::string name, tm date, tm time)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>Event</b> (std::string name, tm date, tm time)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af38a15ffed314b5251a124f45ea41575"></a><!-- doxytag: member="Event::AddEntrant" ref="af38a15ffed314b5251a124f45ea41575" args="(std::string name, int id, char course)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddEntrant</b> (std::string name, int id, char course)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a1fba26c0066499be299b3d3ff938b5"></a><!-- doxytag: member="Event::AddCourse" ref="a1a1fba26c0066499be299b3d3ff938b5" args="(char id, std::vector&lt; int &gt; nodes)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddCourse</b> (char id, std::vector&lt; int &gt; nodes)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a894b95d4d8b4844798ec95fa5ef8141a"></a><!-- doxytag: member="Event::SetCourses" ref="a894b95d4d8b4844798ec95fa5ef8141a" args="(std::vector&lt; Course &gt; courses)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetCourses</b> (std::vector&lt; <a class="el" href="classCourse.html">Course</a> &gt; courses)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fc2ac39ff5fc682762451b277c73d68"></a><!-- doxytag: member="Event::GetCourses" ref="a7fc2ac39ff5fc682762451b277c73d68" args="() const " -->
-std::vector&lt; <a class="el" href="classCourse.html">Course</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetCourses</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a11e2729e7676c2950dfc7cb56dbbea94"></a><!-- doxytag: member="Event::SetEntrants" ref="a11e2729e7676c2950dfc7cb56dbbea94" args="(std::vector&lt; Entrant &gt; entrants)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetEntrants</b> (std::vector&lt; <a class="el" href="classEntrant.html">Entrant</a> &gt; entrants)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0232dfcc1b986cb2a79fef05b2d7efc"></a><!-- doxytag: member="Event::GetEntrants" ref="ab0232dfcc1b986cb2a79fef05b2d7efc" args="() const " -->
-std::vector&lt; <a class="el" href="classEntrant.html">Entrant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetEntrants</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c91dbd3d7a2a3c31895d9f16a55f70e"></a><!-- doxytag: member="Event::SetName" ref="a2c91dbd3d7a2a3c31895d9f16a55f70e" args="(std::string name)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetName</b> (std::string name)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af4202c6d2371029b117d37ba7cc12ae6"></a><!-- doxytag: member="Event::GetName" ref="af4202c6d2371029b117d37ba7cc12ae6" args="() const " -->
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>GetName</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f606cada35150b7c9ad554f4252b53c"></a><!-- doxytag: member="Event::SetDate" ref="a5f606cada35150b7c9ad554f4252b53c" args="(tm date)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetDate</b> (tm date)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d3002c0e3961c360fa0f11412bf1e5c"></a><!-- doxytag: member="Event::GetDate" ref="a0d3002c0e3961c360fa0f11412bf1e5c" args="() const " -->
-tm&#160;</td><td class="memItemRight" valign="bottom"><b>GetDate</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a693cefccd31003ade280a7e737f8be6c"></a><!-- doxytag: member="Event::SetTime" ref="a693cefccd31003ade280a7e737f8be6c" args="(tm time)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetTime</b> (tm time)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad5efdddefaa7de4196d1f22fce2c51e"></a><!-- doxytag: member="Event::GetTime" ref="aad5efdddefaa7de4196d1f22fce2c51e" args="() const " -->
-tm&#160;</td><td class="memItemRight" valign="bottom"><b>GetTime</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f68ec5701be042f63a4f277af171adc"></a><!-- doxytag: member="Event::SetNodes" ref="a8f68ec5701be042f63a4f277af171adc" args="(std::vector&lt; int &gt; nodes)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetNodes</b> (std::vector&lt; int &gt; nodes)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3b200210aa9e4f20db5221d13d4746e"></a><!-- doxytag: member="Event::GetNodes" ref="ae3b200210aa9e4f20db5221d13d4746e" args="() const " -->
-std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetNodes</b> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a8f1894bd5c65c832e95b42bd4565e631">Event</a> (std::string <a class="el" href="classEvent.html#ae116bf76fb01a92e000579a5a0d6f35c">name</a>, tm <a class="el" href="classEvent.html#a5df9ecce46e9db33b3b29b99156aa70a">date</a>, tm <a class="el" href="classEvent.html#a91d5938dce4b4328e35f5626c22ec844">time</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new event and initilise it with a name, date and time.  <a href="#a8f1894bd5c65c832e95b42bd4565e631"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#af38a15ffed314b5251a124f45ea41575">AddEntrant</a> (std::string <a class="el" href="classEvent.html#ae116bf76fb01a92e000579a5a0d6f35c">name</a>, int id, char course)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an entrant to this event.  <a href="#af38a15ffed314b5251a124f45ea41575"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a1a1fba26c0066499be299b3d3ff938b5">AddCourse</a> (char id, std::vector&lt; int &gt; <a class="el" href="classEvent.html#a2b330c8081c3c907a02daa7da8043fc6">nodes</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a course to this event.  <a href="#a1a1fba26c0066499be299b3d3ff938b5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a7704ec01ce91e673885792054214b3d2">~Event</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a894b95d4d8b4844798ec95fa5ef8141a">SetCourses</a> (std::vector&lt; <a class="el" href="classCourse.html">Course</a> &gt; <a class="el" href="classEvent.html#a54f5b521beee9f8714ac33e304c948b0">courses</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the list of courses for this event.  <a href="#a894b95d4d8b4844798ec95fa5ef8141a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classCourse.html">Course</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a7fc2ac39ff5fc682762451b277c73d68">GetCourses</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the list of courses for this event.  <a href="#a7fc2ac39ff5fc682762451b277c73d68"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a11e2729e7676c2950dfc7cb56dbbea94">SetEntrants</a> (std::vector&lt; <a class="el" href="classEntrant.html">Entrant</a> &gt; <a class="el" href="classEvent.html#adede353249fa65a02148e7fcce077449">entrants</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the list of entrants for this event.  <a href="#a11e2729e7676c2950dfc7cb56dbbea94"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classEntrant.html">Entrant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#ab0232dfcc1b986cb2a79fef05b2d7efc">GetEntrants</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the list of entrants for this event.  <a href="#ab0232dfcc1b986cb2a79fef05b2d7efc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a2c91dbd3d7a2a3c31895d9f16a55f70e">SetName</a> (std::string <a class="el" href="classEvent.html#ae116bf76fb01a92e000579a5a0d6f35c">name</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the name of this event.  <a href="#a2c91dbd3d7a2a3c31895d9f16a55f70e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#af4202c6d2371029b117d37ba7cc12ae6">GetName</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the name of this event.  <a href="#af4202c6d2371029b117d37ba7cc12ae6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a5f606cada35150b7c9ad554f4252b53c">SetDate</a> (tm <a class="el" href="classEvent.html#a5df9ecce46e9db33b3b29b99156aa70a">date</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the date of this event.  <a href="#a5f606cada35150b7c9ad554f4252b53c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">tm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a0d3002c0e3961c360fa0f11412bf1e5c">GetDate</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the date of this event.  <a href="#a0d3002c0e3961c360fa0f11412bf1e5c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a693cefccd31003ade280a7e737f8be6c">SetTime</a> (tm <a class="el" href="classEvent.html#a91d5938dce4b4328e35f5626c22ec844">time</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the time of this event.  <a href="#a693cefccd31003ade280a7e737f8be6c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">tm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#aad5efdddefaa7de4196d1f22fce2c51e">GetTime</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the time of this event.  <a href="#aad5efdddefaa7de4196d1f22fce2c51e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a8f68ec5701be042f63a4f277af171adc">SetNodes</a> (std::vector&lt; int &gt; <a class="el" href="classEvent.html#a2b330c8081c3c907a02daa7da8043fc6">nodes</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the list of nodes for this event.  <a href="#a8f68ec5701be042f63a4f277af171adc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#ae3b200210aa9e4f20db5221d13d4746e">GetNodes</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the list of nodes for this event.  <a href="#ae3b200210aa9e4f20db5221d13d4746e"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">tm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a91d5938dce4b4328e35f5626c22ec844">time</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">tm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a5df9ecce46e9db33b3b29b99156aa70a">date</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#ae116bf76fb01a92e000579a5a0d6f35c">name</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classEntrant.html">Entrant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#adede353249fa65a02148e7fcce077449">entrants</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classCourse.html">Course</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a54f5b521beee9f8714ac33e304c948b0">courses</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEvent.html#a2b330c8081c3c907a02daa7da8043fc6">nodes</a></td></tr>
 </table>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a8f1894bd5c65c832e95b42bd4565e631"></a><!-- doxytag: member="Event::Event" ref="a8f1894bd5c65c832e95b42bd4565e631" args="(std::string name, tm date, tm time)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEvent.html#a8f1894bd5c65c832e95b42bd4565e631">Event::Event</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">tm&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">tm&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Create a new event and initilise it with a name, date and time. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name of the event </td></tr>
+    <tr><td class="paramname">date</td><td>the date of the event </td></tr>
+    <tr><td class="paramname">time</td><td>the time of the event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7704ec01ce91e673885792054214b3d2"></a><!-- doxytag: member="Event::~Event" ref="a7704ec01ce91e673885792054214b3d2" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEvent.html#a7704ec01ce91e673885792054214b3d2">Event::~Event</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a1a1fba26c0066499be299b3d3ff938b5"></a><!-- doxytag: member="Event::AddCourse" ref="a1a1fba26c0066499be299b3d3ff938b5" args="(char id, std::vector&lt; int &gt; nodes)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEvent.html#a1a1fba26c0066499be299b3d3ff938b5">Event::AddCourse</a> </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>nodes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Add a course to this event. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>the id of the course </td></tr>
+    <tr><td class="paramname">nodes</td><td>the vector of nodes for the course </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af38a15ffed314b5251a124f45ea41575"></a><!-- doxytag: member="Event::AddEntrant" ref="af38a15ffed314b5251a124f45ea41575" args="(std::string name, int id, char course)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEvent.html#af38a15ffed314b5251a124f45ea41575">Event::AddEntrant</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>course</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Add an entrant to this event. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name of the entrant </td></tr>
+    <tr><td class="paramname">id</td><td>the id of the entrant </td></tr>
+    <tr><td class="paramname">course</td><td>the if of the entrant's course </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7fc2ac39ff5fc682762451b277c73d68"></a><!-- doxytag: member="Event::GetCourses" ref="a7fc2ac39ff5fc682762451b277c73d68" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classCourse.html">Course</a> &gt; <a class="el" href="classEvent.html#a7fc2ac39ff5fc682762451b277c73d68">Event::GetCourses</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the list of courses for this event. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>the vector of courses for an event </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0d3002c0e3961c360fa0f11412bf1e5c"></a><!-- doxytag: member="Event::GetDate" ref="a0d3002c0e3961c360fa0f11412bf1e5c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tm <a class="el" href="classEvent.html#a0d3002c0e3961c360fa0f11412bf1e5c">Event::GetDate</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the date of this event. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>the date of this event </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab0232dfcc1b986cb2a79fef05b2d7efc"></a><!-- doxytag: member="Event::GetEntrants" ref="ab0232dfcc1b986cb2a79fef05b2d7efc" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classEntrant.html">Entrant</a> &gt; <a class="el" href="classEvent.html#ab0232dfcc1b986cb2a79fef05b2d7efc">Event::GetEntrants</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the list of entrants for this event. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>the vector of entrants for an event </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af4202c6d2371029b117d37ba7cc12ae6"></a><!-- doxytag: member="Event::GetName" ref="af4202c6d2371029b117d37ba7cc12ae6" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classEvent.html#af4202c6d2371029b117d37ba7cc12ae6">Event::GetName</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the name of this event. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>the name of this event </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae3b200210aa9e4f20db5221d13d4746e"></a><!-- doxytag: member="Event::GetNodes" ref="ae3b200210aa9e4f20db5221d13d4746e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; int &gt; <a class="el" href="classEvent.html#ae3b200210aa9e4f20db5221d13d4746e">Event::GetNodes</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the list of nodes for this event. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>the vector of nodes for this event </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aad5efdddefaa7de4196d1f22fce2c51e"></a><!-- doxytag: member="Event::GetTime" ref="aad5efdddefaa7de4196d1f22fce2c51e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tm <a class="el" href="classEvent.html#aad5efdddefaa7de4196d1f22fce2c51e">Event::GetTime</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the time of this event. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>the time of this event </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a894b95d4d8b4844798ec95fa5ef8141a"></a><!-- doxytag: member="Event::SetCourses" ref="a894b95d4d8b4844798ec95fa5ef8141a" args="(std::vector&lt; Course &gt; courses)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEvent.html#a894b95d4d8b4844798ec95fa5ef8141a">Event::SetCourses</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classCourse.html">Course</a> &gt;&#160;</td>
+          <td class="paramname"><em>courses</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the list of courses for this event. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">courses</td><td>the vector of courses for an event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5f606cada35150b7c9ad554f4252b53c"></a><!-- doxytag: member="Event::SetDate" ref="a5f606cada35150b7c9ad554f4252b53c" args="(tm date)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEvent.html#a5f606cada35150b7c9ad554f4252b53c">Event::SetDate</a> </td>
+          <td>(</td>
+          <td class="paramtype">tm&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the date of this event. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">date</td><td>the date of this event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a11e2729e7676c2950dfc7cb56dbbea94"></a><!-- doxytag: member="Event::SetEntrants" ref="a11e2729e7676c2950dfc7cb56dbbea94" args="(std::vector&lt; Entrant &gt; entrants)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEvent.html#a11e2729e7676c2950dfc7cb56dbbea94">Event::SetEntrants</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classEntrant.html">Entrant</a> &gt;&#160;</td>
+          <td class="paramname"><em>entrants</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the list of entrants for this event. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entrants</td><td>the vector of entrants for an event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2c91dbd3d7a2a3c31895d9f16a55f70e"></a><!-- doxytag: member="Event::SetName" ref="a2c91dbd3d7a2a3c31895d9f16a55f70e" args="(std::string name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEvent.html#a2c91dbd3d7a2a3c31895d9f16a55f70e">Event::SetName</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the name of this event. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>the name of this event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8f68ec5701be042f63a4f277af171adc"></a><!-- doxytag: member="Event::SetNodes" ref="a8f68ec5701be042f63a4f277af171adc" args="(std::vector&lt; int &gt; nodes)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEvent.html#a8f68ec5701be042f63a4f277af171adc">Event::SetNodes</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>nodes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the list of nodes for this event. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodes</td><td>the vector of nodes for this event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a693cefccd31003ade280a7e737f8be6c"></a><!-- doxytag: member="Event::SetTime" ref="a693cefccd31003ade280a7e737f8be6c" args="(tm time)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classEvent.html#a693cefccd31003ade280a7e737f8be6c">Event::SetTime</a> </td>
+          <td>(</td>
+          <td class="paramtype">tm&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the time of this event. </p>
+<dl class="params"><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>the time of this event </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a54f5b521beee9f8714ac33e304c948b0"></a><!-- doxytag: member="Event::courses" ref="a54f5b521beee9f8714ac33e304c948b0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classCourse.html">Course</a>&gt; <a class="el" href="classEvent.html#a54f5b521beee9f8714ac33e304c948b0">Event::courses</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5df9ecce46e9db33b3b29b99156aa70a"></a><!-- doxytag: member="Event::date" ref="a5df9ecce46e9db33b3b29b99156aa70a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tm <a class="el" href="classEvent.html#a5df9ecce46e9db33b3b29b99156aa70a">Event::date</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="adede353249fa65a02148e7fcce077449"></a><!-- doxytag: member="Event::entrants" ref="adede353249fa65a02148e7fcce077449" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classEntrant.html">Entrant</a>&gt; <a class="el" href="classEvent.html#adede353249fa65a02148e7fcce077449">Event::entrants</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae116bf76fb01a92e000579a5a0d6f35c"></a><!-- doxytag: member="Event::name" ref="ae116bf76fb01a92e000579a5a0d6f35c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string <a class="el" href="classEvent.html#ae116bf76fb01a92e000579a5a0d6f35c">Event::name</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2b330c8081c3c907a02daa7da8043fc6"></a><!-- doxytag: member="Event::nodes" ref="a2b330c8081c3c907a02daa7da8043fc6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;int&gt; <a class="el" href="classEvent.html#a2b330c8081c3c907a02daa7da8043fc6">Event::nodes</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a91d5938dce4b4328e35f5626c22ec844"></a><!-- doxytag: member="Event::time" ref="a91d5938dce4b4328e35f5626c22ec844" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">tm <a class="el" href="classEvent.html#a91d5938dce4b4328e35f5626c22ec844">Event::time</a><code> [private]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="event_8h_source.html">event.h</a></li>
-<li>event.cpp</li>
+<li><a class="el" href="event_8cpp.html">event.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- window showing the filter options -->
@@ -128,7 +623,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>G
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -140,7 +635,7 @@ std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>G
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 12 2013 17:30:42 for Event Creator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 12 2013 18:18:56 for Event Creator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

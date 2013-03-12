@@ -1,8 +1,8 @@
-/* 
- * File:   event.h
- * Author: samuel
- *
- * Created on 09 March 2013, 17:02
+/**
+ * @file   event.h
+ * @author Samuel Jackson (slj11@aber.ac.uk)
+ * @date 09 March 2013
+ * @brief class to hold data about an event.
  */
 
 #ifndef EVENT_H

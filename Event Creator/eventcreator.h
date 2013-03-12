@@ -1,3 +1,9 @@
+/**
+ * @file   eventcreator.h
+ * @author Samuel Jackson (slj11@aber.ac.uk)
+ * @date 09 March 2013
+ * @brief class to create courses, entrants and events.
+ */
 
 #ifndef MENU_H
 #define	MENU_H
