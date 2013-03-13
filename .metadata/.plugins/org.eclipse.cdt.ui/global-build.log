@@ -592,3 +592,6 @@ Invoking: GCC C++ Linker
 g++  -o "Event Creator"  ./course.o ./entrant.o ./event.o ./eventcreator.o ./fileio.o ./ioscanner.o   
 Finished building target: Event Creator
  
+19:41:04 **** Incremental Build of configuration Debug for project Event Creator ****
+make all 
+make: Nothing to be done for `all'.

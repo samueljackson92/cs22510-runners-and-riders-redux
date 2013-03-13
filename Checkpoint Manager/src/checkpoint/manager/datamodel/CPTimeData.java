@@ -142,13 +142,6 @@ public class CPTimeData implements Comparable<CPTimeData> {
 	 */
 	@Override
 	public int compareTo(CPTimeData t) {
-        Date compareDate = t.getTime();
-        
-        Calendar c = Calendar.getInstance();
-        c.setTime(compareDate);
-        c.set(1970, 1, 1);
-        compareDate = c.getTime();
-        
-        return time.compareTo(compareDate);
+    	return sdf.format(time).compareTo(sdf.format(t.getTime()));
 	}
 }   

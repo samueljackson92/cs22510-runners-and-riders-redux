@@ -305,21 +305,25 @@ public class FileIO {
      * @param updateText the message to output to the log file
      * @throws FileNotFoundException exception thrown when file cannot be found.
      * @throws IOException Signals that an unexpected I/O exception has occurred.
+     * @return true, if successful at writing
      */
-    public void writeLog(String updateText) throws FileNotFoundException, IOException {
+    public boolean writeLog(String updateText) throws FileNotFoundException, IOException {
         String outputStr;
         Date time = new Date();
         FileOutputStream fis = new FileOutputStream(new File(filenames.get("log")), true);
         FileLock fl = fis.getChannel().tryLock();
         PrintWriter writer = new PrintWriter(fis);
-        
+        boolean writeSuccess = false;
         //we have file lock
         if(fl != null) {
             outputStr = sdf.format(time) + " CMP: " + updateText + "\n";
             writer.append(outputStr);
             writer.flush();
+            writeSuccess = true;
         }
         fis.close();
         writer.close();
+        
+        return writeSuccess;
     }
 }

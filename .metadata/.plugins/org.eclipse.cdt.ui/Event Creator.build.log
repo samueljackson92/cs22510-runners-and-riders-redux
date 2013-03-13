@@ -1,19 +1,6 @@
-19:36:26 **** Incremental Build of configuration Debug for project Event Creator ****
+19:41:04 **** Incremental Build of configuration Debug for project Event Creator ****
 make all 
-Building file: ../eventcreator.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"eventcreator.d" -MT"eventcreator.d" -o "eventcreator.o" "../eventcreator.cpp"
-../eventcreator.cpp: In member function ‘int EventCreator::ChooseEvent()’:
-../eventcreator.cpp:160:51: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-../eventcreator.cpp: In member function ‘char EventCreator::ChooseCourse(Event)’:
-../eventcreator.cpp:194:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-Finished building: ../eventcreator.cpp
- 
-Building target: Event Creator
-Invoking: GCC C++ Linker
-g++  -o "Event Creator"  ./course.o ./entrant.o ./event.o ./eventcreator.o ./fileio.o ./ioscanner.o   
-Finished building target: Event Creator
- 
+make: Nothing to be done for `all'.
 
-19:36:27 Build Finished (took 977ms)
+19:41:04 Build Finished (took 62ms)
 

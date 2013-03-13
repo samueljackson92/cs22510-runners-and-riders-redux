@@ -1,4 +1,0 @@
-17:27 CMP: Checked in entrant 1 @ node 1
-17:27 CMP: Checked in entrant 1 @ node 4
-17:30 CMP: Checked in entrant 3 @ node 1
-17:31 CMP: Checked in entrant 1 @ node 1

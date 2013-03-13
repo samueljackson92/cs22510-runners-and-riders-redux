@@ -176,12 +176,20 @@ public class CheckpointManager {
             addEntrantTime(entrantId, chkptId, checkInTime, updateType, type);
             entrant.incrementPosition();
             checkedIn = fio.writeTimes(times);
-            
-            //write entry to log file.
-            fio.writeLog("Checked in entrant " + entrantId + " @ node " + chkptId);
         }
         
         return checkedIn;
+    }
+    
+    /**
+     * Output an update to the log file.
+     * @param output the output to add to the log file.
+     * @return true, if updating the log file was successful
+     * @throws IOException Signals that an unexpected I/O exception has occurred.
+     * @throws FileNotFoundException exception thrown when file cannot be found.
+     */
+    public boolean updateLog(String output) throws FileNotFoundException, IOException {
+    	return fio.writeLog(output);
     }
     
     /**

@@ -1,23 +1,16 @@
 package checkpoint.manager.gui;
 
-import checkpoint.manager.FileIO;
-import checkpoint.manager.datamodel.CPType;
-import checkpoint.manager.datamodel.Checkpoint;
-import checkpoint.manager.datamodel.CheckpointManager;
-import checkpoint.manager.datamodel.Entrant;
-import checkpoint.manager.exceptions.ArgumentParseException;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
+
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
@@ -30,6 +23,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
+
+import checkpoint.manager.FileIO;
+import checkpoint.manager.datamodel.CPType;
+import checkpoint.manager.datamodel.Checkpoint;
+import checkpoint.manager.datamodel.CheckpointManager;
+import checkpoint.manager.datamodel.Entrant;
+import checkpoint.manager.exceptions.ArgumentParseException;
 
 /**
  * The Class CheckpointManagerGUI.
@@ -172,7 +172,6 @@ public class CheckpointManagerGUI extends JFrame {
         //create centre panel
         JarrivalTime.setModel(new SpinnerDateModel());
         JarrivalTime.setEditor(new JSpinner.DateEditor(JarrivalTime, "HH:mm"));
-        
         JdepartureTime.setModel(new SpinnerDateModel());
         JdepartureTime.setEditor(new JSpinner.DateEditor(JdepartureTime, "HH:mm"));
         
@@ -234,10 +233,9 @@ public class CheckpointManagerGUI extends JFrame {
         int index = JLEntrantList.getSelectedIndex();
         int entrantId = parseIndex(entrantListModel, index);
         index = JLCheckpointList.getSelectedIndex();
-        int ccheckpointId = parseIndex(cpListModel, index);
-        Checkpoint checkpoint = cpManager.getCheckpoint(ccheckpointId);
+        int checkpointId = parseIndex(cpListModel, index);
+        Checkpoint checkpoint = cpManager.getCheckpoint(checkpointId);
         
-        int checkpointId = checkpoint.getId();
         Date arrivalTime = (Date) JarrivalTime.getValue();
         Date departureTime = null;
         boolean mcExcluded = chkMCExcluded.isSelected();
@@ -246,7 +244,10 @@ public class CheckpointManagerGUI extends JFrame {
         
         //reload the times file.
         try {
-            validInput = cpManager.updateTimes();
+            successful = cpManager.updateTimes();
+            if(!successful) {
+                JOptionPane.showMessageDialog(this, "Could not reload times! Perhaps file was locked by another process?");
+            }
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(this, ex, "Error:", JOptionPane.ERROR_MESSAGE);
         } catch (IOException ex) {
@@ -255,27 +256,29 @@ public class CheckpointManagerGUI extends JFrame {
             JOptionPane.showMessageDialog(this, ex, "Error:", JOptionPane.ERROR_MESSAGE);
         }
         
-        //check if we're at a medical checkpoint
-        if(JdepartureTime.isEnabled()) {
-            departureTime = (Date) JdepartureTime.getValue();
-        }
-   
-        //check if the times entered were valid
-        if((checkpoint.getType()==CPType.MC && !cpManager.compareTime(arrivalTime, departureTime))
-                || !cpManager.checkValidTime(entrantId, arrivalTime)) {
-            JOptionPane.showMessageDialog(this, "Invalid time data!");
-            validInput = false;
-        }
-        
-        if(validInput) {
-            //check if the entrant will be excluded with this update
-            if(cpManager.willExcludedEntrant(entrantId, checkpointId) || mcExcluded) {
-            	//confirm this with the user.
-                int confirm = JOptionPane.showConfirmDialog(this,
-                        "This will exclude the entrant. Are you sure?", 
-                        "Confirm Choice", JOptionPane.YES_NO_OPTION);
-                validInput = (confirm == JOptionPane.YES_OPTION) ? true : false;
-            }
+        if(successful) {
+	        //check if we're at a medical checkpoint
+	        if(JdepartureTime.isEnabled()) {
+	            departureTime = (Date) JdepartureTime.getValue();
+	        }
+	   
+	        //check if the times entered were valid
+	        if((checkpoint.getType()==CPType.MC && cpManager.compareTime(arrivalTime, departureTime))
+	                || !cpManager.checkValidTime(entrantId, arrivalTime)) {
+	            JOptionPane.showMessageDialog(this, "Invalid time data!");
+	            validInput = false;
+	        }
+	        
+	        if(validInput) {
+	            //check if the entrant will be excluded with this update
+	            if(cpManager.willExcludedEntrant(entrantId, checkpointId) || mcExcluded) {
+	            	//confirm this with the user.
+	                int confirm = JOptionPane.showConfirmDialog(this,
+	                        "This will exclude the entrant. Are you sure?", 
+	                        "Confirm Choice", JOptionPane.YES_NO_OPTION);
+	                validInput = (confirm == JOptionPane.YES_OPTION) ? true : false;
+	            }
+	        }
         }
         
         if(validInput) {
@@ -297,6 +300,18 @@ public class CheckpointManagerGUI extends JFrame {
                 JOptionPane.showMessageDialog(this, "Checked in!"); 
             } else {
                 JOptionPane.showMessageDialog(this, "Could not check in entrant! Perhaps file was locked by another process?");
+            }
+            
+            try {
+				successful = cpManager.updateLog("Checked in entrant " + entrantId + " @ node " + checkpointId);
+			} catch (FileNotFoundException ex) {
+                JOptionPane.showMessageDialog(this, ex, "Error:", JOptionPane.ERROR_MESSAGE);
+            } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, ex, "Error:", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            if(!successful) {
+                JOptionPane.showMessageDialog(this, "Could not write to log file!");
             }
         }
     }
