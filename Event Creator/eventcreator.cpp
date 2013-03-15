@@ -91,7 +91,7 @@ void EventCreator::MakeEvent() {
     
     cout << "Enter location of nodes file for event:" << endl;
     string nodesfile = scanner.ReadString(100);
-    vector<int> nodes = fio.readNodesList(nodesfile);
+    vector<int> nodes = fio.ReadNodesList(nodesfile);
     
     Event e(evt_name, date, time);
     e.SetNodes(nodes);

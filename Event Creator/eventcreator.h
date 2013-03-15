@@ -16,18 +16,20 @@
 class EventCreator {
 public:
     EventCreator();
-    void ShowMainMenu(void);
     virtual ~EventCreator();
+
+    void ShowMainMenu();
 private:
     FileIO fio;
     IOScanner scanner;
     std::vector<Event> events;
-    void MakeEvent(void);
-    void AddEntrants(void);
+
+    void MakeEvent();
+    void AddEntrants();
     void CreateCourse();
-    int ChooseEvent(void);
+    int ChooseEvent();
     char ChooseCourse(Event event);
-    void ViewEvent(void);
+    void ViewEvent();
 };
 
 #endif	/* MENU_H */

@@ -14,13 +14,12 @@
 class IOScanner {
 public:
     IOScanner();
+    virtual ~IOScanner();
+
     int ReadInt();
     std::string ReadString(int limit);
     tm ReadDate();
     tm ReadTime();
-    virtual ~IOScanner();
-private:
-
 };
 
 #endif	/* CONSOLE_INPUT_H */

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.6)  14 MAR 2013 22:51
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.6)  15 MAR 2013 18:25
 entering extended mode
  %&-line parsing enabled.
 **documentation.tex
@@ -179,29 +179,32 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 17.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 36.
- [1
+(Font)              <5> on input line 32.
+ <img/GUI-screenshot.png, id=1, 905.3825pt x 364.36125pt>
+File: img/GUI-screenshot.png Graphic file (type png)
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-(./documentation.aux) ) 
+<use img/GUI-screenshot.png> [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./img/GUI-screenshot.p
+ng>] (./documentation.aux) ) 
 Here is how much of TeX's memory you used:
- 2538 strings out of 495061
- 35220 string characters out of 1182622
- 96685 words of memory out of 3000000
- 5737 multiletter control sequences out of 15000+50000
+ 2549 strings out of 495061
+ 35399 string characters out of 1182622
+ 95693 words of memory out of 3000000
+ 5745 multiletter control sequences out of 15000+50000
  7756 words of font info for 28 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  26i,6n,32p,808b,999s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/
-texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texliv
-e/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
-onts/cm/cmtt12.pfb>
-Output written on documentation.pdf (2 pages, 88046 bytes).
+</usr/share/texmf-texlive/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
+hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/cm/cmtt12.pfb>
+Output written on documentation.pdf (2 pages, 118588 bytes).
 PDF statistics:
- 37 PDF objects out of 1000 (max. 8388607)
+ 40 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

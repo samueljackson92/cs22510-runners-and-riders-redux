@@ -17,7 +17,7 @@
  */
 
 /* Read in all of the data files for this event */
-void read_file_data(event *e, char *logfile){
+void read_file_data(event *e, char *logfile, char *timesfile){
     char filename[MAX_FILEPATH_LENGTH];
     int success = 0;
     
@@ -58,6 +58,12 @@ void read_file_data(event *e, char *logfile){
         strcpy(logfile, filename);
     } while(!success);
     
+    do {
+        printf("Enter location and name of the times file:\n");
+        scanf(" %100s", filename);
+        strcpy(timesfile, filename);
+    } while(!success);
+
 }
 
 /* Generic read file function  which takes a file specific processing function as a parameter */

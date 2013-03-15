@@ -18,7 +18,7 @@
 #include "util.h"
 
 int main(int argc, char** argv) {
-    char logfile[100];
+    char logfile[MAX_FILEPATH_LENGTH], timesfile[MAX_FILEPATH_LENGTH];
     event evt;
     int option, result;
     
@@ -41,10 +41,13 @@ int main(int argc, char** argv) {
     evt.tracklist.tail = NULL;
     
     
-    read_file_data(&evt, logfile); /*read data files*/
+    read_file_data(&evt, logfile, timesfile); /*read data files*/
     
     /*begin main menu*/
     do {
+    	read_updates(&evt, timesfile);
+        write_log_file(logfile, "Loaded the times file.");
+
         printf("Enter an Option:\n"
                 "0  - Exit\n"
                 "1  - Event Details\n"
@@ -52,10 +55,9 @@ int main(int argc, char** argv) {
                 "3  - Check how many competitors not yet started\n"
                 "4  - Check how many competitors are out on courses\n"
                 "5  - Check how many competitors have finished\n"
-                "6  - Read in a file of updates\n"
-                "7  - Print table of results\n"
-                "8  - Print entrants excluded at medical checkpoints\n"
-                "9 - Print entrants excluded at regular checkpoints\n");
+                "6  - Print table of results\n"
+                "7  - Print entrants excluded at medical checkpoints\n"
+                "8 - Print entrants excluded at regular checkpoints\n");
         
         scanf(" %d", &option);
         clear_screen();
@@ -88,22 +90,17 @@ int main(int argc, char** argv) {
                 write_log_file(logfile, 
                         "Queried the number of competitors who have finished");
                 break;
-            case 6: /* Read a file of time checkpoint updates */
-                read_updates(&evt);
-                write_log_file(logfile, 
-                        "Loaded the times file.");
-                break;
-            case 7: /* Print out a table of results */
+            case 6: /* Print out a table of results */
                 print_results(evt.entrantlist);
                 write_log_file(logfile, 
                         "Viewed a list of results");
                 break;
-            case 8: /* Print a table of entrants who have been excluded at medical checkpoints*/
+            case 7: /* Print a table of entrants who have been excluded at medical checkpoints*/
                 print_entrants_excluded(evt.entrantlist, EXCLUDED_MC);
                 write_log_file(logfile, 
                         "Viewed a list of entrants excluded for medical reasons");
                 break;
-            case 9: /* Print a table of entrants who have been excluded for getting lost */
+            case 8: /* Print a table of entrants who have been excluded for getting lost */
                 print_entrants_excluded(evt.entrantlist, EXCLUDED_IR);
                 write_log_file(logfile, 
                         "Viewed a list of entrants excluded for take the wrong route");
@@ -184,32 +181,34 @@ int check_num_competitors(linked_list entrantlist, enum entrant_status type) {
 }
 
 /* Read in a file of updates and add them into the system. */
-void read_updates(event *e) {
+void read_updates(event *e, char *filename) {
     FILE *file = NULL;
     struct flock* fl = file_lock(F_WRLCK, SEEK_SET);
     int fd = 0;
-    char filename[MAX_FILEPATH_LENGTH];
     CP_Data checkpoint_data;
-    int status = 4, count = 0;
+    int status = 4;
     
     reset_entrants(e);
     
-    printf("Enter name of the checkpoint files:\n");
-    scanf(" %100s", filename);
-    
+    //get file descriptor
     fd = open(filename, O_RDWR);
     if (fd == -1) {
         printf("File descriptor error");
         exit(1);
     }
     
+    //attempt to obtain lock
     if (fcntl(fd, F_SETLK, fl) == -1) {
+    	//failed to get lock
         if (errno == EACCES || errno == EAGAIN) {
-            printf("File locked by another process.\n");
+            printf("Error reading file. File locked by another process.\n");
+            printf("Warning. Times file may be out of sync.\n");
         } else {
             printf("Unexpected error.\n");
         }
     } else {
+    	//we got lock continue...
+
         file = fopen(filename, "r");
 
         if(file != NULL) {
@@ -219,10 +218,7 @@ void read_updates(event *e) {
                         &checkpoint_data.competitor_num, checkpoint_data.time);
                 if(status == 4) {
                     add_new_time(e, checkpoint_data);
-                } else {
-                    printf("Parse error on line %d. Stopping read.\n", count);
                 }
-                count++;
             }
             
             fcntl(fd, F_SETLKW, file_lock(F_UNLCK, SEEK_SET));

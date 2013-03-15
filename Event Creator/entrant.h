@@ -14,6 +14,7 @@ class Entrant {
     public:
         Entrant(int id, std::string name, char course);
         virtual ~Entrant();
+
         void SetCourse(char course);
         char GetCourse() const;
         void SetName(std::string name);

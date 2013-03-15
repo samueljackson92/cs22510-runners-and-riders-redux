@@ -94,7 +94,7 @@ bool FileIO::WriteEntrantsFile(std::string filename,
  * @param filename the name and path to the nodes file
  * @return vector of nodes read in from file.
  */
-std::vector<int> FileIO::readNodesList(std::string filename) {
+std::vector<int> FileIO::ReadNodesList(std::string filename) {
     using namespace std;
     string input = "";
     ifstream in(filename.c_str());

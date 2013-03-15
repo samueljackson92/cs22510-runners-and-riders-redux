@@ -37,34 +37,34 @@ import checkpoint.manager.exceptions.ArgumentParseException;
 @SuppressWarnings("serial")
 public class CheckpointManagerGUI extends JFrame {
     
-    /** The checkpoint list model. */
+    /** The checkpoint list model to store checkpoints in the GUI. */
     private final DefaultListModel cpListModel;
     
-    /** The checkpoint list. */
+    /** The checkpoint list to display checkpoints in order. */
     private JList JLCheckpointList;
     
-    /** The entrant list. */
+    /** The entrant list to display entrants in order. */
     private JList JLEntrantList;
     
-    /** The entrant list model. */
+    /** The entrant list model to store the entrant list in the GUI. */
     private DefaultListModel entrantListModel;
     
     /** The checkbox for excluding an entrant. */
     private final JCheckBox chkMCExcluded;
     
-    /** The button check in. */
+    /** The button to check in and entrant. */
     private final JButton btnCheckIn;
     
-    /** The arrival time. */
+    /** The arrival time of the entrant. */
     private final JSpinner JarrivalTime;
     
-    /** The departure time. */
+    /** The departure time of the entrant. */
     private final JSpinner JdepartureTime;
     
     /** The checkpoint manager GUI event listener. */
     private final CheckpointManagerListener chkptListener;
     
-    /** The check manager. */
+    /** The checkpoint manager to process the data model. */
     private CheckpointManager cpManager;
     
     /** The current entrant label. */

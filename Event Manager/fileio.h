@@ -29,7 +29,7 @@ extern "C" {
 struct flock* file_lock(short type, short whence);
     
 /*read in the name of each of the data files from the user.*/
-void read_file_data(event *e, char *logfile);
+void read_file_data(event *e, char *logfile, char *timesfile);
 
 /*open a file for reading with the given name and a function to read the contents.*/
 int read_file(char name[MAX_FILEPATH_LENGTH], void (*read_file_func) (FILE *file, event *e), event *e);

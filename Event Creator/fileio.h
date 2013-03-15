@@ -18,12 +18,14 @@
 class FileIO {
 public:
     FileIO();
+    virtual ~FileIO();
+
+	void WriteEvent(Event event);
+    std::vector<int> ReadNodesList(std::string filename);
+private:
     bool WriteCoursesFile(std::string filename, std::vector<Course> courses);
     bool WriteEntrantsFile(std::string filename, std::vector<Entrant> entrants);
-    bool WriteEventFile(std::string filename, Event e);
-	void WriteEvent(Event e);
-    std::vector<int> readNodesList(std::string filename);
-    virtual ~FileIO();
+    bool WriteEventFile(std::string filename, Event event);
 };
 
 #endif	/* FILEIO_H */
