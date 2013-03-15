@@ -24,8 +24,6 @@ public:
 	void WriteEvent(Event e);
     std::vector<int> readNodesList(std::string filename);
     virtual ~FileIO();
-private:
-    std::string GetDayPostfix(int day);
 };
 
 #endif	/* FILEIO_H */

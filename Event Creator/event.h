@@ -17,9 +17,10 @@
 class Event {
     public:
         Event(std::string name, tm date, tm time);
+        virtual ~Event();
+
         void AddEntrant(std::string name, int id, char course);
         void AddCourse(char id, std::vector<int> nodes);
-        virtual ~Event();
         void SetCourses(std::vector<Course> courses);
         std::vector<Course> GetCourses() const;
         void SetEntrants(std::vector<Entrant> entrants);
@@ -32,6 +33,9 @@ class Event {
         tm GetTime() const;
         void SetNodes(std::vector<int> nodes);
         std::vector<int> GetNodes() const;
+
+        std::string GetFormattedDate();
+        std::string GetFormattedTime();
     private:
         tm time;
         tm date;
@@ -39,6 +43,8 @@ class Event {
         std::vector<Entrant> entrants;
         std::vector<Course> courses;
         std::vector<int> nodes;
+
+        std::string GetDayPostfix(int day);
 };
 
 #endif	/* EVENT_H */

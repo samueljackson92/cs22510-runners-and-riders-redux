@@ -7,7 +7,6 @@
 
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include <stdlib.h> 
 #include <sys/stat.h>
 
@@ -132,34 +131,17 @@ std::vector<int> FileIO::readNodesList(std::string filename) {
  */
 bool FileIO::WriteEventFile(std::string filename, Event event) {
     using namespace std;
-    ostringstream outputDate;
-    ostringstream timeString;
-    char outputTime [6];
-    char monthname[10];
-    char year[5];
     ofstream out(filename.c_str());
         
     string name = event.GetName();
-    tm date = event.GetDate();
-    tm time = event.GetTime();
+    string date = event.GetFormattedDate();
+    string time = event.GetFormattedTime();
     
- 
     if (out.is_open()) {
-        strftime(monthname, 10, "%B", &date);
-        strftime(year, 5, "%Y", &date);
-        strftime(outputTime, 6, "%R", &time);
-        
-        outputDate << date.tm_mday;
-        outputDate << GetDayPostfix(date.tm_mday) << " ";
-        outputDate << monthname;
-        outputDate << " ";
-        outputDate << year;
-        
-        timeString << outputTime;
         
         out << name << endl;
-        out << outputDate.str() << endl;
-        out << timeString.str() << endl;
+        out << date << endl;
+        out << time << endl;
         
         out.close();
         return true;
@@ -167,33 +149,6 @@ bool FileIO::WriteEventFile(std::string filename, Event event) {
         return false;
     }
 
-}
-
-/**
- * Member function to get the postfix of the date's day
- * will return a string with either 'st', 'nd' or 'rd'.
- * @param day the day to get the postfix for
- * @return the postfix for the date's day
- */
-std::string FileIO::GetDayPostfix(int day) {
-    std::string postfix = "th";
-    switch(day) {
-        case 1:
-        case 21:
-        case 31:
-            postfix = "st";
-            break;
-        case 2:
-        case 22:
-            postfix = "nd";
-            break;
-        case 3:
-        case 23:
-            postfix = "rd";
-            break;
-    }
-    
-    return postfix;
 }
 
 FileIO::~FileIO() {

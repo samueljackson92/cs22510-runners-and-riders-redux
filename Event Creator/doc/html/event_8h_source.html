@@ -92,32 +92,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00017"></a><a class="code" href="classEvent.html">00017</a> <span class="keyword">class </span><a class="code" href="classEvent.html">Event</a> {
 <a name="l00018"></a>00018     <span class="keyword">public</span>:
 <a name="l00019"></a>00019         <a class="code" href="classEvent.html#a8f1894bd5c65c832e95b42bd4565e631" title="Create a new event and initilise it with a name, date and time.">Event</a>(std::string <a class="code" href="classEvent.html#ae116bf76fb01a92e000579a5a0d6f35c">name</a>, tm <a class="code" href="classEvent.html#a5df9ecce46e9db33b3b29b99156aa70a">date</a>, tm <a class="code" href="classEvent.html#a91d5938dce4b4328e35f5626c22ec844">time</a>);
-<a name="l00020"></a>00020         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#af38a15ffed314b5251a124f45ea41575" title="Add an entrant to this event.">AddEntrant</a>(std::string name, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">char</span> course);
-<a name="l00021"></a>00021         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a1a1fba26c0066499be299b3d3ff938b5" title="Add a course to this event.">AddCourse</a>(<span class="keywordtype">char</span> <span class="keywordtype">id</span>, std::vector&lt;int&gt; <a class="code" href="classEvent.html#a2b330c8081c3c907a02daa7da8043fc6">nodes</a>);
-<a name="l00022"></a>00022         <span class="keyword">virtual</span> <a class="code" href="classEvent.html#a7704ec01ce91e673885792054214b3d2">~Event</a>();
-<a name="l00023"></a>00023         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a894b95d4d8b4844798ec95fa5ef8141a" title="Set the list of courses for this event.">SetCourses</a>(std::vector&lt;Course&gt; <a class="code" href="classEvent.html#a54f5b521beee9f8714ac33e304c948b0">courses</a>);
-<a name="l00024"></a>00024         std::vector&lt;Course&gt; <a class="code" href="classEvent.html#a7fc2ac39ff5fc682762451b277c73d68" title="Get the list of courses for this event.">GetCourses</a>() <span class="keyword">const</span>;
-<a name="l00025"></a>00025         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a11e2729e7676c2950dfc7cb56dbbea94" title="Set the list of entrants for this event.">SetEntrants</a>(std::vector&lt;Entrant&gt; <a class="code" href="classEvent.html#adede353249fa65a02148e7fcce077449">entrants</a>);
-<a name="l00026"></a>00026         std::vector&lt;Entrant&gt; <a class="code" href="classEvent.html#ab0232dfcc1b986cb2a79fef05b2d7efc" title="Get the list of entrants for this event.">GetEntrants</a>() <span class="keyword">const</span>;
-<a name="l00027"></a>00027         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a2c91dbd3d7a2a3c31895d9f16a55f70e" title="Set the name of this event.">SetName</a>(std::string name);
-<a name="l00028"></a>00028         std::string <a class="code" href="classEvent.html#af4202c6d2371029b117d37ba7cc12ae6" title="Get the name of this event.">GetName</a>() <span class="keyword">const</span>;
-<a name="l00029"></a>00029         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a5f606cada35150b7c9ad554f4252b53c" title="Set the date of this event.">SetDate</a>(tm date);
-<a name="l00030"></a>00030         tm <a class="code" href="classEvent.html#a0d3002c0e3961c360fa0f11412bf1e5c" title="Get the date of this event.">GetDate</a>() <span class="keyword">const</span>;
-<a name="l00031"></a>00031         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a693cefccd31003ade280a7e737f8be6c" title="Set the time of this event.">SetTime</a>(tm time);
-<a name="l00032"></a>00032         tm <a class="code" href="classEvent.html#aad5efdddefaa7de4196d1f22fce2c51e" title="Get the time of this event.">GetTime</a>() <span class="keyword">const</span>;
-<a name="l00033"></a>00033         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a8f68ec5701be042f63a4f277af171adc" title="Set the list of nodes for this event.">SetNodes</a>(std::vector&lt;int&gt; nodes);
-<a name="l00034"></a>00034         std::vector&lt;int&gt; <a class="code" href="classEvent.html#ae3b200210aa9e4f20db5221d13d4746e" title="Get the list of nodes for this event.">GetNodes</a>() <span class="keyword">const</span>;
-<a name="l00035"></a>00035     <span class="keyword">private</span>:
-<a name="l00036"></a><a class="code" href="classEvent.html#a91d5938dce4b4328e35f5626c22ec844">00036</a>         tm <a class="code" href="classEvent.html#a91d5938dce4b4328e35f5626c22ec844">time</a>;
-<a name="l00037"></a><a class="code" href="classEvent.html#a5df9ecce46e9db33b3b29b99156aa70a">00037</a>         tm <a class="code" href="classEvent.html#a5df9ecce46e9db33b3b29b99156aa70a">date</a>;
-<a name="l00038"></a><a class="code" href="classEvent.html#ae116bf76fb01a92e000579a5a0d6f35c">00038</a>         std::string <a class="code" href="classEvent.html#ae116bf76fb01a92e000579a5a0d6f35c">name</a>;
-<a name="l00039"></a><a class="code" href="classEvent.html#adede353249fa65a02148e7fcce077449">00039</a>         std::vector&lt;Entrant&gt; <a class="code" href="classEvent.html#adede353249fa65a02148e7fcce077449">entrants</a>;
-<a name="l00040"></a><a class="code" href="classEvent.html#a54f5b521beee9f8714ac33e304c948b0">00040</a>         std::vector&lt;Course&gt; <a class="code" href="classEvent.html#a54f5b521beee9f8714ac33e304c948b0">courses</a>;
-<a name="l00041"></a><a class="code" href="classEvent.html#a2b330c8081c3c907a02daa7da8043fc6">00041</a>         std::vector&lt;int&gt; <a class="code" href="classEvent.html#a2b330c8081c3c907a02daa7da8043fc6">nodes</a>;
-<a name="l00042"></a>00042 };
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="preprocessor">#endif  </span><span class="comment">/* EVENT_H */</span>
-<a name="l00045"></a>00045 
+<a name="l00020"></a>00020         <span class="keyword">virtual</span> <a class="code" href="classEvent.html#a7704ec01ce91e673885792054214b3d2">~Event</a>();
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#af38a15ffed314b5251a124f45ea41575" title="Add an entrant to this event.">AddEntrant</a>(std::string name, <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">char</span> course);
+<a name="l00023"></a>00023         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a1a1fba26c0066499be299b3d3ff938b5" title="Add a course to this event.">AddCourse</a>(<span class="keywordtype">char</span> <span class="keywordtype">id</span>, std::vector&lt;int&gt; <a class="code" href="classEvent.html#a2b330c8081c3c907a02daa7da8043fc6">nodes</a>);
+<a name="l00024"></a>00024         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a894b95d4d8b4844798ec95fa5ef8141a" title="Set the list of courses for this event.">SetCourses</a>(std::vector&lt;Course&gt; <a class="code" href="classEvent.html#a54f5b521beee9f8714ac33e304c948b0">courses</a>);
+<a name="l00025"></a>00025         std::vector&lt;Course&gt; <a class="code" href="classEvent.html#a7fc2ac39ff5fc682762451b277c73d68" title="Get the list of courses for this event.">GetCourses</a>() <span class="keyword">const</span>;
+<a name="l00026"></a>00026         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a11e2729e7676c2950dfc7cb56dbbea94" title="Set the list of entrants for this event.">SetEntrants</a>(std::vector&lt;Entrant&gt; <a class="code" href="classEvent.html#adede353249fa65a02148e7fcce077449">entrants</a>);
+<a name="l00027"></a>00027         std::vector&lt;Entrant&gt; <a class="code" href="classEvent.html#ab0232dfcc1b986cb2a79fef05b2d7efc" title="Get the list of entrants for this event.">GetEntrants</a>() <span class="keyword">const</span>;
+<a name="l00028"></a>00028         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a2c91dbd3d7a2a3c31895d9f16a55f70e" title="Set the name of this event.">SetName</a>(std::string name);
+<a name="l00029"></a>00029         std::string <a class="code" href="classEvent.html#af4202c6d2371029b117d37ba7cc12ae6" title="Get the name of this event.">GetName</a>() <span class="keyword">const</span>;
+<a name="l00030"></a>00030         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a5f606cada35150b7c9ad554f4252b53c" title="Set the date of this event.">SetDate</a>(tm date);
+<a name="l00031"></a>00031         tm <a class="code" href="classEvent.html#a0d3002c0e3961c360fa0f11412bf1e5c" title="Get the date of this event.">GetDate</a>() <span class="keyword">const</span>;
+<a name="l00032"></a>00032         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a693cefccd31003ade280a7e737f8be6c" title="Set the time of this event.">SetTime</a>(tm time);
+<a name="l00033"></a>00033         tm <a class="code" href="classEvent.html#aad5efdddefaa7de4196d1f22fce2c51e" title="Get the time of this event.">GetTime</a>() <span class="keyword">const</span>;
+<a name="l00034"></a>00034         <span class="keywordtype">void</span> <a class="code" href="classEvent.html#a8f68ec5701be042f63a4f277af171adc" title="Set the list of nodes for this event.">SetNodes</a>(std::vector&lt;int&gt; nodes);
+<a name="l00035"></a>00035         std::vector&lt;int&gt; <a class="code" href="classEvent.html#ae3b200210aa9e4f20db5221d13d4746e" title="Get the list of nodes for this event.">GetNodes</a>() <span class="keyword">const</span>;
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037         std::string <a class="code" href="classEvent.html#a2d58ebfaaa44c0da19486b7b88638b38" title="Get the date of the event as a string in a long format e.g.">GetFormattedDate</a>();
+<a name="l00038"></a>00038         std::string <a class="code" href="classEvent.html#a11b473724eb1d32ab67bbeaf7609b27b" title="Get the time of the event as a string e.g.">GetFormattedTime</a>();
+<a name="l00039"></a>00039     <span class="keyword">private</span>:
+<a name="l00040"></a><a class="code" href="classEvent.html#a91d5938dce4b4328e35f5626c22ec844">00040</a>         tm <a class="code" href="classEvent.html#a91d5938dce4b4328e35f5626c22ec844">time</a>;
+<a name="l00041"></a><a class="code" href="classEvent.html#a5df9ecce46e9db33b3b29b99156aa70a">00041</a>         tm <a class="code" href="classEvent.html#a5df9ecce46e9db33b3b29b99156aa70a">date</a>;
+<a name="l00042"></a><a class="code" href="classEvent.html#ae116bf76fb01a92e000579a5a0d6f35c">00042</a>         std::string <a class="code" href="classEvent.html#ae116bf76fb01a92e000579a5a0d6f35c">name</a>;
+<a name="l00043"></a><a class="code" href="classEvent.html#adede353249fa65a02148e7fcce077449">00043</a>         std::vector&lt;Entrant&gt; <a class="code" href="classEvent.html#adede353249fa65a02148e7fcce077449">entrants</a>;
+<a name="l00044"></a><a class="code" href="classEvent.html#a54f5b521beee9f8714ac33e304c948b0">00044</a>         std::vector&lt;Course&gt; <a class="code" href="classEvent.html#a54f5b521beee9f8714ac33e304c948b0">courses</a>;
+<a name="l00045"></a><a class="code" href="classEvent.html#a2b330c8081c3c907a02daa7da8043fc6">00045</a>         std::vector&lt;int&gt; <a class="code" href="classEvent.html#a2b330c8081c3c907a02daa7da8043fc6">nodes</a>;
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047         std::string <a class="code" href="classEvent.html#a17a23abf260b64d271aa214d08b36073" title="Member function to get the postfix of the date&#39;s day will return a string with either &#39;st&#39;...">GetDayPostfix</a>(<span class="keywordtype">int</span> day);
+<a name="l00048"></a>00048 };
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="preprocessor">#endif  </span><span class="comment">/* EVENT_H */</span>
+<a name="l00051"></a>00051 
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -136,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 12 2013 18:48:50 for Event Creator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 15 2013 17:42:28 for Event Creator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -6,6 +6,7 @@
  */
 
 #include <string>
+#include <sstream>
 #include "event.h"
 #include "entrant.h"
 
@@ -141,3 +142,69 @@ std::vector<int> Event::GetNodes() const {
     return nodes;
 }
 
+/**
+ * Get the date of the event as a string in a long format
+ * e.g. 1st February 2012
+ * @return the date formatted and as a string
+ */
+std::string Event::GetFormattedDate() {
+	using namespace std;
+    ostringstream outputDate;
+    char monthname[10];
+    char year[5];
+
+    strftime(monthname, 10, "%B", &date);
+    strftime(year, 5, "%Y", &date);
+
+    outputDate << date.tm_mday;
+    outputDate << GetDayPostfix(date.tm_mday) << " ";
+    outputDate << monthname;
+    outputDate << " ";
+    outputDate << year;
+
+    return outputDate.str();
+}
+
+/**
+ * Get the time of the event as a string
+ * e.g. 17:45
+ * @return the time as a string
+ */
+std::string Event::GetFormattedTime() {
+	using namespace std;
+    ostringstream timeString;
+    char outputTime [6];
+
+    strftime(outputTime, 6, "%R", &time);
+    timeString << outputTime;
+
+    return timeString.str();
+}
+
+
+/**
+ * Member function to get the postfix of the date's day
+ * will return a string with either 'st', 'nd' or 'rd'.
+ * @param day the day to get the postfix for
+ * @return the postfix for the date's day
+ */
+std::string Event::GetDayPostfix(int day) {
+    std::string postfix = "th";
+    switch(day) {
+        case 1:
+        case 21:
+        case 31:
+            postfix = "st";
+            break;
+        case 2:
+        case 22:
+            postfix = "nd";
+            break;
+        case 3:
+        case 23:
+            postfix = "rd";
+            break;
+    }
+
+    return postfix;
+}

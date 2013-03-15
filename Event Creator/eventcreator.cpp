@@ -57,7 +57,7 @@ void EventCreator::ShowMainMenu() {
             case 3:
                 CreateCourse();
                 break;
-            case 4:
+            case 4: //save event to file
                 evt_index = ChooseEvent();
                 if(evt_index >= 0) {
                     Event e = events[evt_index];
@@ -255,32 +255,42 @@ void EventCreator::ViewEvent() {
         
         cout << "------------------------------------------" << endl;
         cout << event.GetName() << endl;
+        cout << event.GetFormattedDate() << endl;
+        cout << event.GetFormattedTime() << endl;
         cout << "------------------------------------------" << endl;
         cout << "COURSES" << endl;
         cout << "------------------------------------------" << endl;
         
-        for(std::vector<Course>::iterator it = event.GetCourses().begin();
-                it != event.GetCourses().end(); ++it) {
-            cout << it->GetId() << " ";
-            cout << it->GetNodes().size() << " ";
-            
-            std::vector<int> nodes = it->GetNodes();
-            for(std::vector<int>::iterator jt = nodes.begin();
-                    jt != nodes.end(); ++jt) {
-                cout << *jt << " ";
-            }
-            
-            cout << endl;
+        if(event.GetCourses().size() > 0) {
+			for(std::vector<Course>::iterator it = event.GetCourses().begin();
+					it != event.GetCourses().end(); ++it) {
+				cout << it->GetId() << " ";
+				cout << it->GetNodes().size() << " ";
+
+				std::vector<int> nodes = it->GetNodes();
+				for(std::vector<int>::iterator jt = nodes.begin();
+						jt != nodes.end(); ++jt) {
+					cout << *jt << " ";
+				}
+
+				cout << endl;
+			}
+        } else {
+        	cout << "This event has no courses yet!" << endl;
         }
         
         cout << "------------------------------------------" << endl;
         cout << "ENRTANTS" << endl;
         cout << "------------------------------------------" << endl;
         
-        for (vector<Entrant>::iterator it = event.GetEntrants().begin();
-                it != event.GetEntrants().end(); ++it) {
-            cout << it->GetId() << " " << it->GetCourse() << " ";
-            cout << it->GetName() << endl;
+        if(event.GetEntrants().size() > 0) {
+			for (vector<Entrant>::iterator it = event.GetEntrants().begin();
+					it != event.GetEntrants().end(); ++it) {
+				cout << it->GetId() << " " << it->GetCourse() << " ";
+				cout << it->GetName() << endl;
+			}
+        } else {
+        	cout << "This event has no entrants yet!" << endl;
         }
     }
 }
