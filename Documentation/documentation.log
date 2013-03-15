@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.6)  15 MAR 2013 18:25
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.6)  15 MAR 2013 22:50
 entering extended mode
  %&-line parsing enabled.
 **documentation.tex
@@ -76,7 +76,7 @@ File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 \Gin@req@height=\dimen107
 \Gin@req@width=\dimen108
 )
-(/usr/share/texmf-texlive/tex/latex/listings/listings.sty
+(./listing-config.tex (/usr/share/texmf-texlive/tex/latex/listings/listings.sty
 \lst@mode=\count92
 \lst@gtempboxa=\box28
 \lst@token=\toks18
@@ -89,7 +89,6 @@ File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 \lst@newlines=\count96
 \lst@lineno=\count97
 \lst@maxwidth=\dimen112
-
 (/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 \c@lstnumber=\count98
@@ -101,21 +100,67 @@ File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
 Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
-(./documentation.aux)
+(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 702.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/share/texmf-texlive/tex/latex/caption/caption.sty
+Package: caption 2009/10/09 v3.1k Customizing captions (AR)
+
+(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
+Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
+\captionmargin=\dimen113
+\captionmargin@=\dimen114
+\captionwidth=\dimen115
+\caption@indent=\dimen116
+\caption@parindent=\dimen117
+\caption@hangindent=\dimen118
+)
+\c@ContinuedFloat=\count100
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+))
+(./documentation.aux
+
+LaTeX Warning: Label `fig:GUI-image' multiply defined.
+
+)
 \openout1 = `documentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 
 *geometry auto-detecting driver*
 *geometry detected driver: pdftex*
@@ -160,51 +205,222 @@ driver: pdftex
 -----------------------
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count100
-\scratchdimen=\dimen113
+\scratchcounter=\count101
+\scratchdimen=\dimen119
 \scratchbox=\box30
-\nofMPsegments=\count101
-\nofMParguments=\count102
+\nofMPsegments=\count102
+\nofMParguments=\count103
 \everyMPshowfont=\toks19
-\MPscratchCnt=\count103
-\MPscratchDim=\dimen114
-\MPnumerator=\count104
+\MPscratchCnt=\count104
+\MPscratchDim=\dimen120
+\MPnumerator=\count105
 \everyMPtoPDFconversion=\toks20
 )
-\c@lstlisting=\count105
+\c@lstlisting=\count106
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 17.
+(Font)              <12> on input line 18.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 17.
+(Font)              <8> on input line 18.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 17.
+(Font)              <6> on input line 18.
+ (/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+)
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 32.
- <img/GUI-screenshot.png, id=1, 905.3825pt x 364.36125pt>
-File: img/GUI-screenshot.png Graphic file (type png)
+(Font)              <7> on input line 25.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 25.
 
-<use img/GUI-screenshot.png> [1
+Overfull \hbox (6.0pt too wide) in paragraph at lines 25--25
+[][][][][][][] 
+ []
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2 <./img/GUI-screenshot.p
-ng>] (./documentation.aux) ) 
+(../Event Creator/eventcreator.h
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1.
+
+(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 11.
+
+(/usr/share/texmf-texlive/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <8> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 11.
+)
+Overfull \hbox (6.0pt too wide) in paragraph at lines 26--26
+[][][][][][][] 
+ []
+
+(../Event Creator/eventcreator.cpp
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 28--28
+[][][][][][][] 
+ []
+
+(../Event Creator/event.h [6])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 29--29
+[][][][][][][] 
+ []
+
+(../Event Creator/event.cpp [7] [8] [9])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 31--31
+[][][][][][][] 
+ []
+
+(../Event Creator/entrant.h)
+Overfull \hbox (6.0pt too wide) in paragraph at lines 32--32
+[][][][][][][] 
+ []
+
+(../Event Creator/entrant.cpp [10])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 34--34
+[][][][][][][] 
+ []
+
+(../Event Creator/course.h [11])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 35--35
+[][][][][][][] 
+ []
+
+(../Event Creator/course.cpp)
+Overfull \hbox (6.0pt too wide) in paragraph at lines 37--37
+[][][][][][][] 
+ []
+
+(../Event Creator/fileio.h [12])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 38--38
+[][][][][][][] 
+ []
+
+(../Event Creator/fileio.cpp [13] [14])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 40--40
+[][][][][][][] 
+ []
+
+(../Event Creator/ioscanner.h [15])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 41--41
+[][][][][][][] 
+ []
+
+(../Event Creator/ioscanner.cpp [16])
+(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+Overfull \hbox (6.0pt too wide) in paragraph at lines 53--53
+[][][][][][][] 
+ []
+
+(../Checkpoint Manager/src/checkpoint/manager/gui/CheckpointManagerGUI.java
+[17] [18]
+Overfull \hbox (0.3385pt too wide) in paragraph at lines 92--93
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[19] [20] [21] [22])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 55--55
+[][][][][][][] 
+ []
+
+
+(../Checkpoint Manager/src/checkpoint/manager/gui/CheckpointManagerListener.jav
+a [23])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 57--57
+[][][][][][][] 
+ []
+
+(../Checkpoint Manager/src/checkpoint/manager/datamodel/CheckpointManager.java
+[24] [25] [26]) [27]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 59--59
+[][][][][][][] 
+ []
+
+(../Checkpoint Manager/src/checkpoint/manager/datamodel/Entrant.java [28]
+[29])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 61--61
+[][][][][][][] 
+ []
+
+(../Checkpoint Manager/src/checkpoint/manager/datamodel/Course.java [30])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 63--63
+[][][][][][][] 
+ []
+
+(../Checkpoint Manager/src/checkpoint/manager/datamodel/Checkpoint.java
+[31])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 65--65
+[][][][][][][] 
+ []
+
+(../Checkpoint Manager/src/checkpoint/manager/datamodel/CPTimeData.java
+[32] [33])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 67--67
+[][][][][][][] 
+ []
+
+(../Checkpoint Manager/src/checkpoint/manager/datamodel/CPType.java)
+Overfull \hbox (6.0pt too wide) in paragraph at lines 69--69
+[][][][][][][] 
+ []
+
+(../Checkpoint Manager/src/checkpoint/manager/FileIO.java [34] [35] [36]
+[37] [38])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 71--71
+[][][][][][][] 
+ []
+
+
+(../Checkpoint Manager/src/checkpoint/manager/exceptions/ArgumentParseException
+.java) [39] <diagrams/event_creator.png, id=136, 836.12375pt x 536.0025pt>
+File: diagrams/event_creator.png Graphic file (type png)
+
+<use diagrams/event_creator.png> [40]
+<diagrams/checkpoint_manager.png, id=140, 1574.88374pt x 571.13374pt>
+File: diagrams/checkpoint_manager.png Graphic file (type png)
+
+<use diagrams/checkpoint_manager.png> [41 <./diagrams/event_creator.png (PNG co
+py)> <./diagrams/checkpoint_manager.png (PNG copy)>] [42] (./documentation.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2549 strings out of 495061
- 35399 string characters out of 1182622
- 95693 words of memory out of 3000000
- 5745 multiletter control sequences out of 15000+50000
- 7756 words of font info for 28 fonts, out of 3000000 for 9000
+ 5141 strings out of 495061
+ 75416 string characters out of 1182622
+ 169244 words of memory out of 3000000
+ 8231 multiletter control sequences out of 15000+50000
+ 8417 words of font info for 30 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 26i,6n,32p,808b,999s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfon
-ts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10
-.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
-hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-t
-exlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public
-/amsfonts/cm/cmtt12.pfb>
-Output written on documentation.pdf (2 pages, 118588 bytes).
+ 40i,6n,68p,808b,1572s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
+cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.pfb></u
+sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texm
+f-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fo
+nts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texmf-texlive/fonts/type1/pu
+blic/amsfonts/cm/cmtt12.pfb>
+Output written on documentation.pdf (42 pages, 458593 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
+ 184 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

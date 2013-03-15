@@ -2,9 +2,9 @@
 \usepackage[margin=2cm]{geometry}
 \usepackage{float}
 \usepackage{graphicx}
-\usepackage{listings}
 
-\lstset{basicstyle=\footnotesize, columns=fullflexible}
+% Import custom listings colourings.
+\input{listing-config.tex} 
 
 % Paragraph settings
 \setlength{\parskip}{10pt plus 1pt minus 1pt
@@ -16,6 +16,73 @@
 \date{\today}
 \maketitle
 
+\section{Event Creation Program Documentation}
+
+\subsection{Code Listing}
+The following section provides the full code listing for the event creation program. This application is written using C++. Doxygen documentation is available via the provided CD.
+
+\lstinputlisting[style=customcpp, language=c++, caption={eventcreator.h}]{"../Event Creator/eventcreator.h"}
+\lstinputlisting[language=c++, caption={eventcreator.cpp}]{"../Event Creator/eventcreator.cpp"}
+
+\lstinputlisting[language=c++, caption={event.h}]{"../Event Creator/event.h"}
+\lstinputlisting[language=c++, caption={event.cpp}]{"../Event Creator/event.cpp"}
+
+\lstinputlisting[language=c++, caption={entrant.h}]{"../Event Creator/entrant.h"}
+\lstinputlisting[language=c++, caption={entrant.cpp}]{"../Event Creator/entrant.cpp"}
+
+\lstinputlisting[language=c++, caption={course.h}]{"../Event Creator/course.h"}
+\lstinputlisting[language=c++, caption={course.cpp}]{"../Event Creator/course.cpp"}
+
+\lstinputlisting[language=c++, caption={fileio.h}]{"../Event Creator/fileio.h"}
+\lstinputlisting[language=c++, caption={fileio.cpp}]{"../Event Creator/fileio.cpp"}
+
+\lstinputlisting[language=c++, caption={ioscanner.h}]{"../Event Creator/ioscanner.h"}
+\lstinputlisting[language=c++, caption={ioscanner.cpp}]{"../Event Creator/ioscanner.cpp"}
+
+
+\subsection{Compilation Output}
+
+\subsection{Session Output}
+
+\subsection{Generated Output Files}
+
+\section{Checkpoint Manager Program Documentation}
+
+\subsection{Code Listing}
+\lstinputlisting[style=customjava, language=java, caption={CheckpointManagerGUI.java}]{"../Checkpoint Manager/src/checkpoint/manager/gui/CheckpointManagerGUI.java"}
+
+\lstinputlisting[style=customjava, language=java, caption={CheckpointManagerListener.java}]{"../Checkpoint Manager/src/checkpoint/manager/gui/CheckpointManagerListener.java"}
+
+\lstinputlisting[style=customjava, language=java, caption={CheckpointManager.java}]{"../Checkpoint Manager/src/checkpoint/manager/datamodel/CheckpointManager.java"}
+
+\lstinputlisting[style=customjava, language=java, caption={Entrant.java}]{"../Checkpoint Manager/src/checkpoint/manager/datamodel/Entrant.java"}
+
+\lstinputlisting[style=customjava, language=java, caption={Course.java}]{"../Checkpoint Manager/src/checkpoint/manager/datamodel/Course.java"}
+
+\lstinputlisting[style=customjava, language=java, caption={Checkpoint.java}]{"../Checkpoint Manager/src/checkpoint/manager/datamodel/Checkpoint.java"}
+
+\lstinputlisting[style=customjava, language=java, caption={CPTimeData.java}]{"../Checkpoint Manager/src/checkpoint/manager/datamodel/CPTimeData.java"}
+
+\lstinputlisting[style=customjava, language=java, caption={CPType.java}]{"../Checkpoint Manager/src/checkpoint/manager/datamodel/CPType.java"}
+
+\lstinputlisting[style=customjava, language=java, caption={FileIO.java}]{"../Checkpoint Manager/src/checkpoint/manager/FileIO.java"}
+
+\lstinputlisting[style=customjava, language=java, caption={ArgumentParseException.java}]{"../Checkpoint Manager/src/checkpoint/manager/exceptions/ArgumentParseException.java"}
+
+\subsection{Compilation Output}
+
+\subsection{Example Run}
+
+\section{Event Manager Program Documentation}
+
+\subsection{Compilation Output}
+
+\subsection{Example Run Output}
+
+\subsection{Example Run Results List}
+
+\subsection{Output Of Log File}
+
 \section{Outline of Programs}
 This section of the document provides a brief outline of each of the three programs included as part of this project. This includes a discussion of the basic structure, design and operation of each application.
 
@@ -23,6 +90,14 @@ This section of the document provides a brief outline of each of the three progr
 The event creation program is a command line based application written in C++. Its purpose is to create the event, courses and entrants file for each event. The design of the application allows the user to create multiple events at the same time, rather than having to make each event in serial. Because entrants need a course and a course needs an event, an event must be created before a course and a course must be created before an entrant. This includes the functionality to create different course and entrants associated with different events. Each event also expects a nodes file to be given when creating the event, allowing different events to work with different sets of allowed nodes. The user is also able to view an event by selecting the relevant option form the main menu.
 
 Since lists of courses and entrants are associated with each event, I decided that the best approach would be to allow the user to create all the data about an event, then write it to file, rather than creating each of the files one at a time. When the user chooses the option to write an event, a new folder is created with the name of the event as the name of the folder. Inside the folder, the event, entrants and courses files are written.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{diagrams/event_creator.png}
+\caption{Class diagram of the Event Creator program. Getters/Setters not shown.}
+\label{fig:GUI-image}
+\end{figure}
 
 \subsection{Checkpoint Manager Program}
 The checkpoint manager program is written in Java and provides a Swing based GUI to allow the user to easily update entrants out in the field as the JVM allows the program to be executed on a variety of platforms. This program accepts the required files (entrants, courses, nodes, time and log files) as command line arguments using flags for each file. Help instructions are printed when no arguments or incorrect arguments are supplied. An example listing of arguments is supplied below:
@@ -37,14 +112,17 @@ java -jar checkpoint_manager.jar -E ../../event_3/entrants.txt -C ../../event_3/
 
 The checkpoint manager program allows a race marshal to update the location of the entrants as they arrive at the various checkpoints on the course. Entrants are automatically excluded if checked into a checkpoint they should not of visited. The GUI also provides an option for marshals to excluded entrants based on failing a medical checkpoint. When an entrant is excluded, they are automatically removed from the list of available entrants. When an entrant is about to be excluded, the user is asked to confirm the operation, ensuring that they don't accidentally excluded a competitor.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% insert screenshot of GUI.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=0.5\textwidth]{img/GUI-screenshot.png}
+%\caption{Screen image of the Checkpoint manager GUI.}
+%\label{fig:GUI-image}
+%\end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{img/GUI-screenshot.png}
-\caption{Screen image of the Checkpoint manager GUI.}
+\includegraphics[width=1\textwidth]{diagrams/checkpoint_manager.png}
+\caption{Class diagram of the Checkpoint Manager program. Getters/Setters not shown.}
 \label{fig:GUI-image}
 \end{figure}
 
