@@ -22,29 +22,215 @@
 The following section provides the full code listing for the event creation program. This application is written using C++. Doxygen documentation is available via the provided CD.
 
 \lstinputlisting[style=customcpp, language=c++, caption={eventcreator.h}]{"../Event Creator/eventcreator.h"}
-\lstinputlisting[language=c++, caption={eventcreator.cpp}]{"../Event Creator/eventcreator.cpp"}
+\lstinputlisting[style=customcpp, language=c++, caption={eventcreator.cpp}]{"../Event Creator/eventcreator.cpp"}
 
-\lstinputlisting[language=c++, caption={event.h}]{"../Event Creator/event.h"}
-\lstinputlisting[language=c++, caption={event.cpp}]{"../Event Creator/event.cpp"}
+\lstinputlisting[style=customcpp, language=c++, caption={event.h}]{"../Event Creator/event.h"}
+\lstinputlisting[style=customcpp, language=c++, caption={event.cpp}]{"../Event Creator/event.cpp"}
 
-\lstinputlisting[language=c++, caption={entrant.h}]{"../Event Creator/entrant.h"}
-\lstinputlisting[language=c++, caption={entrant.cpp}]{"../Event Creator/entrant.cpp"}
+\lstinputlisting[style=customcpp, language=c++, caption={entrant.h}]{"../Event Creator/entrant.h"}
+\lstinputlisting[style=customcpp, language=c++, caption={entrant.cpp}]{"../Event Creator/entrant.cpp"}
 
-\lstinputlisting[language=c++, caption={course.h}]{"../Event Creator/course.h"}
-\lstinputlisting[language=c++, caption={course.cpp}]{"../Event Creator/course.cpp"}
+\lstinputlisting[style=customcpp, language=c++, caption={course.h}]{"../Event Creator/course.h"}
+\lstinputlisting[style=customcpp, language=c++, caption={course.cpp}]{"../Event Creator/course.cpp"}
 
-\lstinputlisting[language=c++, caption={fileio.h}]{"../Event Creator/fileio.h"}
-\lstinputlisting[language=c++, caption={fileio.cpp}]{"../Event Creator/fileio.cpp"}
+\lstinputlisting[style=customcpp, language=c++, caption={fileio.h}]{"../Event Creator/fileio.h"}
+\lstinputlisting[style=customcpp, language=c++, caption={fileio.cpp}]{"../Event Creator/fileio.cpp"}
 
-\lstinputlisting[language=c++, caption={ioscanner.h}]{"../Event Creator/ioscanner.h"}
-\lstinputlisting[language=c++, caption={ioscanner.cpp}]{"../Event Creator/ioscanner.cpp"}
+\lstinputlisting[style=customcpp, language=c++, caption={ioscanner.h}]{"../Event Creator/ioscanner.h"}
+\lstinputlisting[style=customcpp, language=c++, caption={ioscanner.cpp}]{"../Event Creator/ioscanner.cpp"}
 
 
 \subsection{Compilation Output}
 
+\begin{center}
+	\begin{lstlisting}[showstringspaces=false, caption={Build log of the C++ Event Creation Program}]
+	
+12:22:50 **** Build of configuration Debug for project Event Creator ****
+make all 
+Building file: ../course.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"course.d" -MT"course.d" -o "course.o" "../course.cpp"
+Finished building: ../course.cpp
+ 
+Building file: ../entrant.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"entrant.d" -MT"entrant.d" -o "entrant.o" "../entrant.cpp"
+Finished building: ../entrant.cpp
+ 
+Building file: ../event.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"event.d" -MT"event.d" -o "event.o" "../event.cpp"
+Finished building: ../event.cpp
+ 
+Building file: ../eventcreator.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"eventcreator.d" -MT"eventcreator.d" 
+-o "eventcreator.o" "../eventcreator.cpp"
+../eventcreator.cpp: In member function ‘int EventCreator::ChooseEvent()’:
+../eventcreator.cpp:160:51: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../eventcreator.cpp: In member function ‘char EventCreator::ChooseCourse(Event)’:
+../eventcreator.cpp:194:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Finished building: ../eventcreator.cpp
+ 
+Building file: ../fileio.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fileio.d" -MT"fileio.d" -o "fileio.o" "../fileio.cpp"
+Finished building: ../fileio.cpp
+ 
+Building file: ../ioscanner.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ioscanner.d" -MT"ioscanner.d" -o "ioscanner.o" "../ioscanner.cpp"
+../ioscanner.cpp: In member function ‘std::string IOScanner::ReadString(int)’:
+../ioscanner.cpp:49:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../ioscanner.cpp:52:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Finished building: ../ioscanner.cpp
+ 
+Building target: Event Creator
+Invoking: GCC C++ Linker
+g++  -o "Event Creator"  ./course.o ./entrant.o ./event.o ./eventcreator.o ./fileio.o ./ioscanner.o   
+Finished building target: Event Creator
+ 
+
+12:22:53 Build Finished (took 2s.319ms)
+		
+	\end{lstlisting}
+\end{center}
+
 \subsection{Session Output}
 
+\begin{center}
+	\begin{lstlisting}[showstringspaces=false, label={lst:create-output}, caption={Output of C++ Event Creation Program}]
+----------------------
+EVENT CREATION PROGRAM
+----------------------
+
+MAIN MENU
+---------------------------
+Enter an option: 
+1 - Make new event
+2 - Add entrants to event
+3 - Create course for event
+4 - Write an event to file
+5 - View an event in the system
+6 - Exit Program
+1
+Enter name of event:
+MyNewEvent
+Enter event date (DD/MM/YY):
+16/3/13
+Enter event start time (HH:MM):
+12:00
+Enter location of nodes file for event:
+../event_3/nodes.txt
+MAIN MENU
+---------------------------
+Enter an option: 
+1 - Make new event
+2 - Add entrants to event
+3 - Create course for event
+4 - Write an event to file
+5 - View an event in the system
+6 - Exit Program
+3
+Please choose an event:
+0 - MyNewEvent
+0
+Enter nodes for course. Enter 0 to finish: 
+1
+3
+4
+9
+12
+14
+1
+0
+MAIN MENU
+---------------------------
+Enter an option: 
+1 - Make new event
+2 - Add entrants to event
+3 - Create course for event
+4 - Write an event to file
+5 - View an event in the system
+6 - Exit Program
+2
+Please choose an event:
+0 - MyNewEvent
+0
+Enter number of entrants to add: 
+3
+Enter entrant's name: 
+Greg Jones
+Please choose course for the entrant:
+0 - A
+0
+Enter entrant's name: 
+Bob Jones
+Please choose course for the entrant:
+0 - A
+0
+Enter entrant's name: 
+Jane Doe
+Please choose course for the entrant:
+0 - A
+0
+MAIN MENU
+---------------------------
+Enter an option: 
+1 - Make new event
+2 - Add entrants to event
+3 - Create course for event
+4 - Write an event to file
+5 - View an event in the system
+6 - Exit Program
+4
+Please choose an event:
+0 - MyNewEvent
+0
+MAIN MENU
+---------------------------
+Enter an option: 
+1 - Make new event
+2 - Add entrants to event
+3 - Create course for event
+4 - Write an event to file
+5 - View an event in the system
+6 - Exit Program
+6
+		
+	\end{lstlisting}
+\end{center}
+
 \subsection{Generated Output Files}
+
+
+\begin{center}
+	\begin{lstlisting}[showstringspaces=false, caption={name.txt file output from listing \ref{lst:create-output}}]
+	
+MyNewEvent
+16th March 2013
+12:00
+
+	\end{lstlisting}
+\end{center}
+
+\begin{center}
+	\begin{lstlisting}[showstringspaces=false, caption={courses.txt file output from listing \ref{lst:create-output}}]
+
+A 7 1 3 4 9 12 14 1 
+		
+	\end{lstlisting}
+\end{center}
+
+\begin{center}
+	\begin{lstlisting}[showstringspaces=false, caption={entrants.txt file output from listing \ref{lst:create-output}}]
+
+1 A Greg Jones
+2 A Bob Jones
+3 A Jane Doe	
+		
+	\end{lstlisting}
+\end{center}
 
 \section{Checkpoint Manager Program Documentation}
 
@@ -76,7 +262,41 @@ The following section provides the full code listing for the event creation prog
 \section{Event Manager Program Documentation}
 
 \subsection{Compilation Output}
+\begin{center}
+	\begin{lstlisting}[showstringspaces=false, caption={Build log of the C Event Manager Program}]
+	
+12:27:50 **** Build of configuration Debug for project Event Manager ****
+make all 
+Building file: ../fileio.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"fileio.d" -MT"fileio.d" -o "fileio.o" "../fileio.c"
+Finished building: ../fileio.c
+ 
+Building file: ../linked_list.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"linked_list.d" -MT"linked_list.d" -o "linked_list.o" "../linked_list.c"
+Finished building: ../linked_list.c
+ 
+Building file: ../main.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building file: ../util.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"util.d" -MT"util.d" -o "util.o" "../util.c"
+Finished building: ../util.c
+ 
+Building target: Event Manager
+Invoking: GCC C Linker
+gcc  -o "Event Manager"  ./fileio.o ./linked_list.o ./main.o ./util.o   
+Finished building target: Event Manager
+ 
 
+12:27:50 Build Finished (took 415ms)
+		
+	\end{lstlisting}
+\end{center}
 \subsection{Example Run Output}
 
 \subsection{Example Run Results List}
@@ -112,12 +332,12 @@ java -jar checkpoint_manager.jar -E ../../event_3/entrants.txt -C ../../event_3/
 
 The checkpoint manager program allows a race marshal to update the location of the entrants as they arrive at the various checkpoints on the course. Entrants are automatically excluded if checked into a checkpoint they should not of visited. The GUI also provides an option for marshals to excluded entrants based on failing a medical checkpoint. When an entrant is excluded, they are automatically removed from the list of available entrants. When an entrant is about to be excluded, the user is asked to confirm the operation, ensuring that they don't accidentally excluded a competitor.
 
-%\begin{figure}[H]
-%\centering
-%\includegraphics[width=0.5\textwidth]{img/GUI-screenshot.png}
-%\caption{Screen image of the Checkpoint manager GUI.}
-%\label{fig:GUI-image}
-%\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{img/GUI-screenshot.png}
+\caption{Screen image of the Checkpoint manager GUI.}
+\label{fig:GUI-image}
+\end{figure}
 
 \begin{figure}[H]
 \centering

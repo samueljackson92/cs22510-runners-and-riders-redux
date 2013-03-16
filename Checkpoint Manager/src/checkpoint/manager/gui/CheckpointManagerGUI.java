@@ -91,6 +91,8 @@ public class CheckpointManagerGUI extends JFrame {
             if(!cpManager.updateTimes()) {
                 JOptionPane.showMessageDialog(this, "Could not read the times file!", "Error!", JOptionPane.ERROR_MESSAGE);
                 System.exit(0);
+            } else {
+            	cpManager.updateLog("Read the times file.");
             }
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(this, ex, "Could not Parse Text times file!", JOptionPane.ERROR_MESSAGE);
@@ -247,6 +249,8 @@ public class CheckpointManagerGUI extends JFrame {
             successful = cpManager.updateTimes();
             if(!successful) {
                 JOptionPane.showMessageDialog(this, "Could not reload times! Perhaps file was locked by another process?");
+            } else {
+            	cpManager.updateLog("Read the times file.");
             }
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(this, ex, "Error:", JOptionPane.ERROR_MESSAGE);
