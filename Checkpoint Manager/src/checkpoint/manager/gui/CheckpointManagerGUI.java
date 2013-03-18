@@ -1,5 +1,11 @@
 package checkpoint.manager.gui;
 
+import checkpoint.manager.FileIO;
+import checkpoint.manager.datamodel.CPType;
+import checkpoint.manager.datamodel.Checkpoint;
+import checkpoint.manager.datamodel.CheckpointManager;
+import checkpoint.manager.datamodel.Entrant;
+import checkpoint.manager.exceptions.ArgumentParseException;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -10,7 +16,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
-
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
@@ -23,13 +28,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerDateModel;
-
-import checkpoint.manager.FileIO;
-import checkpoint.manager.datamodel.CPType;
-import checkpoint.manager.datamodel.Checkpoint;
-import checkpoint.manager.datamodel.CheckpointManager;
-import checkpoint.manager.datamodel.Entrant;
-import checkpoint.manager.exceptions.ArgumentParseException;
 
 /**
  * The Class CheckpointManagerGUI.
@@ -89,13 +87,13 @@ public class CheckpointManagerGUI extends JFrame {
         try {
             cpManager = new CheckpointManager(args);
             if(!cpManager.updateTimes()) {
-                JOptionPane.showMessageDialog(this, "Could not read the times file!", "Error!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Could not read the times file!", "Error!", JOptionPane.ERROR_MESSAGE);
                 System.exit(0);
             } else {
             	cpManager.updateLog("Read the times file.");
             }
         } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(this, ex, "Could not Parse Text times file!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, ex, "Could not Parse Text times file!", JOptionPane.ERROR_MESSAGE);
             System.exit(0);
         }
 
@@ -362,7 +360,7 @@ public class CheckpointManagerGUI extends JFrame {
         try {
             HashMap<String, String> cmdArgs;
             cmdArgs = FileIO.parseArgs(args);
-            new CheckpointManagerGUI(cmdArgs);
+            CheckpointManagerGUI gui = new CheckpointManagerGUI(cmdArgs);
         } catch (ArgumentParseException ex) {
             printHelp();
             System.exit(0);

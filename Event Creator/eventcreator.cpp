@@ -262,15 +262,15 @@ void EventCreator::ViewEvent() {
         cout << "------------------------------------------" << endl;
         
         if(event.GetCourses().size() > 0) {
-			for(std::vector<Course>::iterator it = event.GetCourses().begin();
+			for(vector<Course>::iterator it = event.GetCourses().begin();
 					it != event.GetCourses().end(); ++it) {
 				cout << it->GetId() << " ";
-				cout << it->GetNodes().size() << " ";
+				cout << it->GetNodes().size() << " " << endl;
 
-				std::vector<int> nodes = it->GetNodes();
-				for(std::vector<int>::iterator jt = nodes.begin();
+				vector<int> nodes(it->GetNodes());
+				for(vector<int>::iterator jt = nodes.begin();
 						jt != nodes.end(); ++jt) {
-					cout << *jt << " ";
+					cout << *jt << endl;
 				}
 
 				cout << endl;

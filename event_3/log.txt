@@ -7,3 +7,45 @@
 17:59 EMP: Loaded the times file.
 18:01 EMP: Loaded the times file.
 18:04 EMP: Loaded the times file.
+13:03 CMP: Read the times file.
+13:14 CMP: Read the times file.
+13:26 CMP: Read the times file.
+11:02 CMP: Read the times file.
+11:27 CMP: Read the times file.
+11:31 CMP: Checked in entrant 1 @ node 1
+11:36 CMP: Read the times file.
+13:00 CMP: Read the times file.
+13:08 CMP: Read the times file.
+13:24 CMP: Read the times file.
+13:32 CMP: Read the times file.
+13:32 CMP: Checked in entrant 7 @ node 1
+13:32 CMP: Read the times file.
+13:33 CMP: Read the times file.
+13:33 CMP: Checked in entrant 7 @ node 4
+13:33 CMP: Read the times file.
+13:33 CMP: Read the times file.
+13:33 CMP: Checked in entrant 7 @ node 5
+13:33 CMP: Read the times file.
+13:34 CMP: Checked in entrant 7 @ node 7
+13:43 CMP: Read the times file.
+13:51 CMP: Read the times file.
+13:56 CMP: Checked in entrant 7 @ node 14
+13:56 CMP: Read the times file.
+14:01 CMP: Read the times file.
+15:34 CMP: Read the times file.
+15:36 CMP: Read the times file.
+15:36 CMP: Read the times file.
+15:36 CMP: Read the times file.
+15:36 CMP: Checked in entrant 3 @ node 1
+15:36 CMP: Read the times file.
+15:36 CMP: Read the times file.
+16:26 CMP: Read the times file.
+16:28 CMP: Read the times file.
+16:28 CMP: Checked in entrant 8 @ node 1
+16:28 CMP: Read the times file.
+16:28 CMP: Read the times file.
+16:28 CMP: Checked in entrant 8 @ node 9
+16:28 CMP: Read the times file.
+16:28 CMP: Checked in entrant 8 @ node 13
+16:28 CMP: Read the times file.
+16:28 CMP: Checked in entrant 8 @ node 1

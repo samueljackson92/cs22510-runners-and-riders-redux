@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.6)  16 MAR 2013 12:47
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.6)  18 MAR 2013 17:24
 entering extended mode
  %&-line parsing enabled.
 **documentation.tex
@@ -319,16 +319,10 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 40--40
  []
 
 (../Event Creator/ioscanner.cpp [16])
-Overfull \hbox (6.0pt too wide) in paragraph at lines 46--46
+Overfull \hbox (6.0pt too wide) in paragraph at lines 47--47
 [][][][][][][] 
  []
 
-Missing character: There is no â in font cmr8!
-Missing character: There is no € in font cmr8!
-Missing character: There is no ˜ in font cmr8!
-Missing character: There is no â in font cmr8!
-Missing character: There is no € in font cmr8!
-Missing character: There is no ™ in font cmr8!
 [17]
 Missing character: There is no â in font cmr8!
 Missing character: There is no € in font cmr8!
@@ -336,8 +330,14 @@ Missing character: There is no ˜ in font cmr8!
 Missing character: There is no â in font cmr8!
 Missing character: There is no € in font cmr8!
 Missing character: There is no ™ in font cmr8!
+Missing character: There is no â in font cmr8!
+Missing character: There is no € in font cmr8!
+Missing character: There is no ˜ in font cmr8!
+Missing character: There is no â in font cmr8!
+Missing character: There is no € in font cmr8!
+Missing character: There is no ™ in font cmr8!
 
-Overfull \hbox (14.84843pt too wide) in paragraph at lines 82--83
+Overfull \hbox (14.84843pt too wide) in paragraph at lines 83--84
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][] 
  []
@@ -349,143 +349,253 @@ Missing character: There is no â in font cmr8!
 Missing character: There is no € in font cmr8!
 Missing character: There is no ™ in font cmr8!
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 102--102
+Overfull \hbox (6.0pt too wide) in paragraph at lines 104--104
 [][][][][][][] 
  []
 
-[18]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 208--208
-[][][][][][][] 
- []
-
-[19]
-Overfull \hbox (6.0pt too wide) in paragraph at lines 218--218
+[18] [19]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 210--210
 [][][][][][][] 
  []
 
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 226--226
+Overfull \hbox (6.0pt too wide) in paragraph at lines 220--220
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 228--228
 [][][][][][][] 
  []
 
 (/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2004/09/05 1.3 listings language file
 )
-Overfull \hbox (6.0pt too wide) in paragraph at lines 238--238
+Overfull \hbox (6.0pt too wide) in paragraph at lines 243--243
 [][][][][][][] 
  []
 
 (../Checkpoint Manager/src/checkpoint/manager/gui/CheckpointManagerGUI.java
 [20]
-Overfull \hbox (0.3385pt too wide) in paragraph at lines 92--93
+Overfull \hbox (0.55627pt too wide) in paragraph at lines 90--91
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [21] [22] [23] [24] [25])
-Overfull \hbox (6.0pt too wide) in paragraph at lines 240--240
+Overfull \hbox (6.0pt too wide) in paragraph at lines 245--245
 [][][][][][][] 
  []
 
 
 (../Checkpoint Manager/src/checkpoint/manager/gui/CheckpointManagerListener.jav
-a)
-Overfull \hbox (6.0pt too wide) in paragraph at lines 242--242
+a [26])
+Overfull \hbox (6.0pt too wide) in paragraph at lines 247--247
 [][][][][][][] 
  []
 
-[26]
 (../Checkpoint Manager/src/checkpoint/manager/datamodel/CheckpointManager.java
 [27] [28] [29])
-Overfull \hbox (6.0pt too wide) in paragraph at lines 244--244
+Overfull \hbox (6.0pt too wide) in paragraph at lines 249--249
 [][][][][][][] 
  []
 
 (../Checkpoint Manager/src/checkpoint/manager/datamodel/Entrant.java [30]
 [31] [32])
-Overfull \hbox (6.0pt too wide) in paragraph at lines 246--246
+Overfull \hbox (6.0pt too wide) in paragraph at lines 251--251
 [][][][][][][] 
  []
 
 (../Checkpoint Manager/src/checkpoint/manager/datamodel/Course.java [33])
-Overfull \hbox (6.0pt too wide) in paragraph at lines 248--248
+Overfull \hbox (6.0pt too wide) in paragraph at lines 253--253
 [][][][][][][] 
  []
 
 (../Checkpoint Manager/src/checkpoint/manager/datamodel/Checkpoint.java
 [34])
-Overfull \hbox (6.0pt too wide) in paragraph at lines 250--250
+Overfull \hbox (6.0pt too wide) in paragraph at lines 255--255
 [][][][][][][] 
  []
 
 (../Checkpoint Manager/src/checkpoint/manager/datamodel/CPTimeData.java
 [35] [36])
-Overfull \hbox (6.0pt too wide) in paragraph at lines 252--252
+Overfull \hbox (6.0pt too wide) in paragraph at lines 257--257
 [][][][][][][] 
  []
 
 (../Checkpoint Manager/src/checkpoint/manager/datamodel/CPType.java)
-Overfull \hbox (6.0pt too wide) in paragraph at lines 254--254
+Overfull \hbox (6.0pt too wide) in paragraph at lines 259--259
 [][][][][][][] 
  []
 
 (../Checkpoint Manager/src/checkpoint/manager/FileIO.java [37] [38] [39]
 [40] [41])
-Overfull \hbox (6.0pt too wide) in paragraph at lines 256--256
+Overfull \hbox (6.0pt too wide) in paragraph at lines 261--261
 [][][][][][][] 
  []
 
 
 (../Checkpoint Manager/src/checkpoint/manager/exceptions/ArgumentParseException
 .java)
-Overfull \hbox (6.0pt too wide) in paragraph at lines 266--266
+Overfull \hbox (6.0pt too wide) in paragraph at lines 267--267
 [][][][][][][] 
  []
 
 
-Overfull \hbox (8.17162pt too wide) in paragraph at lines 277--278
+Overfull \hbox (25.00716pt too wide) in paragraph at lines 273--274
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[42]
+Overfull \hbox (16.27786pt too wide) in paragraph at lines 282--283
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (9.4236pt too wide) in paragraph at lines 294--295
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (2.9874pt too wide) in paragraph at lines 302--303
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (27.35051pt too wide) in paragraph at lines 305--306
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (35.85063pt too wide) in paragraph at lines 308--309
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+<img/GUI-test/valid-checkin.png, id=144, 930.47626pt x 388.45125pt>
+File: img/GUI-test/valid-checkin.png Graphic file (type png)
+
+<use img/GUI-test/valid-checkin.png> [43]
+<img/GUI-test/invalid-checkin.png, id=150, 927.465pt x 398.48875pt>
+File: img/GUI-test/invalid-checkin.png Graphic file (type png)
+
+<use img/GUI-test/invalid-checkin.png>
+<img/GUI-test/invalid-time.png, id=151, 922.44624pt x 383.4325pt>
+File: img/GUI-test/invalid-time.png Graphic file (type png)
+
+<use img/GUI-test/invalid-time.png> [44 <./img/GUI-test/valid-checkin.png (PNG 
+copy)> <./img/GUI-test/invalid-checkin.png (PNG copy)>]
+<img/GUI-test/mc-checkin.png, id=155, 919.435pt x 383.4325pt>
+File: img/GUI-test/mc-checkin.png Graphic file (type png)
+
+<use img/GUI-test/mc-checkin.png>
+<img/GUI-test/mc-invalid-time.png, id=156, 919.435pt x 384.43625pt>
+File: img/GUI-test/mc-invalid-time.png Graphic file (type png)
+
+<use img/GUI-test/mc-invalid-time.png> [45 <./img/GUI-test/invalid-time.png (PN
+G copy)> <./img/GUI-test/mc-checkin.png (PNG copy)>]
+<img/GUI-test/mc-exclude.png, id=160, 916.42375pt x 386.44376pt>
+File: img/GUI-test/mc-exclude.png Graphic file (type png)
+
+<use img/GUI-test/mc-exclude.png>
+<img/GUI-test/file-lock.png, id=161, 1211.52625pt x 677.53125pt>
+File: img/GUI-test/file-lock.png Graphic file (type png)
+
+<use img/GUI-test/file-lock.png> [46 <./img/GUI-test/mc-invalid-time.png (PNG c
+opy)> <./img/GUI-test/mc-exclude.png (PNG copy)>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 396--396
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (8.17162pt too wide) in paragraph at lines 407--408
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][] 
  []
 
-[42] <diagrams/event_creator.png, id=144, 836.12375pt x 536.0025pt>
+[47 <./img/GUI-test/file-lock.png (PNG copy)>]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 435--435
+[][][][][][][] 
+ []
+
+[48]
+Overfull \hbox (246.58229pt too wide) in paragraph at lines 542--543
+[][][] 
+ []
+
+
+Overfull \hbox (238.08217pt too wide) in paragraph at lines 544--545
+[][][] 
+ []
+
+
+Overfull \hbox (246.58229pt too wide) in paragraph at lines 559--560
+[][][] 
+ []
+
+[49]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 610--610
+[][][][][][][] 
+ []
+
+
+Overfull \hbox (246.58229pt too wide) in paragraph at lines 611--612
+[][][][] 
+ []
+
+
+Overfull \hbox (238.08217pt too wide) in paragraph at lines 613--614
+[][][] 
+ []
+
+
+Overfull \hbox (246.58229pt too wide) in paragraph at lines 628--629
+[][][] 
+ []
+
+[50]
+Overfull \hbox (6.0pt too wide) in paragraph at lines 636--636
+[][][][][][][] 
+ []
+
+[51] <diagrams/event_creator.png, id=181, 836.12375pt x 536.0025pt>
 File: diagrams/event_creator.png Graphic file (type png)
 
-<use diagrams/event_creator.png> [43]
-<img/GUI-screenshot.png, id=149, 905.3825pt x 364.36125pt>
+<use diagrams/event_creator.png>
+<img/GUI-screenshot.png, id=182, 905.3825pt x 364.36125pt>
 File: img/GUI-screenshot.png Graphic file (type png)
 
 <use img/GUI-screenshot.png>
-<diagrams/checkpoint_manager.png, id=151, 1574.88374pt x 571.13374pt>
+<diagrams/checkpoint_manager.png, id=184, 1574.88374pt x 571.13374pt>
 File: diagrams/checkpoint_manager.png Graphic file (type png)
 
-<use diagrams/checkpoint_manager.png> [44 <./diagrams/event_creator.png (PNG co
-py)> <./img/GUI-screenshot.png>] [45 <./diagrams/checkpoint_manager.png (PNG co
+<use diagrams/checkpoint_manager.png> [52 <./diagrams/event_creator.png (PNG co
+py)> <./img/GUI-screenshot.png>] [53 <./diagrams/checkpoint_manager.png (PNG co
 py)>] (./documentation.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5325 strings out of 495061
- 77331 string characters out of 1182622
- 169279 words of memory out of 3000000
- 8414 multiletter control sequences out of 15000+50000
- 8065 words of font info for 29 fonts, out of 3000000 for 9000
+ 5699 strings out of 495061
+ 82117 string characters out of 1182622
+ 222951 words of memory out of 3000000
+ 8779 multiletter control sequences out of 15000+50000
+ 8373 words of font info for 30 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  40i,6n,68p,808b,1559s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/sha
-re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.pfb></u
-sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texm
-f-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fo
-nts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on documentation.pdf (45 pages, 481861 bytes).
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
+/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb><
+/usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/f
+onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/p
+ublic/amsfonts/cm/cmtt12.pfb>
+Output written on documentation.pdf (53 pages, 918379 bytes).
 PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
+ 229 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
