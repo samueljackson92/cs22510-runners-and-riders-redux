@@ -10,18 +10,21 @@
 \item 
 \hyperlink{classFileIO_a8b0d602c3461181e12c05f655dea5018}{\-File\-I\-O} ()
 \item 
+virtual \hyperlink{classFileIO_adc3caa8f1e5d76274d8ffb8b5c17288b}{$\sim$\-File\-I\-O} ()
+\item 
+void \hyperlink{classFileIO_a803187b0a9017bc3e1a82bf8df9789ff}{\-Write\-Event} (\hyperlink{classEvent}{\-Event} event)
+\begin{DoxyCompactList}\small\item\em \-Write an event to file. \end{DoxyCompactList}\item 
+std\-::vector$<$ int $>$ \hyperlink{classFileIO_a03dab3111ed64ec52cbeb80c43e86fbe}{\-Read\-Nodes\-List} (std\-::string filename)
+\begin{DoxyCompactList}\small\item\em \-Member function to read in a list of nodes for a given file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{\-Private \-Member \-Functions}
+\begin{DoxyCompactItemize}
+\item 
 bool \hyperlink{classFileIO_ae08f875719305997f40dd2971feae32d}{\-Write\-Courses\-File} (std\-::string filename, std\-::vector$<$ \hyperlink{classCourse}{\-Course} $>$ courses)
 \begin{DoxyCompactList}\small\item\em \-Member function to write a vector of courses to a file. \end{DoxyCompactList}\item 
 bool \hyperlink{classFileIO_a6ae3512e650f4bdf7413d99856f36722}{\-Write\-Entrants\-File} (std\-::string filename, std\-::vector$<$ \hyperlink{classEntrant}{\-Entrant} $>$ entrants)
 \begin{DoxyCompactList}\small\item\em \-Member function to write a vector of entrants to a file. \end{DoxyCompactList}\item 
-bool \hyperlink{classFileIO_ac97971c675d1398f98fd9c0ffbb3b278}{\-Write\-Event\-File} (std\-::string filename, \hyperlink{classEvent}{\-Event} e)
-\begin{DoxyCompactList}\small\item\em \-Member function to write an event to a file. \end{DoxyCompactList}\item 
-void \hyperlink{classFileIO_a5dd25c0348cbb2de0a8b5ad8849362ab}{\-Write\-Event} (\hyperlink{classEvent}{\-Event} e)
-\begin{DoxyCompactList}\small\item\em \-Write an event to file. \end{DoxyCompactList}\item 
-std\-::vector$<$ int $>$ \hyperlink{classFileIO_a2307b9dbc55e0385337544c856ee16eb}{read\-Nodes\-List} (std\-::string filename)
-\begin{DoxyCompactList}\small\item\em \-Member function to read in a list of nodes for a given file. \end{DoxyCompactList}\item 
-virtual \hyperlink{classFileIO_adc3caa8f1e5d76274d8ffb8b5c17288b}{$\sim$\-File\-I\-O} ()
-\end{DoxyCompactItemize}
+bool \hyperlink{classFileIO_aaecf690cef2d91d64cc98c7f576a0d43}{\-Write\-Event\-File} (std\-::string filename, \hyperlink{classEvent}{\-Event} event)
+\begin{DoxyCompactList}\small\item\em \-Member function to write an event to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{\-Constructor \& \-Destructor \-Documentation}
@@ -42,13 +45,13 @@ virtual \hyperlink{classFileIO_adc3caa8f1e5d76274d8ffb8b5c17288b}{$\sim$\-File\-
 
 
 \subsection{\-Member \-Function \-Documentation}
-\hypertarget{classFileIO_a2307b9dbc55e0385337544c856ee16eb}{\index{\-File\-I\-O@{\-File\-I\-O}!read\-Nodes\-List@{read\-Nodes\-List}}
-\index{read\-Nodes\-List@{read\-Nodes\-List}!FileIO@{\-File\-I\-O}}
-\subsubsection[{read\-Nodes\-List}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ int $>$ {\bf \-File\-I\-O\-::read\-Nodes\-List} (
+\hypertarget{classFileIO_a03dab3111ed64ec52cbeb80c43e86fbe}{\index{\-File\-I\-O@{\-File\-I\-O}!\-Read\-Nodes\-List@{\-Read\-Nodes\-List}}
+\index{\-Read\-Nodes\-List@{\-Read\-Nodes\-List}!FileIO@{\-File\-I\-O}}
+\subsubsection[{\-Read\-Nodes\-List}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ int $>$ {\bf \-File\-I\-O\-::\-Read\-Nodes\-List} (
 \begin{DoxyParamCaption}
 \item[{std\-::string}]{filename}
 \end{DoxyParamCaption}
-)}}\label{classFileIO_a2307b9dbc55e0385337544c856ee16eb}
+)}}\label{classFileIO_a03dab3111ed64ec52cbeb80c43e86fbe}
 
 
 \-Member function to read in a list of nodes for a given file. 
@@ -68,7 +71,7 @@ vector of nodes read in from file.
 \item[{std\-::string}]{filename, }
 \item[{std\-::vector$<$ {\bf \-Course} $>$}]{courses}
 \end{DoxyParamCaption}
-)}}\label{classFileIO_ae08f875719305997f40dd2971feae32d}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFileIO_ae08f875719305997f40dd2971feae32d}
 
 
 \-Member function to write a vector of courses to a file. 
@@ -90,7 +93,7 @@ whether the write operation was successful
 \item[{std\-::string}]{filename, }
 \item[{std\-::vector$<$ {\bf \-Entrant} $>$}]{entrants}
 \end{DoxyParamCaption}
-)}}\label{classFileIO_a6ae3512e650f4bdf7413d99856f36722}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFileIO_a6ae3512e650f4bdf7413d99856f36722}
 
 
 \-Member function to write a vector of entrants to a file. 
@@ -105,13 +108,13 @@ whether the write operation was successful
 \begin{DoxyReturn}{\-Returns}
 whether the write operation was successful 
 \end{DoxyReturn}
-\hypertarget{classFileIO_a5dd25c0348cbb2de0a8b5ad8849362ab}{\index{\-File\-I\-O@{\-File\-I\-O}!\-Write\-Event@{\-Write\-Event}}
+\hypertarget{classFileIO_a803187b0a9017bc3e1a82bf8df9789ff}{\index{\-File\-I\-O@{\-File\-I\-O}!\-Write\-Event@{\-Write\-Event}}
 \index{\-Write\-Event@{\-Write\-Event}!FileIO@{\-File\-I\-O}}
 \subsubsection[{\-Write\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void {\bf \-File\-I\-O\-::\-Write\-Event} (
 \begin{DoxyParamCaption}
 \item[{{\bf \-Event}}]{evt}
 \end{DoxyParamCaption}
-)}}\label{classFileIO_a5dd25c0348cbb2de0a8b5ad8849362ab}
+)}}\label{classFileIO_a803187b0a9017bc3e1a82bf8df9789ff}
 
 
 \-Write an event to file. 
@@ -121,14 +124,14 @@ whether the write operation was successful
 {\em evt} & the event to be written to file \\
 \hline
 \end{DoxyParams}
-\hypertarget{classFileIO_ac97971c675d1398f98fd9c0ffbb3b278}{\index{\-File\-I\-O@{\-File\-I\-O}!\-Write\-Event\-File@{\-Write\-Event\-File}}
+\hypertarget{classFileIO_aaecf690cef2d91d64cc98c7f576a0d43}{\index{\-File\-I\-O@{\-File\-I\-O}!\-Write\-Event\-File@{\-Write\-Event\-File}}
 \index{\-Write\-Event\-File@{\-Write\-Event\-File}!FileIO@{\-File\-I\-O}}
 \subsubsection[{\-Write\-Event\-File}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf \-File\-I\-O\-::\-Write\-Event\-File} (
 \begin{DoxyParamCaption}
 \item[{std\-::string}]{filename, }
 \item[{{\bf \-Event}}]{event}
 \end{DoxyParamCaption}
-)}}\label{classFileIO_ac97971c675d1398f98fd9c0ffbb3b278}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}\label{classFileIO_aaecf690cef2d91d64cc98c7f576a0d43}
 
 
 \-Member function to write an event to a file. 

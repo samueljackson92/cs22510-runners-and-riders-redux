@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.6)  18 MAR 2013 17:24
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.6)  19 MAR 2013 21:42
 entering extended mode
  %&-line parsing enabled.
 **documentation.tex
@@ -143,9 +143,6 @@ Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 ))
 (./documentation.aux
-
-LaTeX Warning: Label `fig:GUI-image' multiply defined.
-
 
 LaTeX Warning: Label `fig:GUI-image' multiply defined.
 
@@ -560,26 +557,27 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 636--636
 [51] <diagrams/event_creator.png, id=181, 836.12375pt x 536.0025pt>
 File: diagrams/event_creator.png Graphic file (type png)
 
-<use diagrams/event_creator.png>
-<img/GUI-screenshot.png, id=182, 905.3825pt x 364.36125pt>
-File: img/GUI-screenshot.png Graphic file (type png)
+<use diagrams/event_creator.png> [52
 
-<use img/GUI-screenshot.png>
-<diagrams/checkpoint_manager.png, id=184, 1574.88374pt x 571.13374pt>
+ <./diagrams/event_creator.png (PNG copy)>] <diagrams/checkpoint_manager.png, i
+d=185, 1574.88374pt x 571.13374pt>
 File: diagrams/checkpoint_manager.png Graphic file (type png)
 
-<use diagrams/checkpoint_manager.png> [52 <./diagrams/event_creator.png (PNG co
-py)> <./img/GUI-screenshot.png>] [53 <./diagrams/checkpoint_manager.png (PNG co
-py)>] (./documentation.aux)
+<use diagrams/checkpoint_manager.png>
+Overfull \hbox (50.05145pt too wide) in paragraph at lines 714--715
+ [][] 
+ []
+
+[53 <./diagrams/checkpoint_manager.png (PNG copy)>] (./documentation.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5699 strings out of 495061
- 82117 string characters out of 1182622
- 222951 words of memory out of 3000000
- 8779 multiletter control sequences out of 15000+50000
+ 5693 strings out of 495061
+ 81988 string characters out of 1182622
+ 222950 words of memory out of 3000000
+ 8775 multiletter control sequences out of 15000+50000
  8373 words of font info for 30 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  40i,6n,68p,808b,1559s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -593,9 +591,9 @@ type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-texlive/fonts/type1/public
 xmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-texlive/f
 onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/p
 ublic/amsfonts/cm/cmtt12.pfb>
-Output written on documentation.pdf (53 pages, 918379 bytes).
+Output written on documentation.pdf (53 pages, 889172 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
+ 226 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

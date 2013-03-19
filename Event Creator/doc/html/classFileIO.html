@@ -77,7 +77,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">FileIO Class Reference</div>  </div>
 </div><!--header-->
@@ -90,17 +91,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileIO.html#a8b0d602c3461181e12c05f655dea5018">FileIO</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileIO.html#adc3caa8f1e5d76274d8ffb8b5c17288b">~FileIO</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileIO.html#a803187b0a9017bc3e1a82bf8df9789ff">WriteEvent</a> (<a class="el" href="classEvent.html">Event</a> event)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Write an event to file.  <a href="#a803187b0a9017bc3e1a82bf8df9789ff"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileIO.html#a03dab3111ed64ec52cbeb80c43e86fbe">ReadNodesList</a> (std::string filename)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Member function to read in a list of nodes for a given file.  <a href="#a03dab3111ed64ec52cbeb80c43e86fbe"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileIO.html#ae08f875719305997f40dd2971feae32d">WriteCoursesFile</a> (std::string filename, std::vector&lt; <a class="el" href="classCourse.html">Course</a> &gt; courses)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Member function to write a vector of courses to a file.  <a href="#ae08f875719305997f40dd2971feae32d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileIO.html#a6ae3512e650f4bdf7413d99856f36722">WriteEntrantsFile</a> (std::string filename, std::vector&lt; <a class="el" href="classEntrant.html">Entrant</a> &gt; entrants)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Member function to write a vector of entrants to a file.  <a href="#a6ae3512e650f4bdf7413d99856f36722"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileIO.html#ac97971c675d1398f98fd9c0ffbb3b278">WriteEventFile</a> (std::string filename, <a class="el" href="classEvent.html">Event</a> e)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Member function to write an event to a file.  <a href="#ac97971c675d1398f98fd9c0ffbb3b278"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileIO.html#a5dd25c0348cbb2de0a8b5ad8849362ab">WriteEvent</a> (<a class="el" href="classEvent.html">Event</a> e)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Write an event to file.  <a href="#a5dd25c0348cbb2de0a8b5ad8849362ab"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileIO.html#a2307b9dbc55e0385337544c856ee16eb">readNodesList</a> (std::string filename)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Member function to read in a list of nodes for a given file.  <a href="#a2307b9dbc55e0385337544c856ee16eb"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileIO.html#adc3caa8f1e5d76274d8ffb8b5c17288b">~FileIO</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileIO.html#aaecf690cef2d91d64cc98c7f576a0d43">WriteEventFile</a> (std::string filename, <a class="el" href="classEvent.html">Event</a> event)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Member function to write an event to a file.  <a href="#aaecf690cef2d91d64cc98c7f576a0d43"></a><br/></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a8b0d602c3461181e12c05f655dea5018"></a><!-- doxytag: member="FileIO::FileIO" ref="a8b0d602c3461181e12c05f655dea5018" args="()" -->
@@ -136,12 +139,12 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a2307b9dbc55e0385337544c856ee16eb"></a><!-- doxytag: member="FileIO::readNodesList" ref="a2307b9dbc55e0385337544c856ee16eb" args="(std::string filename)" -->
+<a class="anchor" id="a03dab3111ed64ec52cbeb80c43e86fbe"></a><!-- doxytag: member="FileIO::ReadNodesList" ref="a03dab3111ed64ec52cbeb80c43e86fbe" args="(std::string filename)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; int &gt; <a class="el" href="classFileIO.html#a2307b9dbc55e0385337544c856ee16eb">FileIO::readNodesList</a> </td>
+          <td class="memname">std::vector&lt; int &gt; <a class="el" href="classFileIO.html#a03dab3111ed64ec52cbeb80c43e86fbe">FileIO::ReadNodesList</a> </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>filename</em></td><td>)</td>
@@ -181,7 +184,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -218,7 +221,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -236,12 +239,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5dd25c0348cbb2de0a8b5ad8849362ab"></a><!-- doxytag: member="FileIO::WriteEvent" ref="a5dd25c0348cbb2de0a8b5ad8849362ab" args="(Event e)" -->
+<a class="anchor" id="a803187b0a9017bc3e1a82bf8df9789ff"></a><!-- doxytag: member="FileIO::WriteEvent" ref="a803187b0a9017bc3e1a82bf8df9789ff" args="(Event event)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classFileIO.html#a5dd25c0348cbb2de0a8b5ad8849362ab">FileIO::WriteEvent</a> </td>
+          <td class="memname">void <a class="el" href="classFileIO.html#a803187b0a9017bc3e1a82bf8df9789ff">FileIO::WriteEvent</a> </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classEvent.html">Event</a>&#160;</td>
           <td class="paramname"><em>evt</em></td><td>)</td>
@@ -262,12 +265,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac97971c675d1398f98fd9c0ffbb3b278"></a><!-- doxytag: member="FileIO::WriteEventFile" ref="ac97971c675d1398f98fd9c0ffbb3b278" args="(std::string filename, Event e)" -->
+<a class="anchor" id="aaecf690cef2d91d64cc98c7f576a0d43"></a><!-- doxytag: member="FileIO::WriteEventFile" ref="aaecf690cef2d91d64cc98c7f576a0d43" args="(std::string filename, Event event)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classFileIO.html#ac97971c675d1398f98fd9c0ffbb3b278">FileIO::WriteEventFile</a> </td>
+          <td class="memname">bool <a class="el" href="classFileIO.html#aaecf690cef2d91d64cc98c7f576a0d43">FileIO::WriteEventFile</a> </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
@@ -281,7 +284,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td><code> [private]</code></td>
         </tr>
       </table>
 </div>
@@ -321,7 +324,7 @@ Public Member Functions</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 15 2013 17:42:28 for Event Creator by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 19 2013 21:48:40 for Event Creator by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
